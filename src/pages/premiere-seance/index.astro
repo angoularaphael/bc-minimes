@@ -24,12 +24,15 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
 
   <meta name="keywords" content="première séance de boxe Toulouse, débuter la boxe Toulouse, cours de boxe débutant Minimes, essai boxe 10 euros Toulouse, je n’ai jamais boxé, salle de boxe Barrière de Paris, boxe anglaise débutant 31200, first boxing class Toulouse, beginner boxing Toulouse, try boxing Toulouse Minimes" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="FR-31" />
   <meta name="geo.placename" content="Toulouse — Les Minimes" />
   <meta name="geo.position" content="43.6256;1.4309" />
   <meta name="ICBM" content="43.6256, 1.4309" />
-  <link rel="canonical" href="https://bc-minimes.vercel.app/premiere-seance/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Informations pour assistants IA" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Fiche complète pour assistants IA" />
+  <link rel="canonical" href="https://www.boxe-toulouse.com/premiere-seance/" />
   <meta name="theme-color" content="#0a1020" />
   <link rel="icon" href="/favicon.svg?i=2" type="image/svg+xml" />
   <link rel="icon" href="/favicon.png?i=2" type="image/png" sizes="32x32" />
@@ -42,8 +45,8 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:site_name" content="Boxing Center Minimes" />
   <meta property="og:title" content="Ta première séance | Boxing Center Minimes, Toulouse" />
   <meta property="og:description" content="Ce qui se passe vraiment quand tu pousses la porte du 12 rue de Fenouillet. Gants prêtés, pas de sparring imposé, pas d’engagement. Essai 10 €." />
-  <meta property="og:url" content="https://bc-minimes.vercel.app/premiere-seance/" />
-  <meta property="og:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta property="og:url" content="https://www.boxe-toulouse.com/premiere-seance/" />
+  <meta property="og:image" content="https://www.boxe-toulouse.com/assets/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -51,7 +54,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ta première séance | Boxing Center Minimes, Toulouse" />
   <meta name="twitter:description" content="Le déroulé réel : un coach t’accueille, les gants sont prêtés, aucun sparring imposé. Essai 10 €, sans engagement." />
-  <meta name="twitter:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta name="twitter:image" content="https://www.boxe-toulouse.com/assets/img/og.jpg" />
 
   <!-- Données structurées : même graphe que les autres pages (nœuds reliés
        par @id), avec la page comme WebPage. AUCUNE FAQPage ici — la seule
@@ -77,14 +80,14 @@ import SiteContent from "../../components/SiteContent.astro";
           "HealthClub",
           "LocalBusiness"
         ],
-        "@id": "https://bc-minimes.vercel.app/#salle",
+        "@id": "https://www.boxe-toulouse.com/#salle",
         "knowsLanguage": ["fr-FR", "en"],
         "name": "Boxing Center Minimes",
-        "url": "https://bc-minimes.vercel.app/",
+        "url": "https://www.boxe-toulouse.com/",
         "telephone": "+33562244682",
         "email": "boxingcenter31@gmail.com",
         "priceRange": "€€",
-        "image": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "image": "https://www.boxe-toulouse.com/assets/img/og.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "12 rue de Fenouillet",
@@ -115,19 +118,24 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "sport": [
           "Boxing",
+          "English boxing",
           "Educational Boxing",
+          "Kickboxing",
+          "Fitness",
           "Cross Training"
         ],
         "sameAs": [
           "https://www.instagram.com/boxingcentertoulouse/",
           "https://www.facebook.com/BoxingCenterToulouse/",
-          "https://boxingcenter.fr/"
+          "https://boxingcenter.fr/",
+          "https://www.boxe-toulouse.com/",
+          "https://www.google.com/maps/search/?api=1&query=Boxing+Center+Minimes+12+rue+de+Fenouillet+31200+Toulouse"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "@id": "https://bc-minimes.vercel.app/#offres",
+          "@id": "https://www.boxe-toulouse.com/#offres",
           "name": "Offres Boxing Center Minimes",
-          "url": "https://bc-minimes.vercel.app/tarifs/",
+          "url": "https://www.boxe-toulouse.com/tarifs/",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -170,25 +178,25 @@ import SiteContent from "../../components/SiteContent.astro";
       },
       {
         "@type": "WebSite",
-        "@id": "https://bc-minimes.vercel.app/#website",
-        "url": "https://bc-minimes.vercel.app/",
+        "@id": "https://www.boxe-toulouse.com/#website",
+        "url": "https://www.boxe-toulouse.com/",
         "name": "Boxing Center Minimes",
         "inLanguage": "fr-FR",
         "publisher": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://www.boxe-toulouse.com/#salle"
         }
       },
       {
         "@type": "WebPage",
-        "@id": "https://bc-minimes.vercel.app/premiere-seance/#webpage",
-        "url": "https://bc-minimes.vercel.app/premiere-seance/",
+        "@id": "https://www.boxe-toulouse.com/premiere-seance/#webpage",
+        "url": "https://www.boxe-toulouse.com/premiere-seance/",
         "name": "Ta première séance de boxe — comment ça se passe aux Minimes",
         "description": "Comment se passe une première séance au 12 rue de Fenouillet : un coach t’accueille, les gants sont prêtés, aucun sparring imposé. L’essai est à 10 €, sans engagement.",
         "isPartOf": {
-          "@id": "https://bc-minimes.vercel.app/#website"
+          "@id": "https://www.boxe-toulouse.com/#website"
         },
         "about": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://www.boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
         "speakable": {
@@ -199,38 +207,38 @@ import SiteContent from "../../components/SiteContent.astro";
           ]
         },
         "primaryImageOfPage": {
-          "@id": "https://bc-minimes.vercel.app/premiere-seance/#primaryimage"
+          "@id": "https://www.boxe-toulouse.com/premiere-seance/#primaryimage"
         },
         "datePublished": "2026-08-07",
         "dateModified": "@BUILT@",
         "breadcrumb": {
-          "@id": "https://bc-minimes.vercel.app/premiere-seance/#breadcrumb"
+          "@id": "https://www.boxe-toulouse.com/premiere-seance/#breadcrumb"
         }
       },
       {
         "@type": "ImageObject",
-        "@id": "https://bc-minimes.vercel.app/premiere-seance/#primaryimage",
-        "url": "https://bc-minimes.vercel.app/assets/img/og.jpg",
-        "contentUrl": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "@id": "https://www.boxe-toulouse.com/premiere-seance/#primaryimage",
+        "url": "https://www.boxe-toulouse.com/assets/img/og.jpg",
+        "contentUrl": "https://www.boxe-toulouse.com/assets/img/og.jpg",
         "width": 1200,
         "height": 630,
         "caption": "Boxing Center Minimes — le travail aux pattes d’ours, 12 rue de Fenouillet, Toulouse."
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://bc-minimes.vercel.app/premiere-seance/#breadcrumb",
+        "@id": "https://www.boxe-toulouse.com/premiere-seance/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Accueil",
-            "item": "https://bc-minimes.vercel.app/"
+            "item": "https://www.boxe-toulouse.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Ta première séance",
-            "item": "https://bc-minimes.vercel.app/premiere-seance/"
+            "item": "https://www.boxe-toulouse.com/premiere-seance/"
           }
         ]
       }

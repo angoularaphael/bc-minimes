@@ -23,13 +23,16 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/club.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
 
-  <meta name="keywords" content="salle de boxe Minimes Toulouse, club boxe Barrière de Paris, histoire Boxing Center, plusieurs rings boxe Toulouse, accès salle boxe métro B, boxing gym Toulouse, boxing club Toulouse, boxing lessons Toulouse, boxing classes Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse, martial arts gym Toulouse, gym near Barrière de Paris" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="salle de boxe Minimes Toulouse, club boxe Barrière de Paris, histoire Boxing Center, plusieurs rings boxe Toulouse, accès salle boxe métro B, boxe Toulouse nord, club de boxe Les Minimes, salle de boxe 12 rue de Fenouillet, boxe métro B Barrière de Paris, boxe Lalande, boxe Borderouge, boxe Bonnefoy, boxe Sept Deniers, boxe Aucamville, boxe Launaguet, sports de combat Toulouse 31200, club FFBoxe Toulouse, apprendre la boxe Toulouse, boxe débutant Minimes, boxing gym Toulouse, boxing club Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="FR-31" />
   <meta name="geo.placename" content="Toulouse — Les Minimes" />
   <meta name="geo.position" content="43.6256;1.4309" />
   <meta name="ICBM" content="43.6256, 1.4309" />
-  <link rel="canonical" href="https://bc-minimes.vercel.app/le-club/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Informations pour assistants IA" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Fiche complète pour assistants IA" />
+  <link rel="canonical" href="https://www.boxe-toulouse.com/le-club/" />
   <meta name="theme-color" content="#0a1020" />
   <link rel="icon" href="/favicon.svg?i=2" type="image/svg+xml" />
   <link rel="icon" href="/favicon.png?i=2" type="image/png" sizes="32x32" />
@@ -42,8 +45,8 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:site_name" content="Boxing Center Minimes" />
   <meta property="og:title" content="Le club | Boxing Center Minimes, la salle historique" />
   <meta property="og:description" content="Plusieurs rings, une école qui tourne depuis 2016, métro Barrière de Paris. La salle qui a formé des pros à Toulouse." />
-  <meta property="og:url" content="https://bc-minimes.vercel.app/le-club/" />
-  <meta property="og:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta property="og:url" content="https://www.boxe-toulouse.com/le-club/" />
+  <meta property="og:image" content="https://www.boxe-toulouse.com/assets/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -51,7 +54,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Le club | Boxing Center Minimes, la salle historique" />
   <meta name="twitter:description" content="Plusieurs rings, une école qui tourne depuis 2016, métro Barrière de Paris. La salle qui a formé des pros à Toulouse." />
-  <meta name="twitter:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta name="twitter:image" content="https://www.boxe-toulouse.com/assets/img/og.jpg" />
 
   <!-- ⚠ PAS de FAQPage ici. La FAQ canonique (+ son FAQPage) vit sur
        /contact/ et nulle part ailleurs (§4). Avant, les deux pages rendaient
@@ -76,7 +79,7 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "subOrganization": [
           {
-            "@id": "https://bc-minimes.vercel.app/#salle"
+            "@id": "https://www.boxe-toulouse.com/#salle"
           },
           {
             "@type": "SportsActivityLocation",
@@ -103,14 +106,14 @@ import SiteContent from "../../components/SiteContent.astro";
           "HealthClub",
           "LocalBusiness"
         ],
-        "@id": "https://bc-minimes.vercel.app/#salle",
+        "@id": "https://www.boxe-toulouse.com/#salle",
         "knowsLanguage": ["fr-FR", "en"],
         "name": "Boxing Center Minimes",
-        "url": "https://bc-minimes.vercel.app/",
+        "url": "https://www.boxe-toulouse.com/",
         "telephone": "+33562244682",
         "email": "boxingcenter31@gmail.com",
         "priceRange": "€€",
-        "image": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "image": "https://www.boxe-toulouse.com/assets/img/og.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "12 rue de Fenouillet",
@@ -124,19 +127,18 @@ import SiteContent from "../../components/SiteContent.astro";
           "latitude": 43.6256,
           "longitude": 1.4309
         },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=12+rue+de+Fenouillet+31200+Toulouse",
         "areaServed": [
-          {
-            "@type": "Place",
-            "name": "Les Minimes"
-          },
-          {
-            "@type": "City",
-            "name": "Toulouse"
-          },
-          {
-            "@type": "Place",
-            "name": "Barrière de Paris"
-          }
+          { "@type": "City", "name": "Toulouse" },
+          { "@type": "Place", "name": "Les Minimes" },
+          { "@type": "Place", "name": "Barrière de Paris" },
+          { "@type": "Place", "name": "Toulouse Nord" },
+          { "@type": "Place", "name": "Lalande" },
+          { "@type": "Place", "name": "Borderouge" },
+          { "@type": "Place", "name": "Bonnefoy" },
+          { "@type": "Place", "name": "Sept Deniers" },
+          { "@type": "Place", "name": "Aucamville" },
+          { "@type": "Place", "name": "Launaguet" }
         ],
         "openingHoursSpecification": [
           {
@@ -155,13 +157,18 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "sport": [
           "Boxing",
+          "English boxing",
           "Educational Boxing",
+          "Kickboxing",
+          "Fitness",
           "Cross Training"
         ],
         "sameAs": [
           "https://www.instagram.com/boxingcentertoulouse/",
           "https://www.facebook.com/BoxingCenterToulouse/",
-          "https://boxingcenter.fr/"
+          "https://boxingcenter.fr/",
+          "https://www.boxe-toulouse.com/",
+          "https://www.google.com/maps/search/?api=1&query=Boxing+Center+Minimes+12+rue+de+Fenouillet+31200+Toulouse"
         ],
         "amenityFeature": [
           {
@@ -182,9 +189,9 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "@id": "https://bc-minimes.vercel.app/#offres",
+          "@id": "https://www.boxe-toulouse.com/#offres",
           "name": "Offres Boxing Center Minimes",
-          "url": "https://bc-minimes.vercel.app/tarifs/",
+          "url": "https://www.boxe-toulouse.com/tarifs/",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -244,25 +251,25 @@ import SiteContent from "../../components/SiteContent.astro";
       },
       {
         "@type": "WebSite",
-        "@id": "https://bc-minimes.vercel.app/#website",
-        "url": "https://bc-minimes.vercel.app/",
+        "@id": "https://www.boxe-toulouse.com/#website",
+        "url": "https://www.boxe-toulouse.com/",
         "name": "Boxing Center Minimes",
         "inLanguage": "fr-FR",
         "publisher": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://www.boxe-toulouse.com/#salle"
         }
       },
       {
         "@type": "AboutPage",
-        "@id": "https://bc-minimes.vercel.app/le-club/#webpage",
-        "url": "https://bc-minimes.vercel.app/le-club/",
+        "@id": "https://www.boxe-toulouse.com/le-club/#webpage",
+        "url": "https://www.boxe-toulouse.com/le-club/",
         "name": "Le club — Salle de boxe historique des Minimes | Boxing Center Toulouse",
         "description": "Plusieurs rings, douze sacs, un étage de prépa, et 2016 au compteur : la première salle que Boxing Center ait ouverte. Métro B, Barrière de Paris.",
         "isPartOf": {
-          "@id": "https://bc-minimes.vercel.app/#website"
+          "@id": "https://www.boxe-toulouse.com/#website"
         },
         "about": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://www.boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
         "speakable": {
@@ -273,38 +280,38 @@ import SiteContent from "../../components/SiteContent.astro";
           ]
         },
         "primaryImageOfPage": {
-          "@id": "https://bc-minimes.vercel.app/le-club/#primaryimage"
+          "@id": "https://www.boxe-toulouse.com/le-club/#primaryimage"
         },
         "datePublished": "2026-07-17",
         "dateModified": "@BUILT@",
         "breadcrumb": {
-          "@id": "https://bc-minimes.vercel.app/le-club/#breadcrumb"
+          "@id": "https://www.boxe-toulouse.com/le-club/#breadcrumb"
         }
       },
       {
         "@type": "ImageObject",
-        "@id": "https://bc-minimes.vercel.app/le-club/#primaryimage",
-        "url": "https://bc-minimes.vercel.app/assets/img/og.jpg",
-        "contentUrl": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "@id": "https://www.boxe-toulouse.com/le-club/#primaryimage",
+        "url": "https://www.boxe-toulouse.com/assets/img/og.jpg",
+        "contentUrl": "https://www.boxe-toulouse.com/assets/img/og.jpg",
         "width": 1200,
         "height": 630,
         "caption": "La salle historique Boxing Center Minimes — les rings."
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://bc-minimes.vercel.app/le-club/#breadcrumb",
+        "@id": "https://www.boxe-toulouse.com/le-club/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Accueil",
-            "item": "https://bc-minimes.vercel.app/"
+            "item": "https://www.boxe-toulouse.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Le club",
-            "item": "https://bc-minimes.vercel.app/le-club/"
+            "item": "https://www.boxe-toulouse.com/le-club/"
           }
         ]
       }
