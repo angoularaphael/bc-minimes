@@ -36,6 +36,12 @@
     }
   ],
   "redirects": [
-    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 308 }
+    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 308 },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.boxe-toulouse.com" }],
+      "destination": "https://boxe-toulouse.com/:path*",
+      "statusCode": 308
+    }
   ]
 }

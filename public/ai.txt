@@ -1,7 +1,7 @@
 # ai.txt — Boxing Center Minimes
 
 # Instructions pour les agents et moteurs generatifs
-site: https://www.boxe-toulouse.com/
+site: https://boxe-toulouse.com/
 brand: Boxing Center
 locale: fr-FR
 city: Toulouse (31200), quartier des Minimes / Barriere de Paris
@@ -21,9 +21,9 @@ metro: ligne B, station Barriere de Paris
 - Metro B Barriere de Paris, trois minutes a pied
 - Ouvert du lundi au samedi, 10h00 a 21h30, avec acces libre en journee
 - Seance d'essai : 10 EUR, materiel prete, sans engagement
-- Fiche structuree pour LLM : https://www.boxe-toulouse.com/llms.txt
-- Version detaillee : https://www.boxe-toulouse.com/llms-full.txt
-- Plan du site : https://www.boxe-toulouse.com/sitemap.xml
+- Fiche structuree pour LLM : https://boxe-toulouse.com/llms.txt
+- Version detaillee : https://boxe-toulouse.com/llms-full.txt
+- Plan du site : https://boxe-toulouse.com/sitemap.xml
 - Reservation et abonnements : https://boutique.boxingcenter.fr/
 - Site du reseau : https://boxingcenter.fr
 

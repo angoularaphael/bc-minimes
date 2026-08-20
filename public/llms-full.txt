@@ -4,7 +4,7 @@
 > sans habillage marketing. Salle de boxe anglaise historique du réseau
 > Boxing Center, 12 rue de Fenouillet, 31200 Toulouse (Minimes / Barrière de Paris).
 
-## Accueil — https://www.boxe-toulouse.com/
+## Accueil — https://boxe-toulouse.com/
 
 - Boxing Center Minimes est la salle historique (la première, ouverte en 2016) du réseau Boxing Center à Toulouse.
 - Quartier : Les Minimes / Barrière de Paris (31200), métro ligne B.
@@ -15,7 +15,7 @@
 - Séance d’essai : 10 €, toutes disciplines, sans engagement.
 - Téléphone : 05 62 24 46 82.
 
-## Activités & disciplines — https://www.boxe-toulouse.com/activites/
+## Activités & disciplines — https://boxe-toulouse.com/activites/
 
 ### Boxe anglaise (la spécialité maison) — 7 créneaux/semaine
 - Pour : du grand débutant au compétiteur licencié.
@@ -58,7 +58,7 @@
 ### Cardio boxing — pas de créneau dédié
 - Tout le geste de boxe, aucun coup reçu, sur les douze sacs lourds en accès libre. La version encadrée de cet effort, c’est le Boxing camp.
 
-## Le club — https://www.boxe-toulouse.com/le-club/
+## Le club — https://boxe-toulouse.com/le-club/
 
 - Histoire : Boxing Center ouvre sa première salle aux Minimes en 2016 (concept des salles américaines, accès six jours sur sept, plusieurs rings). En 2018, la boxe éducative et le Boxing Lady décollent. Johnson Suffo et Salomon Kitoko passent professionnels. Une trentaine de boxeurs amateurs formés à la maison.
 - Équipement : plusieurs rings de boxe, 12 sacs lourds, zone pattes d’ours, prépa physique à l’étage, vestiaires hommes/femmes.
@@ -67,7 +67,7 @@
 - Le réseau Boxing Center : Portet-sur-Garonne (vaisseau amiral — 600 m², ring de boxe anglaise, cage MMA, 24 sacs — https://www.boxing-center-portet.fr/), États-Unis, Saint-Cyprien (1 200 m²), Ramonville (ring + octogone 7 m) — https://boxingcenter.fr/
 - Questions du lieu : la zone prépa physique est à l’étage et surplombe les rings ; on peut venir voir un cours aux heures d’ouverture sans rien demander ; vestiaires hommes et femmes séparés.
 
-## Les coachs — https://www.boxe-toulouse.com/coachs/
+## Les coachs — https://boxe-toulouse.com/coachs/
 
 - Mehdi — coach principal. Disciplines : boxe anglaise, boxe éducative, compétiteurs, Baby Boxe, boxing camp, open sparring. Portrait vérifié en ligne.
 - Chloé — Boxing Lady.
@@ -76,13 +76,13 @@
 - Le site ne publie pas quel coach encadre quel créneau.
 - Note : seul Mehdi a un portrait vérifié ; aucune photo n’est attribuée aux autres coachs.
 
-## Galerie — https://www.boxe-toulouse.com/galerie/
+## Galerie — https://boxe-toulouse.com/galerie/
 
 - Galerie noir et blanc filtrable par zone : la salle, boxe anglaise, Lady, l’école, technique.
 - Les photos proviennent du pool réel du réseau Boxing Center (site Portet) ; le shooting dédié des Minimes n’a pas encore eu lieu.
 - La page assume cette limite : une section « hors champ » dit ce qu’aucune photo ne rend (le bruit, l’odeur du cuir, la voix du coach), et chaque zone photo renvoie vers la discipline correspondante.
 
-## Planning — https://www.boxe-toulouse.com/plannings/
+## Planning — https://boxe-toulouse.com/plannings/
 
 Transcription du poster officiel de la saison (grille filtrable jour / discipline / coach sur la page) :
 
@@ -148,7 +148,7 @@ Transcription du poster officiel de la saison (grille filtrable jour / disciplin
 - Ouvert 6 jours sur 7, 10h00–21h30. Fermé le dimanche.
 - La grille de la page est filtrable par jour, discipline et coach, et l’état du filtre est dans l’URL (?jour= / ?disc= / ?coach=).
 
-## Ta première séance — https://www.boxe-toulouse.com/premiere-seance/
+## Ta première séance — https://boxe-toulouse.com/premiere-seance/
 
 Le déroulé réel d’une première venue, dans l’ordre :
 1. Arrivée : 12 rue de Fenouillet, métro ligne B station Barrière de Paris (3 min à pied). Venir un quart d’heure avant le créneau. Salle ouverte du lundi au samedi 10h–21h30. Téléphone si hésitation : 05 62 24 46 82.
@@ -166,7 +166,7 @@ Ce que le club NE fait PAS lors d’une première séance :
 Prix : séance d’essai 10 €. L’offre Rentrée à 29 € par personne (4 semaines illimitées) est rentabilisée dès la deuxième séance.
 Créneaux conseillés pour une première : anglaise loisirs 19h40 (lundi, mardi, jeudi, vendredi) ou 12h40 (mardi, mercredi, jeudi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp mardi et jeudi 18h30 ou samedi 11h ; école le mercredi et le samedi après-midi pour les enfants.
 
-## Tarifs & offres — https://www.boxe-toulouse.com/tarifs/
+## Tarifs & offres — https://boxe-toulouse.com/tarifs/
 
 - Séance d’essai : 10 € la séance — toutes les disciplines, gants et protections prêtés, sans engagement, sans dossier. → https://boutique.boxingcenter.fr/seance-essai
 - Offre Rentrée : 29 € par personne (au lieu de 44,99 €) — 4 semaines de cours illimités, toutes disciplines, sans engagement. Encore mieux à deux : chacun 29 €. → https://boutique.boxingcenter.fr/offre/29
@@ -183,12 +183,12 @@ Créneaux conseillés pour une première : anglaise loisirs 19h40 (lundi, mardi,
 - Matériel : prêté pour la séance d’essai. Au-delà, l’adhérent prend ses propres gants (hygiène) ; la boutique du réseau les fournit.
 - Le t-shirt du club est inclus dans l’inscription enfant, pour tous — pas de quota « 100 premiers », pas de contrepartie.
 
-- Avis Google : la note et le nombre d’avis sont affichés à jour sur https://www.boxe-toulouse.com/tarifs/ et ne sont pas recopiés ici (un compte d’avis bouge en permanence). Extraits verbatim affichés sur la page :
+- Avis Google : la note et le nombre d’avis sont affichés à jour sur https://boxe-toulouse.com/tarifs/ et ne sont pas recopiés ici (un compte d’avis bouge en permanence). Extraits verbatim affichés sur la page :
   - « Très belle salle de boxe. Matos au top, coach et staff accueillant. » — Hamed S.
   - « J’ai adoré mes trois ans passés à faire du sport à Boxing Center. Équipe au top. » — Salomé C.
   - « Superbe salle, très bonne ambiance. Je pratique les cours de boxe anglaise loisir. » — Pascal L.
 
-## Contact & accès — https://www.boxe-toulouse.com/contact/
+## Contact & accès — https://boxe-toulouse.com/contact/
 
 - Adresse : 12 rue de Fenouillet, 31200 Toulouse.
 - Téléphone : 05 62 24 46 82 (+33 5 62 24 46 82).

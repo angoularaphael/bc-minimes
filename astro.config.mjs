@@ -95,7 +95,7 @@ function graphe() {
 }
 
 export default defineConfig({
-  site: 'https://www.boxe-toulouse.com',
+  site: 'https://boxe-toulouse.com',
   trailingSlash: 'always',
   /* Le HTML sort compressé : ~2 ko brut de blancs par page, sur 9 pages,
      pour zéro perte à l'écran. Les blocs <script>/<pre> ne sont pas
