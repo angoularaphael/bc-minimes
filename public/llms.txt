@@ -1,18 +1,38 @@
-# Boxing Center Minimes
+# Boxing Center Minimes — https://boxe-toulouse.com
+# Fichier d’aide pour assistants IA (ChatGPT, Claude, Gemini, Perplexity).
+# Version étendue : https://boxe-toulouse.com/llms-full.txt
+# Sitemap : https://boxe-toulouse.com/sitemap.xml
 
 > Salle de boxe anglaise historique du réseau Boxing Center — la première salle du groupe (ouverte en 2016), « le berceau des champions », au 12 rue de Fenouillet, quartier des Minimes / Barrière de Paris, 31200 Toulouse. Boxe anglaise (loisirs et compétiteurs), boxe éducative dès 3 ans (Baby Boxe 3/6), Boxing Lady 100 % féminin, boxing camp, boxe pieds-poings, PAOS, cross training, cardio boxing — plusieurs rings, ouvert du lundi au samedi 10h00–21h30, avec accès libre en journée. Séance d’essai 10 €. Note Google affichée à jour sur la page Tarifs.
 
+## Réponses rapides (FAQ IA)
+
+**Quelle est l’URL du site ?**
+https://boxe-toulouse.com (www.boxe-toulouse.com redirige ici).
+
+**Où est Boxing Center Minimes ?**
+12 rue de Fenouillet, 31200 Toulouse, France. Quartier des Minimes / Barrière de Paris. Métro B, station Barrière de Paris (3 min à pied). GPS 43.6256, 1.4309.
+
+**Quels quartiers autour ?**
+Toulouse nord : Les Minimes, Barrière de Paris, Lalande, Borderouge, Bonnefoy, Sept Deniers, et les communes d’Aucamville et Launaguet.
+
+**Combien coûte une séance d’essai ?**
+10 € — toutes disciplines, matériel prêté, sans engagement. https://boutique.boxingcenter.fr/seance-essai
+
+**Quelle est l’offre du moment ?**
+Offre rentrée : 29 € par personne les 4 premières semaines (au lieu de 44 €), sans engagement, accès aux 5 salles. https://boutique.boxingcenter.fr/offre/29
+
 ## Pages
 
-- [Accueil](https://bc-minimes.vercel.app/): la salle historique du groupe Boxing Center à Toulouse (31200) — plusieurs rings, boxe anglaise, boxe éducative dès 3 ans, Boxing Lady, séance d’essai 10 €.
-- [Activités & disciplines](https://bc-minimes.vercel.app/activites/): les 9 disciplines — boxe anglaise loisirs, boxe compétiteurs, boxe éducative dès 3 ans, Boxing Lady, boxing camp, boxe pieds-poings (six avec créneau au planning), puis PAOS & pattes d’ours, cross training et cardio boxing (en accès libre, sans créneau dédié).
-- [Le club](https://bc-minimes.vercel.app/le-club/): histoire depuis 2016, équipement (plusieurs rings, 12 sacs lourds, zone pattes d’ours, prépa physique à l’étage, vestiaires H/F), accès et réseau des salles.
-- [Les coachs](https://bc-minimes.vercel.app/coachs/): Mehdi (coach principal — anglaise, éducative, compétiteurs, baby boxe, boxing camp), Chloé (Boxing Lady), David (Boxing Lady, pieds-poings), Clément (boxing camp) — plus le détail de qui encadre quel jour, dérivé du planning.
-- [Galerie photos](https://bc-minimes.vercel.app/galerie/): la boxe en images (pool photo du réseau Boxing Center), filtrable par zone — ring, sparring, école, Lady, technique — plus un renvoi de chaque zone vers sa discipline.
-- [Planning des cours](https://bc-minimes.vercel.app/plannings/): les 27 cours de la semaine + les 16 bandes d’accès libre, en grille filtrable (jour / discipline / coach, partageable par URL) + le poster officiel de la saison.
-- [Ta première séance](https://bc-minimes.vercel.app/premiere-seance/): le déroulé réel d’une première venue (arrivée, accueil, gants prêtés, échauffement/technique/sac, sortie), ce que le club NE fait PAS (aucun sparring imposé, aucun test de niveau, aucun engagement signé), la tenue à apporter, le prix de l’essai (10 €) et le créneau conseillé selon le profil.
-- [Tarifs & offres](https://bc-minimes.vercel.app/tarifs/): offre Rentrée 29 € par personne, saison complète 259 € les 12 mois, école 295 € l’année t-shirt inclus (baby 250 €), séance d’essai 10 € — avec les avis Google (note à jour sur la page) et les questions d’argent (paiement en 4×, matériel prêté ou personnel, accès aux 5 clubs).
-- [Contact & accès](https://bc-minimes.vercel.app/contact/): téléphone 05 62 24 46 82, adresse, horaires, accès métro/rocade/bus, FAQ locale.
+- [Accueil](https://boxe-toulouse.com/): la salle historique du groupe Boxing Center à Toulouse (31200) — plusieurs rings, boxe anglaise, boxe éducative dès 3 ans, Boxing Lady, séance d’essai 10 €.
+- [Activités & disciplines](https://boxe-toulouse.com/activites/): les 9 disciplines — boxe anglaise loisirs, boxe compétiteurs, boxe éducative dès 3 ans, Boxing Lady, boxing camp, boxe pieds-poings (six avec créneau au planning), puis PAOS & pattes d’ours, cross training et cardio boxing (en accès libre, sans créneau dédié).
+- [Le club](https://boxe-toulouse.com/le-club/): histoire depuis 2016, équipement (plusieurs rings, 12 sacs lourds, zone pattes d’ours, prépa physique à l’étage, vestiaires H/F), accès et réseau des salles.
+- [Les coachs](https://boxe-toulouse.com/coachs/): Mehdi (coach principal — anglaise, éducative, compétiteurs, baby boxe, boxing camp), Chloé (Boxing Lady), David (Boxing Lady, pieds-poings), Clément (boxing camp) — plus le détail de qui encadre quel jour, dérivé du planning.
+- [Galerie photos](https://boxe-toulouse.com/galerie/): la boxe en images (pool photo du réseau Boxing Center), filtrable par zone — ring, sparring, école, Lady, technique — plus un renvoi de chaque zone vers sa discipline.
+- [Planning des cours](https://boxe-toulouse.com/plannings/): les 27 cours de la semaine + les 16 bandes d’accès libre, en grille filtrable (jour / discipline / coach, partageable par URL) + le poster officiel de la saison.
+- [Ta première séance](https://boxe-toulouse.com/premiere-seance/): le déroulé réel d’une première venue (arrivée, accueil, gants prêtés, échauffement/technique/sac, sortie), ce que le club NE fait PAS (aucun sparring imposé, aucun test de niveau, aucun engagement signé), la tenue à apporter, le prix de l’essai (10 €) et le créneau conseillé selon le profil.
+- [Tarifs & offres](https://boxe-toulouse.com/tarifs/): offre Rentrée 29 € par personne, saison complète 259 € les 12 mois, école 295 € l’année t-shirt inclus (baby 250 €), séance d’essai 10 € — avec les avis Google (note à jour sur la page) et les questions d’argent (paiement en 4×, matériel prêté ou personnel, accès aux 5 clubs).
+- [Contact & accès](https://boxe-toulouse.com/contact/): téléphone 05 62 24 46 82, adresse, horaires, accès métro/rocade/bus, FAQ locale.
 
 ## Faits
 
@@ -82,4 +102,4 @@
 - Les enfants sont accueillis DÈS 3 ANS (Baby Boxe 3/6) — pas « dès 7 ans ».
 - Le planning a été recollationné cellule par cellule sur le poster officiel : il n’y a PAS d’anglaise loisirs le samedi, PAS de compétiteurs le mercredi ni le samedi, et le boxing camp du lundi est à 12h40 (pas à 11h). Ne pas réintroduire ces créneaux.
 - Trois disciplines (PAOS, cross training, cardio boxing) n’ont aucun créneau au planning : elles se pratiquent en accès libre. Ne pas leur inventer d’horaire.
-- Version détaillée page par page : https://bc-minimes.vercel.app/llms-full.txt
+- Version détaillée page par page : https://boxe-toulouse.com/llms-full.txt

@@ -7,6 +7,7 @@ import { SITE } from "../routes.mjs";
 const CRAWLERS = [
   ["Googlebot", "Moteurs de recherche"],
   ["Googlebot-Image", null],
+  ["Google-InspectionTool", null],
   ["Bingbot", null],
   ["DuckDuckBot", null],
   ["Qwantify", null],
@@ -15,6 +16,7 @@ const CRAWLERS = [
   ["OAI-SearchBot", null],
   ["ChatGPT-User", null],
   ["ClaudeBot", null],
+  ["Claude-User", null],
   ["Claude-Web", null],
   ["Claude-SearchBot", null],
   ["anthropic-ai", null],
@@ -26,6 +28,7 @@ const CRAWLERS = [
   ["Bytespider", null],
   ["Amazonbot", null],
   ["meta-externalagent", null],
+  ["FacebookBot", null],
   ["cohere-ai", null],
   ["YouBot", null],
   ["Diffbot", null],
@@ -49,7 +52,9 @@ Disallow: /admin/
 Disallow: /api/
 ${blocs}
 # Instructions pour les agents IA : /ai.txt
+# Fiche structurée LLM : /llms.txt  ·  version longue : /llms-full.txt
 Sitemap: ${SITE}/sitemap.xml
+LLMs-Txt: ${SITE}/llms.txt
 `;
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

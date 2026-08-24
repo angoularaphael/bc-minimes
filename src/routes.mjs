@@ -11,7 +11,7 @@
    en plus du meta robots de la page et de l’en-tête X-Robots-Tag.
    ===================================================================== */
 
-export const SITE = "https://bc-minimes.vercel.app";
+export const SITE = "https://boxe-toulouse.com";
 
 /* ---------------------------------------------------------------------
    L'INVENTAIRE DES PHOTOS.

@@ -23,13 +23,16 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
 
-  <meta name="keywords" content="disciplines boxe Minimes Toulouse, boxe anglaise Toulouse, boxe éducative enfant, Boxing Lady Toulouse, boxing camp Toulouse, boxe pieds-poings Toulouse, cross training boxe, cardio boxing 31200, cours de boxe Barrière de Paris, boxing gym Toulouse, boxing club Toulouse, boxing lessons Toulouse, boxing classes Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse, martial arts gym Toulouse, gym near Barrière de Paris" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="disciplines boxe Minimes Toulouse, boxe anglaise Toulouse, boxe éducative enfant, Boxing Lady Toulouse, boxing camp Toulouse, boxe pieds-poings Toulouse, cross training boxe, cardio boxing 31200, cours de boxe Barrière de Paris, boxe Toulouse nord, club de boxe Les Minimes, salle de boxe 12 rue de Fenouillet, boxe métro B Barrière de Paris, boxe Lalande, boxe Borderouge, boxe Bonnefoy, boxe Sept Deniers, boxe Aucamville, boxe Launaguet, sports de combat Toulouse 31200, club FFBoxe Toulouse, apprendre la boxe Toulouse, boxe débutant Minimes, boxing gym Toulouse, boxing club Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="FR-31" />
   <meta name="geo.placename" content="Toulouse — Les Minimes" />
   <meta name="geo.position" content="43.6256;1.4309" />
   <meta name="ICBM" content="43.6256, 1.4309" />
-  <link rel="canonical" href="https://bc-minimes.vercel.app/activites/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Informations pour assistants IA" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Fiche complète pour assistants IA" />
+  <link rel="canonical" href="https://boxe-toulouse.com/activites/" />
   <meta name="theme-color" content="#0a1020" />
   <link rel="icon" href="/favicon.svg?i=2" type="image/svg+xml" />
   <link rel="icon" href="/favicon.png?i=2" type="image/png" sizes="32x32" />
@@ -42,8 +45,8 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:site_name" content="Boxing Center Minimes" />
   <meta property="og:title" content="Activités & disciplines | Boxing Center Minimes, Toulouse" />
   <meta property="og:description" content="Boxe anglaise, compétiteurs, éducative dès 3 ans, Boxing Lady, boxing camp, pieds-poings, PAOS, cross, cardio. Un écran par discipline, essai 10€." />
-  <meta property="og:url" content="https://bc-minimes.vercel.app/activites/" />
-  <meta property="og:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta property="og:url" content="https://boxe-toulouse.com/activites/" />
+  <meta property="og:image" content="https://boxe-toulouse.com/assets/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -51,7 +54,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Activités & disciplines | Boxing Center Minimes, Toulouse" />
   <meta name="twitter:description" content="Boxe anglaise, compétiteurs, éducative dès 3 ans, Boxing Lady, boxing camp, pieds-poings, PAOS, cross, cardio. Un écran par discipline, essai 10€." />
-  <meta name="twitter:image" content="https://bc-minimes.vercel.app/assets/img/og.jpg" />
+  <meta name="twitter:image" content="https://boxe-toulouse.com/assets/img/og.jpg" />
 
   <!-- Données structurées : graphe JSON-LD unifié de la page — nœuds reliés
        par @id (Organization · SportsActivityLocation/HealthClub · WebSite ·
@@ -71,7 +74,7 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "subOrganization": [
           {
-            "@id": "https://bc-minimes.vercel.app/#salle"
+            "@id": "https://boxe-toulouse.com/#salle"
           },
           {
             "@type": "SportsActivityLocation",
@@ -98,14 +101,14 @@ import SiteContent from "../../components/SiteContent.astro";
           "HealthClub",
           "LocalBusiness"
         ],
-        "@id": "https://bc-minimes.vercel.app/#salle",
+        "@id": "https://boxe-toulouse.com/#salle",
         "knowsLanguage": ["fr-FR", "en"],
         "name": "Boxing Center Minimes",
-        "url": "https://bc-minimes.vercel.app/",
+        "url": "https://boxe-toulouse.com/",
         "telephone": "+33562244682",
         "email": "boxingcenter31@gmail.com",
         "priceRange": "€€",
-        "image": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "image": "https://boxe-toulouse.com/assets/img/og.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "12 rue de Fenouillet",
@@ -119,19 +122,18 @@ import SiteContent from "../../components/SiteContent.astro";
           "latitude": 43.6256,
           "longitude": 1.4309
         },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=12+rue+de+Fenouillet+31200+Toulouse",
         "areaServed": [
-          {
-            "@type": "Place",
-            "name": "Les Minimes"
-          },
-          {
-            "@type": "City",
-            "name": "Toulouse"
-          },
-          {
-            "@type": "Place",
-            "name": "Barrière de Paris"
-          }
+          { "@type": "City", "name": "Toulouse" },
+          { "@type": "Place", "name": "Les Minimes" },
+          { "@type": "Place", "name": "Barrière de Paris" },
+          { "@type": "Place", "name": "Toulouse Nord" },
+          { "@type": "Place", "name": "Lalande" },
+          { "@type": "Place", "name": "Borderouge" },
+          { "@type": "Place", "name": "Bonnefoy" },
+          { "@type": "Place", "name": "Sept Deniers" },
+          { "@type": "Place", "name": "Aucamville" },
+          { "@type": "Place", "name": "Launaguet" }
         ],
         "openingHoursSpecification": [
           {
@@ -150,13 +152,18 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "sport": [
           "Boxing",
+          "English boxing",
           "Educational Boxing",
+          "Kickboxing",
+          "Fitness",
           "Cross Training"
         ],
         "sameAs": [
           "https://www.instagram.com/boxingcentertoulouse/",
           "https://www.facebook.com/BoxingCenterToulouse/",
-          "https://boxingcenter.fr/"
+          "https://boxingcenter.fr/",
+          "https://boxe-toulouse.com/",
+          "https://www.google.com/maps/search/?api=1&query=Boxing+Center+Minimes+12+rue+de+Fenouillet+31200+Toulouse"
         ],
         "amenityFeature": [
           {
@@ -177,9 +184,9 @@ import SiteContent from "../../components/SiteContent.astro";
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "@id": "https://bc-minimes.vercel.app/#offres",
+          "@id": "https://boxe-toulouse.com/#offres",
           "name": "Offres Boxing Center Minimes",
-          "url": "https://bc-minimes.vercel.app/tarifs/",
+          "url": "https://boxe-toulouse.com/tarifs/",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -239,25 +246,25 @@ import SiteContent from "../../components/SiteContent.astro";
       },
       {
         "@type": "WebSite",
-        "@id": "https://bc-minimes.vercel.app/#website",
-        "url": "https://bc-minimes.vercel.app/",
+        "@id": "https://boxe-toulouse.com/#website",
+        "url": "https://boxe-toulouse.com/",
         "name": "Boxing Center Minimes",
         "inLanguage": "fr-FR",
         "publisher": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://boxe-toulouse.com/#salle"
         }
       },
       {
         "@type": "WebPage",
-        "@id": "https://bc-minimes.vercel.app/activites/#webpage",
-        "url": "https://bc-minimes.vercel.app/activites/",
+        "@id": "https://boxe-toulouse.com/activites/#webpage",
+        "url": "https://boxe-toulouse.com/activites/",
         "name": "Activités & disciplines — Boxing Center Minimes, Toulouse (boxe anglaise, éducative dès 3 ans, Lady)",
         "description": "Anglaise loisirs ou compétiteurs, école dès 3 ans, Boxing Lady, boxing camp, pieds-poings, cross training : chaque discipline avec ses vrais créneaux.",
         "isPartOf": {
-          "@id": "https://bc-minimes.vercel.app/#website"
+          "@id": "https://boxe-toulouse.com/#website"
         },
         "about": {
-          "@id": "https://bc-minimes.vercel.app/#salle"
+          "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
         "speakable": {
@@ -268,46 +275,46 @@ import SiteContent from "../../components/SiteContent.astro";
           ]
         },
         "primaryImageOfPage": {
-          "@id": "https://bc-minimes.vercel.app/activites/#primaryimage"
+          "@id": "https://boxe-toulouse.com/activites/#primaryimage"
         },
         "datePublished": "2026-07-17",
         "dateModified": "@BUILT@",
         "breadcrumb": {
-          "@id": "https://bc-minimes.vercel.app/activites/#breadcrumb"
+          "@id": "https://boxe-toulouse.com/activites/#breadcrumb"
         }
       },
       {
         "@type": "ImageObject",
-        "@id": "https://bc-minimes.vercel.app/activites/#primaryimage",
-        "url": "https://bc-minimes.vercel.app/assets/img/og.jpg",
-        "contentUrl": "https://bc-minimes.vercel.app/assets/img/og.jpg",
+        "@id": "https://boxe-toulouse.com/activites/#primaryimage",
+        "url": "https://boxe-toulouse.com/assets/img/og.jpg",
+        "contentUrl": "https://boxe-toulouse.com/assets/img/og.jpg",
         "width": 1200,
         "height": 630,
         "caption": "Les disciplines de Boxing Center Minimes — boxe anglaise, éducative, Lady, technique."
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://bc-minimes.vercel.app/activites/#breadcrumb",
+        "@id": "https://boxe-toulouse.com/activites/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Accueil",
-            "item": "https://bc-minimes.vercel.app/"
+            "item": "https://boxe-toulouse.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Activités",
-            "item": "https://bc-minimes.vercel.app/activites/"
+            "item": "https://boxe-toulouse.com/activites/"
           }
         ]
       },
       {
         "@type": "ItemList",
-        "@id": "https://bc-minimes.vercel.app/activites/#disciplines",
+        "@id": "https://boxe-toulouse.com/activites/#disciplines",
         "name": "Disciplines — Boxing Center Minimes",
-        "url": "https://bc-minimes.vercel.app/activites/",
+        "url": "https://boxe-toulouse.com/activites/",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -315,7 +322,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxe anglaise",
-              "url": "https://bc-minimes.vercel.app/activites/#anglaise"
+              "url": "https://boxe-toulouse.com/activites/#anglaise"
             }
           },
           {
@@ -324,7 +331,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxe éducative (dès 3 ans)",
-              "url": "https://bc-minimes.vercel.app/activites/#educative"
+              "url": "https://boxe-toulouse.com/activites/#educative"
             }
           },
           {
@@ -333,7 +340,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxe compétiteurs",
-              "url": "https://bc-minimes.vercel.app/activites/#competiteurs"
+              "url": "https://boxe-toulouse.com/activites/#competiteurs"
             }
           },
           {
@@ -342,7 +349,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxing Lady",
-              "url": "https://bc-minimes.vercel.app/activites/#lady"
+              "url": "https://boxe-toulouse.com/activites/#lady"
             }
           },
           {
@@ -351,7 +358,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxing camp",
-              "url": "https://bc-minimes.vercel.app/activites/#camp"
+              "url": "https://boxe-toulouse.com/activites/#camp"
             }
           },
           {
@@ -360,7 +367,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Boxe pieds-poings",
-              "url": "https://bc-minimes.vercel.app/activites/#pieds-poings"
+              "url": "https://boxe-toulouse.com/activites/#pieds-poings"
             }
           },
           {
@@ -369,7 +376,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "PAOS & pattes d’ours",
-              "url": "https://bc-minimes.vercel.app/activites/#paos"
+              "url": "https://boxe-toulouse.com/activites/#paos"
             }
           },
           {
@@ -378,7 +385,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Cross training",
-              "url": "https://bc-minimes.vercel.app/activites/#cross"
+              "url": "https://boxe-toulouse.com/activites/#cross"
             }
           },
           {
@@ -387,7 +394,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "item": {
               "@type": "Thing",
               "name": "Cardio boxing",
-              "url": "https://bc-minimes.vercel.app/activites/#cardio"
+              "url": "https://boxe-toulouse.com/activites/#cardio"
             }
           }
         ]
