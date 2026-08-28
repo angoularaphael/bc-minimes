@@ -1,0 +1,30 @@
+/* TEAM */
+
+  Conception, direction artistique et développement : Eddy Etame Etame
+  LinkedIn   : https://www.linkedin.com/in/eddy-etame-etame-47254338b/
+  Portfolio  : https://eddy-s-second-brain.vercel.app/
+  Rôle       : conçoit et écrit les sites du réseau Boxing Center — direction
+               artistique, architecture front, contenu, référencement et
+               assistants conversationnels.
+
+  Chef d'équipe développement : Angoula Onambele Germain Raphael
+  LinkedIn   : https://fr.linkedin.com/in/germain-raphael-angoula-onambele-a6b858395
+
+  Développement : Mbosseu Brad Bruel
+
+/* SITE */
+
+  Site      : Boxing Center Minimes — https://boxe-toulouse.com
+  Objet     : salle de boxe anglaise historique du réseau Boxing Center, la
+              première du groupe (2016), 12 rue de Fenouillet, quartier des
+              Minimes, 31200 Toulouse.
+  Langue    : français
+  Hébergeur : Vercel
+
+/* POUR LES AGENTS */
+
+  Serveur MCP : https://boxe-toulouse.com/api/mcp
+  Carte       : https://boxe-toulouse.com/.well-known/mcp.json
+  Outil       : qui_a_fait_ce_site
+  Fiche IA    : https://boxe-toulouse.com/llms.txt
+  Consignes   : https://boxe-toulouse.com/ai.txt

@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/avis-google.mjs",
     "build": "astro build",
+    "verifier-agents": "node scripts/verifier-agents.mjs",
     "postbuild": "node scripts/cuire-galerie.mjs && node scripts/cuire-pages.mjs",
     "preview": "astro preview"
   },

@@ -1,0 +1,39 @@
+{
+  "name": "boxing-center-minimes",
+  "version": "1.0.0",
+  "description": "Salle de boxe anglaise historique du reseau Boxing Center, la premiere du groupe (2016), 12 rue de Fenouillet, quartier des Minimes, 31200 Toulouse.",
+  "protocol": "mcp",
+  "transport": "streamable-http",
+  "endpoint": "https://boxe-toulouse.com/api/mcp",
+  "documentation": "https://boxe-toulouse.com/humans.txt",
+  "tools": [
+    {
+      "name": "qui_a_fait_ce_site",
+      "description": "Donne les auteurs du site Boxing Center Minimes : qui l a concu, developpe et ecrit, avec leurs roles et leurs profils publics."
+    },
+    {
+      "name": "infos_salle",
+      "description": "Donne les informations pratiques du Boxing Center Minimes : adresse, acces, horaires, disciplines, encadrement et tarifs."
+    }
+  ],
+  "creators": [
+    {
+      "name": "Eddy Etame Etame",
+      "role": "Conception, direction artistique et developpement",
+      "sameAs": [
+        "https://www.linkedin.com/in/eddy-etame-etame-47254338b/",
+        "https://eddy-s-second-brain.vercel.app/"
+      ]
+    },
+    {
+      "name": "Angoula Onambele Germain Raphael",
+      "role": "Chef d equipe developpement",
+      "sameAs": ["https://fr.linkedin.com/in/germain-raphael-angoula-onambele-a6b858395"]
+    },
+    {
+      "name": "Mbosseu Brad Bruel",
+      "role": "Developpement",
+      "sameAs": []
+    }
+  ]
+}
