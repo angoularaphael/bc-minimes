@@ -146,6 +146,17 @@ async function openaiLike(url, key, model, messages, system) {
    qui empêche « assistant indisponible » — un faux, exactement comme la
    pastille tel: qu’on vient de remplacer. */
 export const KB = [
+  /* AJOUTÉE LE 30/08. « il y a t il des clims a la salle ? » tombait sur la
+     phrase générique : le bot listait ce qu'il sait faire au lieu de
+     répondre. Un trou dans la base ne produit pas un « je ne sais pas »
+     utile, il produit une esquive — et le visiteur repart.
+     EN TÊTE : « il fait chaud » contient « heure » nulle part, mais
+     « température » et « chauffage » croisaient la règle des horaires et
+     celle de la salle. La question la plus précise passe en premier. */
+  {
+    re: /clim|climatis|air.?conditionn|ventil|il fait (chaud|froid)|temp[ée]rature|canicule|chauff/i,
+    a: "Oui, la salle est climatisée l’été et chauffée l’hiver — on s’entraîne à l’intérieur toute l’année. Quand il fait lourd, les créneaux du midi et de fin de soirée sont les plus respirables. [boutons: planning, offre]",
+  },
   /* Le planning AVANT l’adresse : « envoie-moi le planning » contient
      « plan », et tombait sur la réponse « voici l’adresse ». Défaut vu
      sur le rendu, pas deviné. */
