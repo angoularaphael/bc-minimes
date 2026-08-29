@@ -577,7 +577,8 @@ function armChatbot() {
    qu'emprunte un vrai visiteur — il marche partout, sans rien savoir
    de ce qu'il y a derriere.
 
-   Trois garde-fous : une seule fois par session ; jamais si le panneau
+   Deux garde-fous : une seule fois par session ; jamais si le panneau
+   est deja la.
 
    Sur telephone, le panneau couvre l'ecran : on y pose une BULLE avec
    la premiere phrase et un bouton. Le message est vu, la page reste au
