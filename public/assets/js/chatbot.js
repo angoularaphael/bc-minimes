@@ -114,7 +114,6 @@ const ACTIONS = {
   galerie:     { label: "Voir la galerie", href: "/galerie/" },
   contact:     { label: "Adresse & contact", href: "/contact/" },
   appeler:     { label: "Appeler la salle", href: "tel:+33562244682" },
-  offert:      { label: "Je réserve ma séance offerte", href: "/seance-offerte/" },
   rappel:      { label: "Être rappelé par un coach", act: "rappel" },
 };
 function resolveActions(keys) {
@@ -277,10 +276,6 @@ export function initChatbot() {
   logEl.addEventListener("click", (e) => {
     const act = e.target.closest("button[data-act]");
     if (act && act.dataset.act === "rappel") startCallback();
-    /* Le laissez-passer de la seance offerte : sans ce jeton depose par le
-       bot au moment ou il l'offre, l'URL rend une 404. */
-    const lien = e.target.closest('a[href^="/seance-offerte"]');
-    if (lien) { try { sessionStorage.setItem("bcm-offert-pass", String(Date.now())); } catch (_) {} }
   });
 
   /* ---------- capture au fil de l’eau ---------- */

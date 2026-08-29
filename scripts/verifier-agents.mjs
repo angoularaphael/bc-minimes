@@ -133,7 +133,7 @@ for (const [chemin, attendu, quoi] of [
   /* La page à 0 €. Le reste du réseau vend l'essai 10 €. Un moteur de
      réponse qui la lit répond « c'est gratuit », et le prospect ne paie
      plus l'essai sur aucune des cinq salles. */
-  ["/seance-offerte/", false, "la page à 0 € reste FERMÉE"],
+  ["/seance-offerte/", false, "la page à 0 € reste FERMÉE (garde : elle n’existe plus)"],
 ]) {
   const rates = BOTS.filter((b) => robots.autorise(b, chemin) !== attendu);
   dit(rates.length === 0, `${chemin} — ${quoi} (12 robots)${rates.length ? " · rates: " + rates.join(",") : ""}`);

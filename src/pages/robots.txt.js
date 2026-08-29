@@ -58,10 +58,12 @@ Allow: /api/mcp
 # ils ne s'indexent pas (doublé d'un meta robots et d'un X-Robots-Tag).
 Disallow: /admin/
 Disallow: /api/
-# /seance-offerte est la page a 0 EUR. Le reste du reseau vend l'essai
-# 10 EUR. Un moteur de reponse qui la lit repond « c'est gratuit », et le
-# prospect ne paie plus l'essai sur aucune des cinq salles. Le meta
-# robots de la page empeche l'INDEXATION, pas la LECTURE.
+# /seance-offerte : LA PAGE N'EXISTE PLUS SUR CE SITE. L'essai gratuit
+# vit uniquement sur sa page dediee, qu'on n'atteint que par QR code et
+# par les campagnes. Cette regle reste comme GARDE : le jour ou quelqu'un
+# recree la page sans connaitre cette histoire, elle est fermee d'office.
+# Le reseau vend l'essai 10 EUR ; un moteur de reponse qui lirait une
+# page a 0 EUR ferait tomber ce prix sur les cinq salles.
 Disallow: /seance-offerte
 Allow: /
 ${blocs}
