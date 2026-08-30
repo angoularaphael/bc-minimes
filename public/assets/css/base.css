@@ -574,10 +574,40 @@ html.fx .reveal-mask > span { opacity: 0; }
    gant blanc la remplit à 14.6:1. */
 .chatbot { position: fixed; right: clamp(1rem,2.5vw,2rem); bottom: clamp(1rem,2.5vw,2rem); z-index: 8500; height: 56px; width: 56px; display: inline-flex; align-items: center; overflow: hidden; background: var(--navy); color: var(--white); border: 2px solid var(--silver); border-radius: 100px; box-shadow: 0 10px 30px rgba(5,8,15,.65); transition: width .45s var(--ease-punch), transform .35s var(--ease), box-shadow .35s, background .35s; }
 .chatbot__icon { flex: 0 0 52px; width: 52px; height: 52px; display: grid; place-items: center; }
-.chatbot__icon svg { width: 26px; height: 26px; }
+/* 34 px dans une pastille de 54 : la mascotte occupe 63 % de la
+   largeur. À 22 px elle en occupait 17 % de la surface — un vide
+   de cette taille se lit comme une erreur, pas comme du calme. */
+.chatbot__icon svg { width: 34px; height: 34px; }
 .chatbot__label { white-space: nowrap; font: 700 var(--step--1)/1 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; padding-right: 1.5rem; opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .35s var(--ease); }
 .chatbot:hover, .chatbot:active { width: 15rem; transform: translateY(-3px); background: var(--navy-2); box-shadow: 0 16px 42px rgba(5,8,15,.75); }
 .chatbot:hover .chatbot__label, .chatbot:active .chatbot__label { opacity: 1; transform: none; }
+
+/* ------------------- LA MASCOTTE RESPIRE -------------------------
+   « Interdit du statique. » Une pastille immobile dans un coin ne se
+   remarque pas : l'oeil la range avec le reste du decor et n'y revient
+   jamais. Trois gestes, tous discrets, aucun qui vole la lecture :
+
+     · elle CLIGNE toutes les 6 s — un ecrasement vertical de 90 ms.
+       C'est le geste qui transforme un pictogramme en quelqu'un ;
+     · elle se PENCHE au survol, 6 degres, comme on incline la tete
+       quand on ecoute ;
+     · elle GRANDIT d'un souffle a la pression, puis revient.
+
+   `prefers-reduced-motion` coupe tout : qui a demande le calme
+   l'obtient, et la pastille reste parfaitement utilisable. */
+.chatbot__icon svg { transform-origin: 50% 62%; animation: bc-cligne 6s ease-in-out infinite; }
+@keyframes bc-cligne {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(.08); }
+  97%           { transform: scaleY(1); }
+}
+.chatbot:hover .chatbot__icon svg { animation: none; transform: rotate(-6deg) scale(1.04); transition: transform .28s cubic-bezier(.34,1.56,.64,1); }
+.chatbot:active .chatbot__icon svg { transform: rotate(-6deg) scale(.94); }
+@media (prefers-reduced-motion: reduce) {
+  .chatbot__icon svg,
+  .chatbot:hover .chatbot__icon svg { animation: none; transform: none; transition: none; }
+}
+
 .chatbot::after { content: ""; position: absolute; inset: -2px; border-radius: 100px; border: 2px solid var(--silver); opacity: .55; animation: chatpulse 2.4s var(--ease) infinite; pointer-events: none; }
 .chatbot:hover::after { animation: none; opacity: 0; }
 @keyframes chatpulse { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(1.3); opacity: 0; } }
