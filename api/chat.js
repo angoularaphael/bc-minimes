@@ -155,7 +155,7 @@ export const KB = [
      celle de la salle. La question la plus précise passe en premier. */
   {
     re: /clim|climatis|air.?conditionn|ventil|il fait (chaud|froid)|temp[ée]rature|canicule|chauff/i,
-    a: "Oui, la salle est climatisée l’été et chauffée l’hiver — on s’entraîne à l’intérieur toute l’année. Quand il fait lourd, les créneaux du midi et de fin de soirée sont les plus respirables. [boutons: planning, offre]",
+    a: "Non — aucune de nos salles n’est climatisée, ni chauffée. Elles sont en revanche correctement isolées. On te dit les choses comme elles sont : tu viens en tenue légère l’été, tu t’échauffes moins longtemps l’hiver. [boutons: planning, offre]"
   },
   /* Le planning AVANT l’adresse : « envoie-moi le planning » contient
      « plan », et tombait sur la réponse « voici l’adresse ». Défaut vu
@@ -164,13 +164,13 @@ export const KB = [
     a: "Le planning tourne du lundi au samedi : anglaise loisirs le midi à 12h40 et le soir à 19h40, compétiteurs à 18h, Boxing Lady lundi et mercredi 18h30, Boxing camp midi et soir, l’école le mercredi et le samedi après-midi, open sparring le samedi 18h30. Le détail complet est sur la page Planning." },
   { re: /essai|d[ée]couvr|tester|premi[èe]re fois|premiere fois|gratuit|venir voir/i,
     a: "La séance d’essai est à 10€ : la discipline que tu veux, gants et protections prêtés, aucun dossier à monter. Tu viens, tu boxes, tu décides après. Mais si tu comptes venir plus d’une fois, la rentrée à 29€ par personne est vite rentabilisée. [boutons: offre, essai]" },
-  { re: /tarif|prix|co[ûu]te|combien|abonn|mensuel|saison|duo|259|29|295/i,
+  { re: /tarif|prix|co[ûu]te|combien|abonn|mensuel|saison|duo|259|29|295|offre|promo|formule|rentr[ée]e|payer|paiement/i,
     a: "L’offre Rentrée : 29€ PAR PERSONNE pour 4 semaines illimitées (au lieu de 44€). La saison complète : 259€ les 12 mois au lieu de 400€, en 4× sans frais, accès libre aux 5 clubs. L’école : 295€ l’année t-shirt inclus, baby 250€. Et l’essai à 10€ pour tester. [boutons: offre, tarifs]" },
-  { re: /horaire|ouvert|ferm|heure|dimanche|acc[èe]s libre/i,
+  { re: /horaire|ouvert|ferm|heure|dimanche|samedi|lundi|semaine|week.?end|soir|matin|midi|tard|t[ôo]t|acc[èe]s libre/i,
     a: "La salle est ouverte du lundi au samedi, de 10h00 à 21h30. Fermé le dimanche. En dehors des cours, les rings et les sacs sont à toi en accès libre : 10h–12h et 13h20–18h (le mercredi ça s’arrête à 15h, l’école prend la salle)." },
   /* « où » accentué est sans ambiguïté ; « ou » nu ne compte que collé à
      un repère de lieu, sinon « anglaise ou MMA ? » réclamerait l’adresse. */
-  { re: /adresse|\boù\b|(?:c['’]est|vous [êe]tes|se trouve|situ[ée]e?)\s*o[ùu]|o[ùu]\s*(?:est|se|vous|[êe]tes)|situ[ée]e?\b|acc[èe]s|m[ée]tro|parking|comment venir|\bplan\b|\brue\b|barri[èe]re/i,
+  { re: /adresse|\boù\b|\bou\b\s*\??$|c\W{0,2}est\s+o[ùu]|(?:c['’]est|vous [êe]tes|se trouve|situ[ée]e?)\s*o[ùu]|o[ùu]\s*(?:est|se|vous|[êe]tes)|situ[ée]e?\b|acc[èe]s|m[ée]tro|parking|comment venir|\bplan\b|\brue\b|barri[èe]re/i,
     a: "12 rue de Fenouillet, 31200 Toulouse — quartier des Minimes, Barrière de Paris. Métro ligne B, station Barrière de Paris, 3 minutes à pied. Rocade sortie 31, ou bus 70 / 27 arrêt Minimes-Roquelaine." },
   { re: /enfant|gamin|fils|fille|baby|[ée]ducative|ado|3 ans|7 ans|\b(?:mon|ma) (?:gosse|petit)/i,
     a: "L’école commence dès 3 ans : Baby Boxe 3/6 ans le samedi à 14h15, enfants 7/11 à 15h, ados 12/16 à 16h, jeunes compétiteurs à 17h — le mercredi et le samedi. C’est Mehdi B qui tient l’école, du premier gant jusqu’au ring. 250€ l’année pour la Baby Boxe, 295€ au-delà, t-shirt du club inclus." },
