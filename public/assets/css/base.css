@@ -573,11 +573,21 @@ html.fx .reveal-mask > span { opacity: 0; }
    pastille n'a plus de forme. L'anneau argent (9.83:1) la dessine, le
    gant blanc la remplit à 14.6:1. */
 .chatbot { position: fixed; right: clamp(1rem,2.5vw,2rem); bottom: clamp(1rem,2.5vw,2rem); z-index: 8500; height: 56px; width: 56px; display: inline-flex; align-items: center; overflow: hidden; background: var(--navy); color: var(--white); border: 2px solid var(--silver); border-radius: 100px; box-shadow: 0 10px 30px rgba(5,8,15,.65); transition: width .45s var(--ease-punch), transform .35s var(--ease), box-shadow .35s, background .35s; }
-.chatbot__icon { flex: 0 0 52px; width: 52px; height: 52px; display: grid; place-items: center; }
-/* 34 px dans une pastille de 54 : la mascotte occupe 63 % de la
-   largeur. À 22 px elle en occupait 17 % de la surface — un vide
-   de cette taille se lit comme une erreur, pas comme du calme. */
-.chatbot__icon svg { width: 34px; height: 34px; }
+/* LE CENTRAGE, ÉPINGLÉ. Mesuré : .chatbot__icon démarrait à x=12 dans
+   une pastille de 54, et faisait lui-même 54 de large — il débordait
+   donc à droite, et la mascotte atterrissait 12 px hors de l'axe. La
+   cause n'était pas le dessin (l'encre est centrée dans son viewBox)
+   mais le LIBELLÉ : frère de flex large de 282 px dans un conteneur de
+   54 en overflow:hidden, il déplaçait la boîte de l'icône.
+   En absolu sur le carré de la pastille, le libellé peut faire ce qu'il
+   veut : l'icône ne bouge plus. */
+.chatbot__icon {
+  position: absolute; left: 0; top: 0;
+  width: 54px; height: 54px;
+  display: grid; place-items: center;
+}
+.chatbot__icon svg { width: 36px; height: 36px; }
+.chatbot__label { margin-left: 54px; }
 .chatbot__label { white-space: nowrap; font: 700 var(--step--1)/1 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; padding-right: 1.5rem; opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .35s var(--ease); }
 .chatbot:hover, .chatbot:active { width: 15rem; transform: translateY(-3px); background: var(--navy-2); box-shadow: 0 16px 42px rgba(5,8,15,.75); }
 .chatbot:hover .chatbot__label, .chatbot:active .chatbot__label { opacity: 1; transform: none; }
