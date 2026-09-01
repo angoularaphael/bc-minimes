@@ -89,19 +89,25 @@ const ECRITURES = [
   ["src/pages/index.astro",        /("reviewCount":\s*")[^"]*(")/,         `$1${n}$2`],
   ["src/pages/index.astro",        /(data-rating=")[^"]*(")/g,             `$1${point}$2`],
   ["src/pages/index.astro",        /(data-rating-count=")[^"]*(")/g,       `$1${n}$2`],
-  // la note se cite aussi en toutes lettres dans la meta description
-  ["src/pages/index.astro",        /\d,\d\/5 sur [\d\s\u202f]+ avis/,          `${avis.note}/5 sur ${n} avis`],
+  // meta description — optionnel : un changement de texte SERP ne doit pas casser le build
+  ["src/pages/index.astro",        /\d,\d\/5 sur [\d\s\u202f]+ avis/,          `${avis.note}/5 sur ${n} avis`, { optional: true }],
 ];
 
 const tampon = new Map();
-for (const [rel, motif, rempl] of ECRITURES) {
+for (const [rel, motif, rempl, opts = {}] of ECRITURES) {
   const f = join(ROOT, rel);
   if (!tampon.has(f)) tampon.set(f, await readFile(f, "utf8"));
   const avant = tampon.get(f);
+  motif.lastIndex = 0;
   if (!motif.test(avant)) {
+    if (opts.optional) {
+      console.warn(`[avis] motif optionnel absent dans ${rel} : ${motif} — on continue`);
+      continue;
+    }
     console.error(`[avis] motif introuvable dans ${rel} : ${motif} — le fichier a change de forme`);
     process.exit(1);
   }
+  motif.lastIndex = 0;
   tampon.set(f, avant.replace(motif, rempl));
 }
 let touches = 0;
