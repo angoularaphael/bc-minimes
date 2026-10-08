@@ -35,7 +35,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const url = (f) => pathToFileURL(join(ROOT, "public", "assets", "js", f)).href;
-const { COACHES, FAQ } = await import(url("data.js"));
+const { COACHES, FAQ, SALLE, PROMOS } = await import(url("data.js"));
 const { TARIFS } = await import(url("data-accueil.js"));
 const { MONEY_FAQ, REVIEWS } = await import(url("data-argent.js"));
 const { PLANNING, PLANNING_DAYS } = await import(url("data-planning.js"));
@@ -44,6 +44,9 @@ const { DISCIPLINES } = await import(url("data-disciplines.js"));
 const e = (s = "") =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const ul = (xs) => (xs && xs.length ? `<ul>${xs.map((x) => `<li>${e(x)}</li>`).join("")}</ul>` : "");
+const faq = (items, id) => (items || []).map((f, i) =>
+  `<div class="faq__item"><button class="faq__q" type="button" id="${id}-q-${i}" aria-expanded="false" aria-controls="${id}-a-${i}"><span>${e(f.q)}</span><span class="faq__sign" aria-hidden="true"></span></button><div class="faq__a" id="${id}-a-${i}" role="region" aria-labelledby="${id}-q-${i}"><p>${e(f.a)}</p></div></div>`
+).join("");
 
 /* /coachs — le pilier de la maison, puis le reste de l'encadrement */
 const p = COACHES.pillar;
@@ -68,6 +71,9 @@ const actRows = DISCIPLINES.map(
     `<article><h3>${e(d.name)}</h3><p><b>${e(d.tag || "")}</b></p>${
       d.teaser ? `<p>${e(d.teaser)}</p>` : ""
     }${d.desc ? `<p>${e(d.desc)}</p>` : ""}</article>`
+).join("");
+const actIndex = DISCIPLINES.map((d, i) =>
+  `<a class="act-chip" href="#${e(d.key)}"><span class="act-chip__n">${String(i + 1).padStart(2, "0")}</span>${e(d.actName || d.name)}</a>`
 ).join("");
 
 /* /plannings — la semaine, jour par jour */
@@ -99,6 +105,7 @@ const moneyFaq = [...MONEY_FAQ, ...FAQ]
 const reviews = (REVIEWS.quotes || [])
   .map((q) => `<blockquote><p>${e(q.text)}</p><cite>${e(q.author)}</cite></blockquote>`)
   .join("");
+const bonus = `<span class="bonus__badge">Bonus</span><p class="bonus__txt">${e(PROMOS.bonus)}</p>`;
 
 const FOURNEES = [
   ["coachs", "pillar", pillar, "le pilier"],
@@ -106,6 +113,7 @@ const FOURNEES = [
   ["activites", "act-rows", actRows, DISCIPLINES.length + " disciplines"],
   ["plannings", "pl-grid", plGrid, PLANNING.length + " creneaux"],
   ["tarifs", "offers", offers, TARIFS.length + " offres"],
+  ["tarifs", "bonus", bonus, "le bonus enfant"],
   ["tarifs", "money-faq", moneyFaq, MONEY_FAQ.length + FAQ.length + " questions"],
   ["tarifs", "reviews", reviews, (REVIEWS.quotes || []).length + " avis"],
 ];
@@ -125,4 +133,39 @@ for (const [page, id, contenu, quoi] of FOURNEES) {
   console.log(`[pages] /${page}/ #${id} : ${quoi}`);
 }
 for (const [f, html] of pages) await writeFile(f, html);
-console.log("[pages] contenu cuit — les 4 pages sont lisibles sans JavaScript");
+
+/* /contact/ : les cibles ne sont pas toutes des <div> vides. On remplit
+   leurs formes exactes ; toute dérive du gabarit fait tomber le build. */
+const contactFile = join(ROOT, "dist", "contact", "index.html");
+let contact = await readFile(contactFile, "utf8");
+const contactReplacements = [
+  ['<a id="addr" href="#" target="_blank" rel="noopener"></a>', `<a id="addr" href="${e(SALLE.mapsLink)}" target="_blank" rel="noopener">${e(SALLE.address.full)}</a>`],
+  ['<ul id="access"></ul>', `<ul id="access">${(SALLE.access || []).map((x) => `<li>${e(x)}</li>`).join("")}</ul>`],
+  ['<p id="hours"></p>', `<p id="hours">${(SALLE.hoursData || []).map((h) => `${e(h.d)} · ${e(h.h)}`).join("<br>")}</p>`],
+  ['<a id="phone" href="#"></a>', `<a id="phone" href="tel:${e(SALLE.phoneHref)}">${e(SALLE.phone)}</a>`],
+  ['<a id="email" href="#"></a>', `<a id="email" href="mailto:${e(SALLE.email)}">${e(SALLE.email)}</a>`],
+  ['<iframe id="map" loading="lazy"', `<iframe id="map" src="${e(SALLE.mapsUrl)}" loading="lazy"`],
+  ['<div class="faq" id="faq"></div>', `<div class="faq" id="faq">${faq(FAQ, "faq")}</div>`],
+];
+for (const [from, to] of contactReplacements) {
+  if (!contact.includes(from)) {
+    console.error(`[pages] cible contact introuvable : ${from}`);
+    process.exit(1);
+  }
+  contact = contact.replace(from, to);
+}
+await writeFile(contactFile, contact);
+console.log(`[pages] /contact/ : adresse, ${(SALLE.access || []).length} accès, ${(SALLE.hoursData || []).length} horaires et ${FAQ.length} réponses`);
+
+/* /activites/ : le sommaire est un <nav>, hors du four générique. */
+const activitiesFile = join(ROOT, "dist", "activites", "index.html");
+let activities = await readFile(activitiesFile, "utf8");
+const emptyIndex = '<nav class="wrap act-index" id="act-index" aria-label="Sommaire des disciplines"></nav>';
+if (!activities.includes(emptyIndex)) {
+  console.error("[pages] #act-index n'est plus vide ou a changé de forme");
+  process.exit(1);
+}
+activities = activities.replace(emptyIndex, `<nav class="wrap act-index" id="act-index" aria-label="Sommaire des disciplines">${actIndex}</nav>`);
+await writeFile(activitiesFile, activities);
+
+console.log("[pages] contenu cuit — activités, coachs, planning, tarifs et contact sont lisibles sans JavaScript");

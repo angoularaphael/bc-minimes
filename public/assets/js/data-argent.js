@@ -20,9 +20,9 @@ import { bcRegister } from "./data.js?v=b56";
    plutôt qu’un compte périmé. Les verbatims, eux, restent des citations
    datées et attribuées. */
 export const REVIEWS = {
-  rating: "4,3",
+  rating: "",
   scale: "5",
-  count: "156",
+  count: "",
   source: "Avis Google",
   quotes: [
     { text: "Très belle salle de boxe. Matos au top, coach et staff accueillant.", author: "Hamed S.", stars: 5 },
@@ -41,7 +41,7 @@ bcRegister("avis", REVIEWS);   /* ce que le staff écrit dans le vestiaire gagne
 export const MONEY_FAQ = [
   {
     q: "L’offre Rentrée à 29€, c’est pour deux ou chacun ?",
-    a: "Chacun. 29€ par personne au lieu de 44€, pour quatre semaines de cours illimités. Viens avec ton binôme : c’est ce qui te fait pousser la porte la troisième semaine, quand la motivation du début est retombée.",
+    a: "Chacun. 29€ par personne toutes les 4 semaines au lieu de 44,99€, cours illimités, sans engagement. Viens avec ton binôme : c’est ce qui te fait pousser la porte la troisième semaine, quand la motivation du début est retombée.",
   },
   {
     q: "259€ d’un coup, c’est raide.",

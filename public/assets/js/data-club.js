@@ -15,7 +15,7 @@ export const TIMELINE = [
   { y: "2016", t: "Le point de départ", d: "Boxing Center ouvre sa toute première salle aux Minimes. Le concept des salles américaines, accès six jours sur sept, plusieurs rings : un quartier qui n’avait rien, et d’un coup une salle." },
   { y: "2018", t: "Les premiers gants", d: "La boxe éducative et le Boxing Lady décollent. Une génération de gamins et de femmes du quartier découvre le noble art." },
   { y: "Le cap", t: "Le passage pro", d: "Johnson et Salomon passent professionnels. La preuve que l’école des Minimes mène loin." },
-  { y: "Depuis", t: "Le vivier", d: "Une trentaine de boxeurs amateurs formés à la maison, et une nouvelle génération qui monte sur le ring chaque saison." },
+  { y: "Depuis", t: "Le vivier", d: "Des boxeurs amateurs formés à la maison saison après saison, et une nouvelle génération qui monte sur le ring chaque année." },
   { y: "Aujourd’hui", t: "Le berceau", d: "Toujours la même salle, toujours les rings. L’école tourne encore, du samedi 14h15 des 3/6 ans au sparring du samedi soir." },
 ];
 export const SPECS = [

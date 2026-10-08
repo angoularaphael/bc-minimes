@@ -53,23 +53,18 @@ function renderBonus() {
 }
 
 function renderReviews() {
+  /* Ni note, ni nombre d’avis, ni étoiles : ordre d’Eddy du 08/10/2026
+     (« no google rating »). La preuve, ce sont les mots des adhérents,
+     attribués, et le lien vers la fiche où chacun lit la source. */
   const rating = $("#rating");
-  const note = String(REVIEWS.rating ?? "").trim();
-  const nb = String(REVIEWS.count ?? "").trim();
-  /* Rien d’affirmé qui ne soit renseigné : pas de note → pas de bloc ;
-     pas de nombre d’avis → la source sans le compte. Un chiffre vidé
-     depuis le vestiaire disparaît de la page, il ne s’y fossilise pas. */
-  if (rating && note) {
-    rating.innerHTML =
-      `<span class="rev-rating__v">${note}<small>/${REVIEWS.scale}</small></span>` +
-      `<span class="rev-rating__src">${REVIEWS.source}${nb ? `<br>${nb} avis` : ""}</span>`;
+  if (rating) {
+    rating.innerHTML = `<a class="rev-rating__src" href="https://www.google.com/maps/search/?api=1&amp;query=Boxing+Center+Minimes+12+rue+de+Fenouillet+31200+Toulouse" target="_blank" rel="noopener">${REVIEWS.source} · lire tous les avis ↗</a>`;
   }
   const box = $("#reviews");
   if (!box) return;
   box.innerHTML = REVIEWS.quotes
     .map(
       (q) => `<figure class="review">
-        <div class="review__stars" aria-label="${q.stars} étoiles sur 5">${"★".repeat(q.stars)}</div>
         <blockquote class="review__text">«&nbsp;${q.text}&nbsp;»</blockquote>
         <figcaption class="review__author">${q.author}</figcaption>
       </figure>`

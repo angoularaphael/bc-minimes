@@ -405,7 +405,7 @@
  * ------------------------------------------------------------------ */
 .actionbar {
   position: fixed; z-index: 8100; inset: auto 0 0 0;
-  display: grid; grid-template-columns: 1fr auto;
+  display: grid; grid-template-columns: 1fr auto auto;
   gap: .6rem; padding: .6rem .7rem calc(.6rem + env(safe-area-inset-bottom));
   background: rgba(255,255,255,.94); backdrop-filter: blur(14px) saturate(1.4);
   border-top: 1px solid var(--hair);
@@ -414,12 +414,12 @@
 }
 .actionbar.is-in { transform: translateY(0); }
 .actionbar .btn { min-height: 52px; padding-inline: 1.1em; font-size: var(--step--2); }
-.actionbar__call {
+.actionbar__call, .actionbar__chat {
   display: inline-grid; place-items: center; width: 52px; height: 52px;
   border: 1.5px solid var(--hair); border-radius: var(--radius); color: var(--navy-600);
   background: var(--paper);
 }
-.actionbar__call svg { width: 21px; height: 21px; }
+.actionbar__call svg, .actionbar__chat svg { width: 21px; height: 21px; }
 @media (min-width: 1240px) { .actionbar { display: none; } }
 /* la page réserve la hauteur de la barre pour que le pied de page ne
    finisse pas sous elle */

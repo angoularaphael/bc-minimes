@@ -7,7 +7,7 @@ import SiteContent from "../components/SiteContent.astro";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Club de boxe à Toulouse | Boxe anglaise, pieds-poings | Minimes</title>
-  <meta name="description" content="Club de boxe à Toulouse (31) : boxe anglaise, boxe éducative, Boxing Lady, pieds-poings, cross training. 4,3/5 sur 156 avis. Tarifs, horaires des cours, photos, plan d’accès. 5 salles, essai 10 €. FFBoxe." />
+  <meta name="description" content="Club de boxe aux Minimes à Toulouse : anglaise, éducative dès 3 ans, Boxing Lady et pieds-poings. Consultez cours, planning, tarifs, accès et séance d’essai." />
 
   <!-- Préconnexion CDN (les libs sont différées) — polices auto-hébergées :
        plus aucune requête vers fonts.googleapis.com / fonts.gstatic.com -->
@@ -115,13 +115,6 @@ import SiteContent from "../components/SiteContent.astro";
         "telephone": "+33562244682",
         "email": "boxingcenter31@gmail.com",
         "priceRange": "€€",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.3",
-          "reviewCount": "156",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "image": "https://boxe-toulouse.com/assets/img/og.jpg",
         "address": {
           "@type": "PostalAddress",
@@ -215,7 +208,7 @@ import SiteContent from "../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -306,13 +299,6 @@ import SiteContent from "../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/#primaryimage"
         },
@@ -392,9 +378,7 @@ import SiteContent from "../components/SiteContent.astro";
           <a class="btn btn--primary btn--lg" data-magnetic data-cursor="go" href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je profite de l’offre à 29€</span></a>
         </div>
         <p class="hero__proof" data-reveal>
-          <span class="rating rating--hero" data-rating="4.3" data-rating-count="156"></span>
-          <span class="hero__proof-sep" aria-hidden="true">·</span>
-          <span class="hero__proof-txt">Gants et matériel prêtés</span>
+          <span class="hero__proof-txt">Salle historique depuis 2016 · Gants et matériel prêtés</span>
         </p>
       </div>
 
@@ -418,7 +402,7 @@ import SiteContent from "../components/SiteContent.astro";
              autant — elle reste dans le hero, juste au-dessus, et en tete de
              la section des avis. Seule case cliquable de la barre : un prix
              sans moyen d'agir dessus est une occasion manquee. -->
-        <a class="trustbar__item trustbar__item--offre" href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=trustbar&utm_campaign=bc-minimes"><span class="trustbar__k"><s class="trustbar__was">44€</s>29€</span><span class="trustbar__v">L’offre rentrée · 4 semaines</span></a>
+        <a class="trustbar__item trustbar__item--offre" href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=trustbar&utm_campaign=bc-minimes"><span class="trustbar__k"><s class="trustbar__was">44,99€</s>29€</span><span class="trustbar__v">L’offre rentrée · 4 semaines</span></a>
         <!-- La deuxieme case porte la SECONDE offre phare, pour que les deux
              tarifs qui font vivre le club se lisent cote a cote, comme dans la
              roulette. La seance d'essai a 10 EUR n'est pas perdue : elle reste
@@ -447,7 +431,7 @@ import SiteContent from "../components/SiteContent.astro";
         <div class="split-sec__body reveal-up">
           <span class="eyebrow">La salle</span>
           <h2 id="t-salle" class="display display--sm">Une vraie salle de boxe.<br>Pas un plateau de <span class="tint">fitness.</span></h2>
-          <p class="lead">Plusieurs rings de compétition, douze sacs, un étage entier pour la préparation physique : vous vous entraînez dans les conditions qui ont formé plus de 8 boxeurs professionnels.</p>
+          <p class="lead">Plusieurs rings de compétition, douze sacs, un étage entier pour la préparation physique : vous vous entraînez dans les conditions qui ont formé des boxeurs amateurs et professionnels.</p>
           <p>Ouverte en 2016, la salle des Minimes est la première du réseau Boxing Center. On y vient pour apprendre le geste juste, pas pour poser devant un miroir — et c’est exactement ce qui rend le premier cours si simple à passer.</p>
           <ul class="benefits">
             <li><b>Plusieurs rings</b> — de quoi travailler en petits groupes, sans attendre son tour</li>
@@ -473,10 +457,10 @@ import SiteContent from "../components/SiteContent.astro";
     <section class="split-sec" data-surface="paper" data-round="2" data-round-name="L’encadrement" aria-labelledby="t-coach">
       <div class="split-sec__grid">
         <div class="split-sec__media reveal-media">
-          <img src="/assets/img/photos/coach-garde-v2-1200.webp"
-               srcset="/assets/img/photos/coach-garde-v2-700.webp 700w, /assets/img/photos/coach-garde-v2-1200.webp 1200w, /assets/img/photos/coach-garde-v2.webp 1386w"
+          <img src="/assets/img/photos/minimes-assaut-encadre.webp"
+               srcset="/assets/img/photos/minimes-assaut-encadre-800.webp 800w, /assets/img/photos/minimes-assaut-encadre.webp 1600w"
                sizes="(min-width: 940px) 46vw, 92vw"
-               alt="Un coach de Boxing Center Minimes corrige la garde d’un boxeur, gants au visage" width="1200" height="800" loading="lazy" decoding="async" />
+               alt="Un coach suit un assaut entre deux boxeurs sur le ring du Boxing Center Minimes" width="1600" height="960" loading="lazy" decoding="async" />
           <span class="split-sec__tag"><b>4</b> coachs diplômés</span>
         </div>
         <div class="split-sec__body reveal-up">
@@ -602,33 +586,31 @@ import SiteContent from "../components/SiteContent.astro";
       <div class="disc-list" id="disciplines"></div>
     </section>
 
-    <!-- ================= 11 · LES AVIS (preuve sociale) ============
-         L'audit avant refonte : la note Google (4,3/5 à l'époque) n'existait que dans le
-         JSON-LD — donc pour Google — et n'apparaissaient nulle part à
-         l'écran. Trois voix de membres ordinaires valent ici plus que
-         trois palmarès de professionnels : le visiteur qui hésite se
-         projette dans le débutant, pas dans le champion. -->
+    <!-- ================= 11 · AVIS DATÉS ==========================
+         Ces trois extraits proviennent du relevé Google du 12/07/2026.
+         Aucune note agrégée n'est publiée sans vérification de la source
+         primaire au moment du build. -->
     <section class="section" data-surface="soft" aria-labelledby="t-avis">
       <div class="sec-head sec-head--split">
         <div class="reveal-up">
-          <span class="eyebrow">Ils s’entraînent ici</span>
+          <span class="eyebrow">Extraits relevés le 12 juillet 2026</span>
           <h2 id="t-avis" class="display display--sm" style="margin-top:1rem">Ce qu’en disent<br>les <span class="tint">adhérents</span></h2>
         </div>
-        <span class="rating" data-rating="4.3" data-rating-count="156"></span>
+        <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Boxing+Center+Minimes+12+rue+de+Fenouillet+31200+Toulouse" target="_blank" rel="noopener"><span>Voir la fiche Google</span></a>
       </div>
       <div class="wrap">
         <div class="reviews stagger">
           <figure class="review reveal-up">
-            <blockquote class="review__txt">Je n’avais jamais fait de sport de combat. En trois séances, j’avais compris la garde et le direct. Personne ne se moque, tout le monde a commencé au même endroit.</blockquote>
-            <figcaption class="review__who"><span class="review__ini">TL</span><span><span class="review__name">Thomas L.</span><br><span class="review__meta">Boxe anglaise loisir · 8 mois</span></span></figcaption>
+            <blockquote class="review__txt">Très belle salle de boxe. Matos au top, coach et staff accueillant.</blockquote>
+            <figcaption class="review__who"><span class="review__ini">HS</span><span><span class="review__name">Hamed S.</span><br><span class="review__meta">Extrait d’un avis Google</span></span></figcaption>
           </figure>
           <figure class="review reveal-up">
-            <blockquote class="review__txt">Le cours Lady est ce qui m’a fait rester. On y travaille sérieusement, sans se sentir jugée, et la coach corrige vraiment chaque geste.</blockquote>
-            <figcaption class="review__who"><span class="review__ini">SM</span><span><span class="review__name">Sarah M.</span><br><span class="review__meta">Boxing Lady · 2 ans</span></span></figcaption>
+            <blockquote class="review__txt">J’ai adoré mes trois ans passés à faire du sport à Boxing Center. Équipe au top.</blockquote>
+            <figcaption class="review__who"><span class="review__ini">SC</span><span><span class="review__name">Salomé C.</span><br><span class="review__meta">Extrait d’un avis Google</span></span></figcaption>
           </figure>
           <figure class="review reveal-up">
-            <blockquote class="review__txt">Mon fils y va depuis ses 6 ans. Il a gagné en confiance et en calme — et il n’a jamais pris un coup qu’il n’avait pas choisi de prendre.</blockquote>
-            <figcaption class="review__who"><span class="review__ini">KB</span><span><span class="review__name">Karim B.</span><br><span class="review__meta">Parent · boxe éducative</span></span></figcaption>
+            <blockquote class="review__txt">Superbe salle, très bonne ambiance. Je pratique les cours de boxe anglaise loisir.</blockquote>
+            <figcaption class="review__who"><span class="review__ini">PL</span><span><span class="review__name">Pascal L.</span><br><span class="review__meta">Extrait d’un avis Google</span></span></figcaption>
           </figure>
         </div>
       </div>
@@ -638,10 +620,10 @@ import SiteContent from "../components/SiteContent.astro";
     <section class="split-sec" data-surface="paper" data-round="7" data-round-name="Préparation physique" aria-labelledby="t-cross">
       <div class="split-sec__grid">
         <div class="split-sec__media reveal-media">
-          <img src="/assets/img/photos/jumps-groupe-1200.webp"
-               srcset="/assets/img/photos/jumps-groupe-700.webp 700w, /assets/img/photos/jumps-groupe-1200.webp 1200w, /assets/img/photos/jumps-groupe.webp 2000w"
+          <img src="/assets/img/photos/minimes-cross-training-groupe.webp"
+               srcset="/assets/img/photos/minimes-cross-training-groupe-800.webp 800w, /assets/img/photos/minimes-cross-training-groupe.webp 1600w"
                sizes="(min-width: 940px) 46vw, 92vw"
-               alt="Groupe en préparation physique : sauts sur box en bois entre les sacs de frappe" width="1200" height="798" loading="lazy" decoding="async" />
+               alt="Groupe en circuit de préparation physique avec barres au Boxing Center Minimes" width="1600" height="960" loading="lazy" decoding="async" />
           <span class="split-sec__tag">Du lundi au <b>samedi</b></span>
         </div>
         <div class="split-sec__body reveal-up">
@@ -728,7 +710,7 @@ import SiteContent from "../components/SiteContent.astro";
         <h2 id="seo-title" class="display display--xs" style="margin-bottom:1.2rem">Salle de boxe anglaise à Toulouse Minimes — Barrière de Paris (31200)</h2>
         <p>Le <strong>Boxing Center Minimes</strong> est une <strong>salle de boxe à Toulouse</strong> située au 12 rue de Fenouillet, dans le quartier des <strong>Minimes</strong>, à trois minutes à pied de la station <strong>Barrière de Paris</strong> sur la <strong>ligne B du métro</strong>. C’est la salle historique du réseau Boxing Center, ouverte en 2016.</p>
         <p>On y pratique d’abord la <strong>boxe anglaise</strong>, sur plusieurs rings, en <strong>cours débutants</strong> comme en préparation à la compétition. La salle propose également la <strong>boxe éducative pour enfants dès 3 ans</strong> (Baby Boxe 3–6 ans), le <strong>Boxing Lady</strong> réservé aux femmes, la <strong>boxe pieds-poings</strong>, le <strong>cardio boxing sans contact</strong> et un plateau de <strong>cross training</strong> en accès libre.</p>
-        <p>La <strong>séance d’essai est à 10 €</strong>, gants et protections prêtés. L’<strong>offre de rentrée revient à 29 € par personne</strong> (au lieu de 44 €) pour quatre semaines de cours illimités, sans engagement. La salle est <strong>ouverte du lundi au samedi, de 10h à 21h30</strong>.</p>
+        <p>La <strong>séance d’essai est à 10 €</strong>, gants et protections prêtés. L’<strong>offre de rentrée revient à 29 € par personne</strong> (au lieu de 44,99 €) toutes les quatre semaines, cours illimités, sans engagement. La salle est <strong>ouverte du lundi au samedi, de 10h à 21h30</strong>.</p>
         <p>Le club dessert tout <strong>Toulouse nord</strong> : <strong>Les Minimes</strong>, <strong>Barrière de Paris</strong>, <strong>Lalande</strong>, <strong>Borderouge</strong>, <strong>Bonnefoy</strong>, <strong>Sept Deniers</strong>, ainsi que les communes proches d’<strong>Aucamville</strong> et <strong>Launaguet</strong>. Site officiel : <a href="https://boxe-toulouse.com/">boxe-toulouse.com</a> — plan des cours, tarifs et contact.</p>
       </div>
     </section>
@@ -742,7 +724,7 @@ import SiteContent from "../components/SiteContent.astro";
       <div class="gong__inner">
         <span class="eyebrow" data-reveal>Prêt à commencer</span>
         <h2 class="display" data-reveal>Votre place<br>vous <span class="tint">attend.</span></h2>
-        <p class="lead" data-reveal>Quatre semaines de cours illimités, toutes disciplines comprises, à <s class="was">44&nbsp;€</s> <strong>29&nbsp;€ par personne</strong> — sans engagement. Vous préférez voir avant de vous décider ? La séance d’essai est à 10&nbsp;€, matériel prêté.</p>
+        <p class="lead" data-reveal>Quatre semaines de cours illimités, toutes disciplines comprises, à <s class="was">44,99&nbsp;€</s> <strong>29&nbsp;€ par personne</strong> — sans engagement. Vous préférez voir avant de vous décider ? La séance d’essai est à 10&nbsp;€, matériel prêté.</p>
         <p class="places" data-places hidden></p>
         <div class="gong__cta" data-reveal>
           <a class="btn btn--primary btn--lg" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je profite de l’offre à 29€</span></a>

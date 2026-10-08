@@ -25,7 +25,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <!-- LCP : l’image du hero est construite en JS, donc invisible au preload
        scanner (parse → module → import data.js → new Image()). Le preload
        rattrape la découverte perdue (§5.8 « preload de l’image LCP »). -->
-  <link rel="preload" as="image" href="/assets/img/photos/ring-cours-rouge-1200.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/photos/minimes-ring-cours.webp" fetchpriority="high" />
 
   <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
@@ -223,7 +223,7 @@ import SiteContent from "../../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -314,13 +314,6 @@ import SiteContent from "../../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/plannings/#primaryimage"
         },
@@ -668,7 +661,7 @@ import SiteContent from "../../components/SiteContent.astro";
          .page-head partagé (base.css) + le rail de la semaine, qui
          n’existe que sur cette page. -->
     <section class="page-head" aria-label="Le planning">
-      <div class="page-head__bg" aria-hidden="true"><div class="media" data-img="/assets/img/photos/ring-cours-rouge-1200.webp" data-eager data-label=""></div></div>
+      <div class="page-head__bg"><div class="media" data-label="Cours sur le ring des Minimes"><img src="/assets/img/photos/minimes-ring-cours.webp" srcset="/assets/img/photos/minimes-ring-cours-800.webp 800w, /assets/img/photos/minimes-ring-cours.webp 1600w" sizes="100vw" width="1600" height="960" alt="Plusieurs binômes travaillent simultanément sur le ring du Boxing Center Minimes." loading="eager" decoding="async" fetchpriority="high" /></div></div>
       <div class="wrap">
         <span class="eyebrow" data-reveal><span id="season">Saison 2026 — 2027</span> · Barrière de Paris</span>
         <h1 class="display" style="margin:1rem 0 1.2rem"><span class="reveal-mask"><span>La semaine </span></span><span class="reveal-mask"><span class="tint">des Minimes.</span></span></h1>

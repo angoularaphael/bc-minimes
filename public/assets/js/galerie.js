@@ -3,7 +3,7 @@
    Mosaïque N&B du pool photo réel (data.js GALLERY), filtres par zone,
    légendes mono, lazy, + lightbox plein écran. Énergie mur-de-champion.
    ===================================================================== */
-import { GALLERY } from "./data-galerie.js?v=b56";
+import { GALLERY } from "./data-galerie.js?v=b57";
 import { DISCIPLINES } from "./data-disciplines.js?v=b56";
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -25,9 +25,8 @@ function renderFilters() {
 
 /* ------------------- CE QUE LE CADRE COUPE ------------------------
    La page ne montrait qu’une mosaïque et s’arrêtait là — l’écran le plus
-   maigre des huit. Elle ne peut pas prétendre montrer LA salle des
-   Minimes (le shooting n’a pas eu lieu) : elle assume donc l’inverse et
-   dit ce qu’aucune photo ne rend. Honnête, et propre à cette page. */
+   maigre des huit. Le shooting Minimes existe désormais ; cette section
+   conserve son rôle complémentaire et dit ce qu’aucune photo ne rend. */
 function renderOffFrame() {
   const box = $("#ga-offframe");
   if (!box) return;

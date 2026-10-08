@@ -16,17 +16,17 @@
    1. Si GOOGLE_PLACES_API_KEY est dans l'environnement, il demande à
       l'API Places (New) la note et le nombre d'avis du jour, et met
       src/avis-google.json à jour.
-   2. Sans clé — ou si l'appel échoue — il garde la dernière valeur
-      connue, celle qui est commitée. Le site reste juste ; il cesse
-      seulement de se rafraîchir. Un build ne DOIT jamais échouer parce
-      que Google est indisponible.
-   3. Dans tous les cas, il répand la valeur dans les quatre endroits
-      qui l'affichent. Personne n'a plus à les tenir à la main.
+   2. Sans clé — ou si l'appel échoue — il RETIRE l'agrégat du site.
+      Le dernier relevé reste dans avis-google.json comme historique,
+      mais une valeur historique n'est pas présentée comme actuelle.
+   3. Après une réponse valide seulement, il publie la note dans les deux
+      sources d'affichage. Le JSON-LD n'expose aucun aggregateRating : les
+      avis auto-déclarés d'un LocalBusiness ne justifient pas ce balisage.
 
    GARDE-FOU. Une réponse invraisemblable est refusée, pas écrite : note
    hors de [1;5], ou nombre d'avis qui CHUTE de plus de 10 %. Google
-   renvoie parfois une fiche voisine sur une recherche textuelle ; on
-   préfère une valeur d'hier à une valeur d'à côté.
+   renvoie parfois une fiche voisine sur une recherche textuelle ; le
+   script exige donc aussi l'adresse de la rue de Fenouillet.
 
    Usage : `npm run prebuild`.
    ===================================================================== */
@@ -37,6 +37,8 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = join(ROOT, "src", "avis-google.json");
 const avis = JSON.parse(await readFile(SOURCE, "utf8"));
+let verifieMaintenant = false;
+const normaliser = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 /* ---------- 1. la note du jour, si on a le droit de la demander ---------- */
 const CLE = process.env.GOOGLE_PLACES_API_KEY;
@@ -54,43 +56,42 @@ if (CLE) {
     });
     const j = await r.json();
     const p = j.places && j.places[0];
-    if (!p || typeof p.rating !== "number") throw new Error("aucune fiche renvoyee");
+    if (!p || typeof p.rating !== "number" || typeof p.userRatingCount !== "number")
+      throw new Error("aucune fiche exploitable renvoyee");
 
     const note = p.rating;
     const n = p.userRatingCount;
     const plancher = Math.floor(avis.avis * 0.9);
+    const adresse = normaliser(p.formattedAddress);
     if (note < 1 || note > 5) throw new Error(`note invraisemblable : ${note}`);
     if (n < plancher) throw new Error(`chute du nombre d'avis : ${avis.avis} -> ${n} (fiche voisine ?)`);
+    if (!adresse.includes("fenouillet") || !adresse.includes("31200"))
+      throw new Error("adresse renvoyee differente de la fiche Minimes");
 
     avis.note = note.toFixed(1).replace(".", ",");
     avis.avis = n;
     avis.releve_le = new Date().toISOString().slice(0, 10);
     avis.releve_par = "API Google Places (New), searchText";
     await writeFile(SOURCE, JSON.stringify(avis, null, 2) + "\n");
+    verifieMaintenant = true;
     console.log(`[avis] Google dit ${avis.note}/5 sur ${avis.avis} avis — source a jour`);
   } catch (e) {
-    console.warn(`[avis] Google injoignable ou reponse douteuse (${e.message}) — on garde ${avis.note}/5 sur ${avis.avis} avis du ${avis.releve_le}`);
+    console.warn(`[avis] Google injoignable ou reponse douteuse (${e.message}) — agrégat omis du site`);
   }
 } else {
-  console.log(`[avis] pas de GOOGLE_PLACES_API_KEY — valeur figee : ${avis.note}/5 sur ${avis.avis} avis (releve du ${avis.releve_le})`);
+  console.log("[avis] pas de GOOGLE_PLACES_API_KEY — agrégat omis du site (aucune valeur périmée publiée)");
 }
 
-/* ---------- 2. on repand la valeur partout où elle s'affiche ---------- */
-const point = avis.note.replace(",", "."); // JSON-LD veut un point decimal
-const n = String(avis.avis);
+/* ---------- 2. publication uniquement si la source vient d'être vérifiée ---------- */
+const notePublique = verifieMaintenant ? avis.note : "";
+const nPublic = verifieMaintenant ? String(avis.avis) : "";
 
 const ECRITURES = [
   // fichier                       , motif a remplacer                     , remplacement
-  ["src/content.json",             /("rating":\s*")[^"]*(")/,              `$1${avis.note}$2`],
-  ["src/content.json",             /("count":\s*")[^"]*(")/,               `$1${n}$2`],
-  ["public/assets/js/data-argent.js", /(rating:\s*")[^"]*(")/,             `$1${avis.note}$2`],
-  ["public/assets/js/data-argent.js", /(count:\s*")[^"]*(")/,              `$1${n}$2`],
-  ["src/pages/index.astro",        /("ratingValue":\s*")[^"]*(")/,         `$1${point}$2`],
-  ["src/pages/index.astro",        /("reviewCount":\s*")[^"]*(")/,         `$1${n}$2`],
-  ["src/pages/index.astro",        /(data-rating=")[^"]*(")/g,             `$1${point}$2`],
-  ["src/pages/index.astro",        /(data-rating-count=")[^"]*(")/g,       `$1${n}$2`],
-  // meta description — optionnel : un changement de texte SERP ne doit pas casser le build
-  ["src/pages/index.astro",        /\d,\d\/5 sur [\d\s\u202f]+ avis/,          `${avis.note}/5 sur ${n} avis`, { optional: true }],
+  ["src/content.json",                /("rating":\s*")[^"]*(")/, `$1${notePublique}$2`],
+  ["src/content.json",                /("count":\s*")[^"]*(")/,  `$1${nPublic}$2`],
+  ["public/assets/js/data-argent.js", /(rating:\s*")[^"]*(")/,   `$1${notePublique}$2`],
+  ["public/assets/js/data-argent.js", /(count:\s*")[^"]*(")/,    `$1${nPublic}$2`],
 ];
 
 const tampon = new Map();
@@ -112,4 +113,4 @@ for (const [rel, motif, rempl, opts = {}] of ECRITURES) {
 }
 let touches = 0;
 for (const [f, t] of tampon) { await writeFile(f, t); touches++; }
-console.log(`[avis] ${avis.note}/5 sur ${n} avis ecrit dans ${touches} fichier(s)`);
+console.log(`[avis] agrégat ${verifieMaintenant ? "vérifié et publié" : "neutralisé"} dans ${touches} fichier(s)`);

@@ -170,7 +170,7 @@ function mountFooter() {
           <div class="netband__grid">${salles}</div>
         </div>
         <div class="footer__bottom">
-          <span>© ${new Date().getFullYear()} Boxing Center — Maquette Minimes</span>
+          <span>© ${new Date().getFullYear()} SAS Boxing Center · Boxing Center Minimes · <a href="/mentions-legales/">Mentions légales</a></span>
           <span>Toulouse · Les Minimes · 31200</span>
         </div>
       </div>
@@ -719,7 +719,8 @@ function alternate(scope = document) {
    Mesuré avant refonte : 13 000 px de page d'accueil sans un seul bouton
    d'inscription entre le hero et la grille de tarifs, et deux pastilles
    flottantes qui se chevauchaient de 65×25 px en bas de l'écran mobile.
-   Une seule barre remplace tout ça : elle apparaît une fois le hero passé
+   Une seule barre remplace tout ça : inscription, assistant et téléphone.
+   Elle apparaît une fois le hero passé
    (avant, elle masquerait le CTA du hero pour rien) et disparaît quand le
    pied de page arrive (là, les liens sont déjà à l'écran). */
 function mountActionBar() {
@@ -728,10 +729,16 @@ function mountActionBar() {
   bar.className = "actionbar";
   bar.innerHTML = `
     <a class="btn btn--primary" href="${CTA_HREF.primary}"><span>${CTA.chrome}</span></a>
+    <button class="actionbar__chat" type="button" aria-label="Ouvrir l’assistant du club">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.4 9.4 0 0 1-4-.9L3 21l1.7-4.4A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg>
+    </button>
     <a class="actionbar__call" href="tel:${SALLE.phoneHref}" aria-label="Appeler la salle au ${SALLE.phone}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
     </a>`;
   document.body.appendChild(bar);
+  bar.querySelector(".actionbar__chat")?.addEventListener("click", () => {
+    document.querySelector("a.chatbot, button.chatbot")?.click();
+  });
 
   const hero = document.querySelector(".hero, .page-head");
   const foot = document.querySelector(".footer, #footer");
@@ -776,7 +783,7 @@ function promoOffers() {
     price: rentree.price || "29€",
     name: rentree.name || "L’offre Rentrée",
     detail: `${rentree.unit || "par personne"} · ${(rentree.period || "4 semaines").replace(/^·\s*/, "")} illimitées`,
-    was: rentree.was || "44€",
+    was: rentree.was || "44,99€",
     cut: "-34%",
     /* La fiche de l’offre, pas le tunnel de commande : on clique sur une
        offre pour la LIRE. rentree.href vaut /offre/29, exactement comme la

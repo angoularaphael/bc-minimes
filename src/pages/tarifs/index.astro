@@ -17,7 +17,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
 
   <!-- LCP : le hero est construit en JS → invisible au preload scanner (§5.8) -->
-  <link rel="preload" as="image" href="/assets/img/photos/cross-rack-1200.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/photos/minimes-cross-training-barre.webp" fetchpriority="high" />
 
   <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
@@ -205,7 +205,7 @@ import SiteContent from "../../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -296,13 +296,6 @@ import SiteContent from "../../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/tarifs/#primaryimage"
         },
@@ -451,11 +444,11 @@ import SiteContent from "../../components/SiteContent.astro";
 
     <!-- ========================= EN-TÊTE ========================== -->
     <section class="page-head page-head--tar" aria-label="Tarifs et offres">
-      <div class="page-head__bg" aria-hidden="true"><div class="media" data-img="/assets/img/photos/cross-rack-1200.webp" data-eager data-label=""></div></div>
+      <div class="page-head__bg"><div class="media" data-label="Préparation physique aux Minimes"><img src="/assets/img/photos/minimes-cross-training-barre.webp" srcset="/assets/img/photos/minimes-cross-training-barre-800.webp 800w, /assets/img/photos/minimes-cross-training-barre.webp 1600w" sizes="100vw" width="1600" height="2158" alt="Une pratiquante effectue un mouvement de préparation physique avec une barre au Boxing Center Minimes." loading="eager" decoding="async" fetchpriority="high" /></div></div>
       <div class="wrap">
         <span class="eyebrow" data-reveal>Tarifs · <span id="season">Saison 2026 — 2027</span></span>
         <h1 class="display" style="margin:1rem 0 0"><span class="reveal-mask"><span>Le prix, </span></span><span class="reveal-mask"><span class="tint">sans détour.</span></span></h1>
-        <p class="lead page-head__lead" data-reveal><s class="was">44€</s> 29€ par personne, quatre semaines, toutes les disciplines. Tu vois si le ring te parle — tu t’engages seulement si tu reviens. Tout est dessous, noir sur blanc.</p>
+        <p class="lead page-head__lead" data-reveal><s class="was">44,99€</s> 29€ par personne, quatre semaines, toutes les disciplines. Tu vois si le ring te parle — tu t’engages seulement si tu reviens. Tout est dessous, noir sur blanc.</p>
         <div class="tar-note" aria-hidden="true" data-reveal>
           <div class="tar-note__v">29€</div>
           <div class="tar-note__l">La rentrée, par personne</div>

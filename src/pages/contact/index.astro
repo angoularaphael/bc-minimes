@@ -17,7 +17,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
 
   <!-- LCP : le hero est construit en JS → invisible au preload scanner (§5.8) -->
-  <link rel="preload" as="image" href="/assets/img/photos/ballon-vitesse-1200.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/photos/minimes-gants.webp" fetchpriority="high" />
 
   <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/club.css?v=b56" />
@@ -206,7 +206,7 @@ import SiteContent from "../../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -297,13 +297,6 @@ import SiteContent from "../../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/contact/#primaryimage"
         },
@@ -368,7 +361,7 @@ import SiteContent from "../../components/SiteContent.astro";
             "name": "Quelle est la spécialité de la salle des Minimes ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La boxe anglaise. C’est la salle historique du groupe, le berceau de plus de 8 boxeurs professionnels et amateurs — avec plusieurs rings dédiés."
+              "text": "La boxe anglaise. C’est la salle historique du groupe, avec trois rings : le berceau de nombreux champions, professionnels et amateurs, formés par son pôle compétiteur."
             }
           },
           {
@@ -448,7 +441,7 @@ import SiteContent from "../../components/SiteContent.astro";
 
     <!-- ========================= EN-TÊTE ========================== -->
     <section class="page-head page-head--con" aria-label="Contact">
-      <div class="page-head__bg" aria-hidden="true"><div class="media" data-img="/assets/img/photos/ballon-vitesse-1200.webp" data-eager data-label=""></div></div>
+      <div class="page-head__bg"><div class="media" data-label="Les gants sont prêts"><img src="/assets/img/photos/minimes-gants.webp" srcset="/assets/img/photos/minimes-gants-800.webp 800w, /assets/img/photos/minimes-gants.webp 1600w" sizes="100vw" width="1600" height="1036" alt="Une paire de gants blancs et dorés au Boxing Center Minimes." loading="eager" decoding="async" fetchpriority="high" /></div></div>
       <div class="wrap">
         <span class="eyebrow" data-reveal>Contact · Les Minimes</span>
         <h1 class="display" style="margin:1rem 0 0"><span class="reveal-mask"><span>On répond, </span></span><span class="reveal-mask"><span class="tint">pour de vrai.</span></span></h1>

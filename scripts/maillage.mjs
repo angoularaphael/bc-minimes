@@ -91,7 +91,7 @@ const PIED =
   cols.map((c) => `<div class="footer__col"><h4>${attr(c.h)}</h4>${c.links.map((l) => l.ext ? extLink(l.href, l.label) : `<a href="${attr(l.href)}">${attr(l.label)}</a>`).join("")}</div>`).join("") +
   `</div>` +
   `<div class="netband"><h4 class="netband__h">Les autres salles du réseau</h4><div class="netband__grid">${salles}</div></div>` +
-  `<div class="footer__bottom"><span>© ${new Date().getFullYear()} Boxing Center — Maquette Minimes</span><span>Toulouse · Les Minimes · 31200</span></div>` +
+  `<div class="footer__bottom"><span>© ${new Date().getFullYear()} SAS Boxing Center · Boxing Center Minimes · <a href="/mentions-legales/">Mentions légales</a></span><span>Toulouse · Les Minimes · 31200</span></div>` +
   `</div></footer>`;
 
 const CIBLE_NAV = '<div id="nav"></div>';

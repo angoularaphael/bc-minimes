@@ -40,12 +40,12 @@
         "name": "L’offre Rentrée",
         "price": "29€",
         "unit": "par personne",
-        "was": "44€",
+        "was": "44,99€",
         "period": "· 4 semaines",
         "feature": "Cours illimités, toutes disciplines, sans engagement",
         "items": [
-          "29€ par personne (au lieu de 44€)",
-          "4 semaines de cours illimités",
+          "29€ par personne (au lieu de 44,99€)",
+          "Toutes les 4 semaines, cours illimités",
           "Toutes les disciplines",
           "Encore mieux à deux — 29€ chacun"
         ],
@@ -74,12 +74,12 @@
       {
         "key": "classiques",
         "name": "L’abonnement au mois",
-        "price": "44€",
+        "price": "44,99€",
         "period": "/ 4 semaines · adulte",
-        "feature": "Étudiant 36€ sur justificatif — le tarif de tous les jours",
+        "feature": "Étudiant 36,99€ sur justificatif — le tarif de tous les jours",
         "items": [
-          "Adulte 44€ / 4 semaines",
-          "Étudiant 36€ / 4 semaines",
+          "Adulte 44,99€ / 4 semaines",
+          "Étudiant 36,99€ / 4 semaines",
           "Accès aux 5 salles, toutes les disciplines",
           "Sans engagement"
         ],
@@ -119,9 +119,9 @@
     ]
   },
   "avis": {
-    "rating": "4,3",
+    "rating": "",
     "scale": "5",
-    "count": "156",
+    "count": "",
     "source": "Avis Google"
   },
   "coaches": {
@@ -418,7 +418,7 @@
     },
     {
       "q": "Quelle est la spécialité de la salle des Minimes ?",
-      "a": "La boxe anglaise. C’est la salle historique du groupe, le berceau de plus de 8 boxeurs professionnels et amateurs — avec plusieurs rings dédiés."
+      "a": "La boxe anglaise. C’est la salle historique du groupe, avec trois rings : le berceau de nombreux champions, professionnels et amateurs, formés par son pôle compétiteur."
     },
     {
       "q": "Y a-t-il des cours pour les enfants ?",

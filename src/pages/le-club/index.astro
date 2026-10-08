@@ -17,7 +17,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
 
   <!-- LCP : le hero est construit en JS → invisible au preload scanner (§5.8) -->
-  <link rel="preload" as="image" href="/assets/img/photos/salle-plongee-1200.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/photos/minimes-salle-entrainement.webp" fetchpriority="high" />
 
   <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/club.css?v=b56" />
@@ -210,7 +210,7 @@ import SiteContent from "../../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -301,13 +301,6 @@ import SiteContent from "../../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/le-club/#primaryimage"
         },
@@ -373,7 +366,7 @@ import SiteContent from "../../components/SiteContent.astro";
 
     <!-- ========================= PAGE HEAD ======================== -->
     <header class="club-head">
-      <div class="club-head__media" aria-hidden="true"><div class="media" data-img="/assets/img/photos/salle-plongee-1200.webp" data-eager data-label="La salle historique"></div></div>
+      <div class="club-head__media"><div class="media" data-label="La salle des Minimes en activité"><img src="/assets/img/photos/minimes-salle-entrainement.webp" srcset="/assets/img/photos/minimes-salle-entrainement-800.webp 800w, /assets/img/photos/minimes-salle-entrainement.webp 1600w" sizes="100vw" width="1600" height="960" alt="Le plateau, les sacs et les pratiquants du Boxing Center Minimes à Toulouse." loading="eager" decoding="async" fetchpriority="high" /></div></div>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="wrap club-head__inner">
         <p class="eyebrow" data-reveal>Le club · Les Minimes</p>

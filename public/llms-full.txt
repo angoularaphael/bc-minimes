@@ -60,7 +60,7 @@
 
 ## Le club — https://boxe-toulouse.com/le-club/
 
-- Histoire : Boxing Center ouvre sa première salle aux Minimes en 2016 (concept des salles américaines, accès six jours sur sept, plusieurs rings). En 2018, la boxe éducative et le Boxing Lady décollent. Johnson Suffo et Salomon Kitoko passent professionnels. Une trentaine de boxeurs amateurs formés à la maison.
+- Histoire : Boxing Center ouvre sa première salle aux Minimes en 2016 (concept des salles américaines, accès six jours sur sept, plusieurs rings). En 2018, la boxe éducative et le Boxing Lady décollent. Johnson Suffo et Salomon Kitoko passent professionnels. La salle est le berceau de nombreux champions, professionnels et amateurs, formés par son pôle compétiteur.
 - Équipement : plusieurs rings de boxe, 12 sacs lourds, zone pattes d’ours, prépa physique à l’étage, vestiaires hommes/femmes.
 - Affiliations : FFBoxe, FFKMDA, FMMAF.
 - Adresse : 12 rue de Fenouillet, 31200 Toulouse.
@@ -163,20 +163,20 @@ Ce que le club NE fait PAS lors d’une première séance :
 - Pas d’engagement, pas de dossier, pas de prélèvement à résilier.
 
 À apporter : t-shirt, short ou legging, baskets propres, bouteille d’eau, de quoi se changer. Gants, bandes et protections prêtés.
-Prix : séance d’essai 10 €. L’offre Rentrée à 29 € par personne (4 semaines illimitées) est rentabilisée dès la deuxième séance.
+Prix : séance d’essai 10 €. L’offre Rentrée à 29 € par personne toutes les 4 semaines est rentabilisée dès la deuxième séance.
 Créneaux conseillés pour une première : anglaise loisirs 19h40 (lundi, mardi, jeudi, vendredi) ou 12h40 (mardi, mercredi, jeudi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp mardi et jeudi 18h30 ou samedi 11h ; école le mercredi et le samedi après-midi pour les enfants.
 
 ## Tarifs & offres — https://boxe-toulouse.com/tarifs/
 
 - Séance d’essai : 10 € la séance — toutes les disciplines, gants et protections prêtés, sans engagement, sans dossier. → https://boutique.boxingcenter.fr/seance-essai
-- Offre Rentrée : 29 € par personne (au lieu de 44,99 €) — 4 semaines de cours illimités, toutes disciplines, sans engagement. Encore mieux à deux : chacun 29 €. → https://boutique.boxingcenter.fr/offre/29
+- Offre Rentrée : 29 € par personne toutes les 4 semaines (au lieu de 44,99 €) — cours illimités, toutes disciplines, sans engagement ; première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge d’accès 34,99 € facturé 72 h après le début. Encore mieux à deux : chacun 29 €. → https://boutique.boxingcenter.fr/offre/29
 - Saison complète : 259 € les 12 mois (au lieu de 400 €) — payable en 4× sans frais ; anglaise, MMA, pieds-poings, Lady, fitness ; accès libre aux 5 clubs du réseau. → https://boutique.boxingcenter.fr/offre/259
 - École de boxe : 295 € l’année t-shirt inclus, baby 250 € — Baby Boxe dès 3 ans (3/6), éducative 7/11, ados 12/16, compétiteurs encadrés par Mehdi → https://boutique.boxingcenter.fr/abonnements
 - Bonus : le t-shirt Boxing Center est inclus dans toute inscription enfant — pour tous, sans condition et sans quota.
 ### Les questions d’argent (rendues sur /tarifs/, hors FAQPage)
 
 - Première fois : 10 €, une séance, la discipline au choix, gants et protections prêtés, sans dossier ni engagement.
-- L’offre Rentrée se compte PAR PERSONNE : 29 € chacun (au lieu de 44 €), pas 29 € pour deux.
+- L’offre Rentrée se compte PAR PERSONNE : 29 € chacun (au lieu de 44,99 €), pas 29 € pour deux.
 - La saison est payable en 4× sans frais : 259 € les 12 mois, soit moins de 65 € par échéance et environ 22 € par mois.
 - L’abonnement saison ouvre l’accès libre aux 5 clubs du réseau, pas seulement aux Minimes.
 - Enfants : 250 € l’année pour la Baby Boxe (3/6 ans), 295 € au-delà (éducative 7/11, ados 12/16), t-shirt du club inclus.
@@ -200,7 +200,7 @@ Créneaux conseillés pour une première : anglaise loisirs 19h40 (lundi, mardi,
 ### FAQ
 - Où se trouve Boxing Center Minimes ? — Au 12 rue de Fenouillet, 31200 Toulouse, dans le quartier des Minimes — Barrière de Paris, à 3 minutes du métro ligne B.
 - Je n’ai jamais boxé. Je peux venir ? — Oui. Il y a des créneaux débutants et du cardio boxing sans aucun coup reçu.
-- Quelle est la spécialité de la salle des Minimes ? — La boxe anglaise. C’est la salle historique du groupe, le berceau de plusieurs boxeurs professionnels et amateurs — avec plusieurs rings dédiés.
+- Quelle est la spécialité de la salle des Minimes ? — La boxe anglaise. C’est la salle historique du groupe, avec trois rings : le berceau de nombreux champions, professionnels et amateurs, formés par son pôle compétiteur. (source : boxingcenter.fr, page de la salle des Minimes)
 - Y a-t-il des cours pour les enfants ? — Oui, dès 3 ans : Baby Boxe 3/6, éducative 7/11, ados 12/16, puis compétiteurs. 250 € l’année pour la Baby Boxe, 295 € au-delà, t-shirt du club inclus.
 - Il y a des cours pour les femmes ? — Le Boxing Lady est 100 % féminin : lundi et mercredi 18h30. Tous les autres cours sont ouverts.
 - Quels sont les horaires ? — Du lundi au samedi, de 10h00 à 21h30. Fermé le dimanche.

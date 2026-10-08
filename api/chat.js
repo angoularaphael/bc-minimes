@@ -21,10 +21,10 @@ const STATIC_TAIL = `- Accès : métro ligne B station Barrière de Paris, 3 min
 - Réseau Boxing Center : Portet-sur-Garonne (vaisseau amiral), États-Unis, Saint-Cyprien, Ramonville. L’abonnement saison ouvre l’accès libre aux 5 clubs. Groupe : boxingcenter.fr.`;
 
 /* Repli si content.json est illisible : les mêmes faits, figés. */
-const STATIC_INFO = `- Boxing Center Minimes : salle historique du groupe Boxing Center (depuis 2016), quartier des Minimes / Barrière de Paris. Spécialité maison : la boxe anglaise. « Le berceau des champions. »
+const STATIC_INFO = `- Boxing Center Minimes : salle historique du groupe Boxing Center (depuis 2016), quartier des Minimes / Barrière de Paris. Spécialité maison : la boxe anglaise. « Le berceau des champions. » Trois rings ; le berceau de nombreux champions, professionnels et amateurs, formés par le pôle compétiteur de la salle. Ne cite jamais de nombre de champions.
 - Adresse : 12 rue de Fenouillet, 31200 Toulouse. Téléphone : 05 62 24 46 82. Email : boxingcenter31@gmail.com.
 - Horaires : du lundi au samedi, 10h00 – 21h30. Fermé le dimanche.
-- Tarifs (dans l’ordre où on les propose) : offre RENTRÉE 29€ PAR PERSONNE pour 4 semaines illimitées (au lieu de 44€) ; saison complète 259€ les 12 mois payable en 4× sans frais (au lieu de 400€) ; école 295€ l’année t-shirt du club inclus, Baby Boxe 250€ ; séance d’essai 10€ EN DERNIER.
+- Tarifs (dans l’ordre où on les propose) : offre RENTRÉE 29€ PAR PERSONNE toutes les 4 semaines, cours illimités, sans engagement (au lieu de 44,99€) — conditions à annoncer : première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge d’accès 34,99€ facturé 72 h après le début ; saison complète 259€ les 12 mois au lieu de 400€, comptant ou en 4× sans frais (4 × 64,75€, plusieurs options de paiement en 4× sur la boutique), accès aux 5 clubs ; hors promotion : 44,99€ adulte, 36,99€ étudiant toutes les 4 semaines, badge d’accès 34,99€ en sus ; école 295€ l’année t-shirt du club inclus, Baby Boxe 250€ ; séance d’essai 10€ EN DERNIER.
 - Disciplines : boxe anglaise (loisirs et compétiteurs), boxe éducative dès 3 ans (Baby Boxe 3/6, enfants 7/11, ados 12/16), Boxing Lady 100 % féminin, Boxing camp, boxe pieds-poings, PAOS et pattes d’ours, cross training et cardio boxing en accès libre.
 - Coachs : Mehdi B (coach principal, anglaise, école, compétiteurs, camp, sparring), Chloé et David (Boxing Lady, pieds-poings), Clément (Boxing camp). Ne JAMAIS dire quel coach tient quel créneau ni quel jour : renvoyer vers le planning.
 - Planning : anglaise loisirs le midi 12h40 (mardi, mercredi, jeudi) et le soir 19h40 (lundi, mardi, jeudi, vendredi) ; compétiteurs 18h (lundi, mardi, jeudi, vendredi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp lundi et vendredi 12h40, mardi et jeudi 18h30, samedi 11h ; pieds-poings mercredi 19h40 ; l’école mercredi et samedi après-midi ; open sparring samedi 18h30.`;
@@ -69,7 +69,7 @@ const SYSTEM_BASE = `Tu es l’assistant du BOXING CENTER MINIMES — la salle h
 Ton rôle : renseigner le visiteur, avec la voix d’un coach de la maison, et lui donner envie de pousser la porte.
 
 RÈGLES :
-- Réponds en FRANÇAIS, au TUTOIEMENT, en 2 à 4 phrases. Direct, chaleureux, jamais commercial ni corporate.
+- Réponds dans la langue du visiteur (français par défaut), au TUTOIEMENT en français, en 2 à 4 phrases. Direct, chaleureux, jamais commercial ni corporate.
 - Réponds UNIQUEMENT à partir des infos ci-dessous. Si une info précise manque, dis-le et invite à appeler le 05 62 24 46 82 ou à passer à la salle. N’invente JAMAIS un prix, un horaire, un nom de coach, un palmarès ou une date.
 - L’offre Rentrée à 29€ s’écrit TOUJOURS « 29€ par personne » — jamais « 29€ » tout court, jamais « pour deux ».
 VENDRE (ton objectif n°1, dans CET ordre) :
@@ -90,9 +90,13 @@ L’ARME SECRÈTE (à ne dégainer QUE quand la vente est morte) :
 - Si le visiteur donne son prénom, sers-t’en. S’il est chaud (essai, inscription, cours qui l’intéresse), propose-lui GENTIMENT de te laisser son prénom et un numéro ou un email pour qu’un coach le rappelle — une fois, sans insister, sans bloquer la conversation.
 - Ne promets jamais un rappel à une heure précise, ni une place réservée : tu transmets, c’est tout.`;
 
+/* La langue du visiteur prime sur celle du prompt (rédigé en français) :
+   posée en tête ET en fin de consigne, là où un modèle la respecte le mieux. */
+const LANGUE = "LANGUE — RÈGLE ABSOLUE : réponds TOUJOURS dans la langue du DERNIER message du visiteur. S’il écrit en anglais, toute ta réponse est en anglais (prix, horaires, conseils) et les libellés de boutons sont traduits : [boutons: offre:Get the 29€ offer]. S’il écrit en espagnol, en espagnol. Sinon, en français.";
+
 function systemFor(context) {
   const info = liveInfo() || STATIC_INFO;
-  const base = `${SYSTEM_BASE}\n\nINFOS SALLE (Minimes) :\n${info}\n${STATIC_TAIL}`;
+  const base = `${LANGUE}\n\n${SYSTEM_BASE}\n\nINFOS SALLE (Minimes) :\n${info}\n${STATIC_TAIL}\n\n${LANGUE}`;
   const c = String(context || "").slice(0, 300).trim();
   return c ? `${base}\n\nCONTEXTE VISITEUR (déjà connu, ne le redemande pas) : ${c}` : base;
 }
@@ -111,11 +115,22 @@ function tidy(text, truncated) {
   return t;
 }
 
+/* Une clé expirée répond vite ; un fournisseur en panne peut, lui, garder
+   la fonction ouverte jusqu'au timeout de la plateforme. Chaque tentative
+   possède donc sa propre limite, puis la cascade continue jusqu'à la base
+   locale. La valeur d'environnement est bornée pour éviter les extrêmes. */
+function providerSignal() {
+  const configured = Number.parseInt(process.env.CHAT_PROVIDER_TIMEOUT_MS || "8000", 10);
+  const ms = Math.min(20000, Math.max(2000, Number.isFinite(configured) ? configured : 8000));
+  return AbortSignal.timeout(ms);
+}
+
 async function gemini(key, model, messages, system) {
   const contents = messages.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] }));
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
+  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    signal: providerSignal(),
     body: JSON.stringify({ system_instruction: { parts: [{ text: system }] }, contents, // 1024 et thinkingBudget 0 : sur Gemini 2.5, les tokens de « reflexion »
 // comptaient dans maxOutputTokens -> reponses coupees en plein mot.
 generationConfig: { maxOutputTokens: 1024, temperature: 0.4, thinkingConfig: { thinkingBudget: 0 } } }),
@@ -132,6 +147,7 @@ async function openaiLike(url, key, model, messages, system) {
   const r = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+    signal: providerSignal(),
     body: JSON.stringify({ model, max_tokens: 700, temperature: 0.4, messages: [{ role: "system", content: system }, ...messages] }),
   });
   if (!r.ok) throw new Error("oai " + r.status);
@@ -165,7 +181,7 @@ export const KB = [
   { re: /essai|d[ée]couvr|tester|premi[èe]re fois|premiere fois|gratuit|venir voir/i,
     a: "La séance d’essai est à 10€ : la discipline que tu veux, gants et protections prêtés, aucun dossier à monter. Tu viens, tu boxes, tu décides après. Mais si tu comptes venir plus d’une fois, la rentrée à 29€ par personne est vite rentabilisée. [boutons: offre, essai]" },
   { re: /tarif|prix|co[ûu]te|combien|abonn|mensuel|saison|duo|259|29|295|offre|promo|formule|rentr[ée]e|payer|paiement/i,
-    a: "L’offre Rentrée : 29€ PAR PERSONNE pour 4 semaines illimitées (au lieu de 44€). La saison complète : 259€ les 12 mois au lieu de 400€, en 4× sans frais, accès libre aux 5 clubs. L’école : 295€ l’année t-shirt inclus, baby 250€. Et l’essai à 10€ pour tester. [boutons: offre, tarifs]" },
+    a: "L’offre Rentrée : 29€ PAR PERSONNE toutes les 4 semaines, cours illimités, sans engagement (au lieu de 44,99€) — première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge 34,99€ facturé 72 h après le début. La saison complète : 259€ les 12 mois au lieu de 400€, comptant ou en 4× sans frais, accès libre aux 5 clubs. L’école : 295€ l’année t-shirt inclus, baby 250€. Et l’essai à 10€ pour tester. [boutons: offre, tarifs]" },
   { re: /horaire|ouvert|ferm|heure|dimanche|samedi|lundi|semaine|week.?end|soir|matin|midi|tard|t[ôo]t|acc[èe]s libre/i,
     a: "La salle est ouverte du lundi au samedi, de 10h00 à 21h30. Fermé le dimanche. En dehors des cours, les rings et les sacs sont à toi en accès libre : 10h–12h et 13h20–18h (le mercredi ça s’arrête à 15h, l’école prend la salle)." },
   /* « où » accentué est sans ambiguïté ; « ou » nu ne compte que collé à
@@ -220,6 +236,7 @@ export function localAnswer(msg, context = "") {
 
 export default async function handler(req, res) {
   allowCors(res);
+  res.setHeader("Cache-Control", "no-store");
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -230,10 +247,19 @@ export default async function handler(req, res) {
     ? b.history.slice(-6).map((m) => ({ role: m.role === "assistant" ? "assistant" : "user", content: String(m.content || "").slice(0, 500) }))
     : [];
   const messages = [...history, { role: "user", content: message }];
-  const system = systemFor(b.context);
+  /* Le prompt est entièrement en français : sur un « Hi, do you… » le modèle
+     y retombe. On mesure la langue du message et on la lui redit en dernier. */
+  const en = (message.toLowerCase().match(/\b(the|you|your|do|does|have|is|are|how|what|when|where|much|price|classes?|beginners?|saturday|sunday|week|can|i|my|for|and|hi|hello)\b/g) || []).length;
+  const fr = (message.toLowerCase().match(/\b(le|la|les|des|est|vous|tu|je|pour|combien|quel|quelle|cours|et|une|un|avez|peut|bonjour|salut)\b/g) || []).length;
+  const system = systemFor(b.context) + (en >= 2 && en > fr ? "\n\nThe visitor writes in ENGLISH: answer entirely in English (button labels translated: [boutons: key:English label])." : "");
 
   // 1) pool de clés Gemini (mélangé, on saute les mortes)
-  const gKeys = Object.keys(process.env).filter((k) => /^GEMINI_API_KEY/.test(k)).map((k) => process.env[k]).filter(Boolean);
+  const gKeys = [...new Set(
+    Object.keys(process.env)
+      .filter((k) => /^GEMINI_API_KEY(?:_\d+)?$/.test(k))
+      .map((k) => String(process.env[k] || "").trim())
+      .filter(Boolean)
+  )];
   for (let i = gKeys.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [gKeys[i], gKeys[j]] = [gKeys[j], gKeys[i]]; }
   const gModel = process.env.GEMINI_MODEL || "gemini-2.5-flash";
   for (const key of gKeys) {

@@ -22,15 +22,10 @@ export const SITE = "https://boxe-toulouse.com";
    seule déclaration officielle qui les rattrape — et il n'en portait qu'UNE
    par page, la même répétée à deux endroits.
 
-   ⚠ CE QUE CES LÉGENDES N'ONT PAS LE DROIT DE DIRE. Les photos de cours
-   sont, à ce jour, le pool Boxing Center servi en placeholder depuis
-   Portet — data-galerie.js le déclare noir sur blanc et attend le shooting
-   des Minimes. Une légende qui écrirait « la salle des Minimes » ou
-   « Barrière de Paris » sur ces fichiers serait FAUSSE, et une légende
-   fausse dans un sitemap est pire qu'une absence : c'est un club qui ment
-   à Google sur ses propres murs. Les légendes décrivent donc l'ACTIVITÉ et
-   le club (Boxing Center, Toulouse), jamais la pièce. Le jour du shooting,
-   elles pourront nommer la salle — pas avant.
+   ⚠ PROVENANCE. La série `minimes-*` ajoutée le 8 octobre 2026 vient bien
+   du shooting des Minimes : elle peut donc nommer la salle et le quartier.
+   Les anciens visuels mutualisés restent décrits comme des scènes du réseau
+   Boxing Center, sans leur attribuer les murs des Minimes.
 
    Seuls les découpages de Mehdi et des boxeurs sont bien d'ici : eux
    peuvent porter le nom de la salle.
@@ -56,6 +51,19 @@ const I = {
   niveaux:   ["/assets/img/bc/levels-1.webp", "Tous les niveaux sur le même plateau — Boxing Center", `Débutants et compétiteurs s'entraînent côte à côte — ${RESEAU}.`],
   mehdi:     ["/assets/img/bc/cutouts/coach-mehdi.webp", `Mehdi, coach principal du ${CLUB}`, "Mehdi dirige la salle des Minimes, Barrière de Paris à Toulouse."],
   planning:  ["/assets/img/bc/planning-2026-full.webp", `Planning officiel des cours — ${CLUB}`, "Le planning 2026 des cours de la salle des Minimes, Barrière de Paris."],
+  minimesSalle: ["/assets/img/photos/minimes-salle-entrainement.webp", `La salle de boxe des Minimes en activité — ${CLUB}`, "Le plateau, les sacs et les pratiquants du Boxing Center Minimes, Barrière de Paris à Toulouse."],
+  boxeurSac: ["/assets/img/photos/minimes-boxeur-sac.webp", `Travail au sac — ${CLUB}`, "Un boxeur travaille sa garde face au sac lourd dans la salle des Minimes."],
+  bandes: ["/assets/img/photos/minimes-bandes-mains.webp", `Préparer ses bandes — ${CLUB}`, "Un jeune pratiquant serre ses bandes avant une séance au Boxing Center Minimes."],
+  gants: ["/assets/img/photos/minimes-gants.webp", `Gants de boxe prêts pour la séance — ${CLUB}`, "Une paire de gants photographiée au Boxing Center Minimes à Toulouse."],
+  ringCours: ["/assets/img/photos/minimes-ring-cours.webp", `Cours sur le ring — ${CLUB}`, "Plusieurs binômes travaillent sur le ring du Boxing Center Minimes."],
+  coachingRing: ["/assets/img/photos/minimes-coaching-ring.webp", `Conseil entre deux rounds — ${CLUB}`, "Un coach accompagne un pratiquant entre deux rounds sur le ring des Minimes."],
+  assautEncadre: ["/assets/img/photos/minimes-assaut-encadre.webp", `Assaut encadré — ${CLUB}`, "Un coach suit un assaut entre deux boxeurs au Boxing Center Minimes."],
+  assautRing: ["/assets/img/photos/minimes-assaut-ring.webp", `Boxe anglaise sur le ring — ${CLUB}`, "Deux boxeurs travaillent en assaut encadré dans la salle des Minimes."],
+  crossBarre: ["/assets/img/photos/minimes-cross-training-barre.webp", `Préparation physique avec barre — ${CLUB}`, "Une pratiquante effectue un mouvement de préparation physique au Boxing Center Minimes."],
+  crossGroupe: ["/assets/img/photos/minimes-cross-training-groupe.webp", `Circuit de préparation physique — ${CLUB}`, "Un groupe suit un circuit avec barres au Boxing Center Minimes."],
+  coachLadyGallery: ["/assets/img/photos/coach-lady-1200.webp", "Travail au sac pendant un cours féminin — photo réseau", `Une pratiquante travaille au sac pendant une séance Lady Boxing du réseau ${RESEAU}.`],
+  ladyGardeGallery: ["/assets/img/photos/lady-garde-1200.webp", "Travail de garde pendant un cours féminin — photo réseau", `Deux pratiquantes travaillent leur garde pendant une séance Lady Boxing du réseau ${RESEAU}.`],
+  ecoleMedaillesGallery: ["/assets/img/photos/ecole-medailles-1200.webp", "Jeunes boxeuses médaillées — photo réseau", `Deux jeunes boxeuses du réseau ${RESEAU} présentent leur médaille après une compétition.`],
 };
 
 export const ROUTES = [
@@ -63,37 +71,40 @@ export const ROUTES = [
     path: "/",
     priority: "1.0",
     changefreq: "weekly",
-    images: [I.anglaise1, I.salle, I.training2, I.niveaux],
+    images: [I.assautEncadre, I.crossGroupe, I.coachLadyGallery],
   },
   {
     path: "/activites/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.anglaise1, I.training1, I.cross, I.lady1, I.educative, I.training2],
+    images: [I.assautRing],
   },
   {
     path: "/le-club/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.salle, I.anglaise3, I.niveaux],
+    images: [I.minimesSalle],
   },
   {
     path: "/coachs/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.mehdi],   // les boxeurs sont retires du site (decision du 19/08)
+    images: [I.coachingRing, I.mehdi],   // les boxeurs sont retires du site (decision du 19/08)
   },
   {
     path: "/galerie/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.niveaux, I.anglaise2, I.anglaise3, I.anglaise4, I.lady2, I.educative, I.cross, I.training1, I.salle],
+    /* Les autres clichés de la galerie sont déjà attribués à la page où
+       ils portent le contexte le plus précis. Une URL d'image n'est
+       déclarée qu'une fois dans le sitemap, même si la galerie la reprend. */
+    images: [I.boxeurSac],
   },
   {
     path: "/plannings/",
     priority: "0.8",
     changefreq: "weekly",
-    images: [I.planning],
+    images: [I.ringCours, I.planning],
   },
   {
     /* La page qu’on lit AVANT d’oser appeler : priorité haute, elle est le
@@ -101,19 +112,19 @@ export const ROUTES = [
     path: "/premiere-seance/",
     priority: "0.9",
     changefreq: "monthly",
-    images: [I.training2, I.salle, I.mehdi],
+    images: [I.bandes],
   },
   {
     path: "/tarifs/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.cross, I.salle],
+    images: [I.crossBarre],
   },
   {
     path: "/contact/",
     priority: "0.8",
     changefreq: "monthly",
-    images: [I.training1],
+    images: [I.gants],
   },
 ];
 

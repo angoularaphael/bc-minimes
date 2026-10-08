@@ -7,7 +7,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photos club de boxe Toulouse | Galerie Minimes</title>
-  <meta name="description" content="Photos du club de boxe à Toulouse Minimes : ring, cours, boxe éducative, Boxing Lady. Galerie de la salle, 12 rue de Fenouillet." />
+  <meta name="description" content="Photos réelles du Boxing Center Minimes à Toulouse : ring, cours et préparation physique, avec 3 scènes du réseau clairement identifiées." />
 
   <!-- Préconnexion CDN (les libs sont différées) — polices auto-hébergées :
        plus aucune requête vers fonts.googleapis.com / fonts.gstatic.com -->
@@ -17,7 +17,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
 
   <!-- LCP : le hero est construit en JS → invisible au preload scanner (§5.8) -->
-  <link rel="preload" as="image" href="/assets/img/photos/jumps-groupe-1200.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/photos/minimes-boxeur-sac.webp" fetchpriority="high" />
 
   <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
   <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
@@ -56,7 +56,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Boxing Center Minimes" />
   <meta property="og:title" content="Galerie photos | Boxing Center Minimes, Toulouse" />
-  <meta property="og:description" content="Le ring, le sparring, la boxe éducative, le Boxing Lady : la boxe des Minimes en images, noir et blanc, filtrable." />
+  <meta property="og:description" content="Le ring, les boxeurs et la préparation physique aux Minimes, avec trois scènes du réseau clairement identifiées." />
   <meta property="og:url" content="https://boxe-toulouse.com/galerie/" />
   <meta property="og:image" content="https://boxe-toulouse.com/assets/img/min/og/galerie.jpg?v=1" />
   <meta property="og:image:width" content="1200" />
@@ -65,7 +65,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:image:alt" content="La boxe chez Boxing Center en images — ring, sparring, école, Boxing Lady." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Galerie photos | Boxing Center Minimes, Toulouse" />
-  <meta name="twitter:description" content="Le ring, le sparring, l’école, le Boxing Lady : la boxe des Minimes en images, noir et blanc." />
+  <meta name="twitter:description" content="Le ring, les boxeurs et la préparation physique aux Minimes, avec trois scènes du réseau clairement identifiées." />
   <meta name="twitter:image" content="https://boxe-toulouse.com/assets/img/min/og/galerie.jpg?v=1" />
 
   <!-- Données structurées : graphe JSON-LD unifié de la page — nœuds reliés
@@ -216,7 +216,7 @@ import SiteContent from "../../components/SiteContent.astro";
               "name": "Offre Rentrée — 29€ par personne",
               "price": "29",
               "priceCurrency": "EUR",
-              "description": "4 semaines de cours illimités, toutes disciplines, sans engagement — 29€ par personne (au lieu de 44€).",
+              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
               "url": "https://boutique.boxingcenter.fr/offre/29"
             },
             {
@@ -299,7 +299,7 @@ import SiteContent from "../../components/SiteContent.astro";
         "@id": "https://boxe-toulouse.com/galerie/#webpage",
         "url": "https://boxe-toulouse.com/galerie/",
         "name": "Galerie photos — Boxing Center Minimes, Toulouse (rings, sparring, Lady, école)",
-        "description": "Le ring, le sparring, les gants des petits, le Boxing Lady, les pattes d’ours : la salle des Minimes en noir et blanc, filtrable zone par zone.",
+        "description": "Neuf photos du Boxing Center Minimes et trois scènes du réseau explicitement identifiées : ring, boxe anglaise, école, Lady et préparation physique.",
         "isPartOf": {
           "@id": "https://boxe-toulouse.com/#website"
         },
@@ -307,13 +307,6 @@ import SiteContent from "../../components/SiteContent.astro";
           "@id": "https://boxe-toulouse.com/#salle"
         },
         "inLanguage": "fr-FR",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            "h1",
-            ".lead"
-          ]
-        },
         "primaryImageOfPage": {
           "@id": "https://boxe-toulouse.com/galerie/#primaryimage"
         },
@@ -450,11 +443,11 @@ import SiteContent from "../../components/SiteContent.astro";
 
     <!-- ========================= EN-TÊTE ========================== -->
     <section class="page-head page-head--ga" aria-label="La galerie">
-      <div class="page-head__bg" aria-hidden="true"><div class="media" data-img="/assets/img/photos/jumps-groupe-1200.webp" data-eager data-label=""></div></div>
+      <div class="page-head__bg"><div class="media" data-label="Travail au sac aux Minimes"><img src="/assets/img/photos/minimes-boxeur-sac.webp" srcset="/assets/img/photos/minimes-boxeur-sac-800.webp 800w, /assets/img/photos/minimes-boxeur-sac.webp 1600w" sizes="100vw" width="1600" height="2160" alt="Un boxeur travaille sa garde face au sac lourd au Boxing Center Minimes." loading="eager" decoding="async" fetchpriority="high" /></div></div>
       <div class="wrap">
         <span class="eyebrow" data-reveal>En images · Les Minimes</span>
         <h1 class="display" style="margin:1rem 0 0"><span class="reveal-mask"><span>Ce que tu verras </span></span><span class="reveal-mask"><span class="tint">en poussant la porte.</span></span></h1>
-        <p class="lead page-head__lead" data-reveal>Ce que tu vois, c’est ce qu’il y a. Le ring, le cuir, la sueur, les gamins de l’école et les femmes du Lady. Le noir et blanc, c’est pour l’honnêteté.</p>
+        <p class="lead page-head__lead" data-reveal>Le ring, les sacs, les boxeurs et les circuits : neuf clichés ont été pris ici, aux Minimes. Trois scènes complémentaires du réseau sont marquées sans ambiguïté dans leur légende.</p>
       </div>
       <div class="ga-sprockets" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </section>
@@ -464,7 +457,7 @@ import SiteContent from "../../components/SiteContent.astro";
       <div class="wrap">
         <div class="ga-filters" id="ga-filters" data-reveal role="group" aria-label="Filtrer les photos par zone"></div>
         <div class="ga-grid" id="ga-grid" data-reveal-group></div>
-        <p class="muted" data-reveal style="margin-top:clamp(1.4rem,3vw,2rem);font:500 var(--step--1)/1.6 var(--f-mono);letter-spacing:.04em;max-width:60ch;border-left:2px solid var(--mark);padding-left:1rem">Photos Boxing Center — réseau des cinq salles. Le shooting des Minimes arrive : même grain, même noir et blanc.</p>
+        <p class="muted" data-reveal style="margin-top:clamp(1.4rem,3vw,2rem);font:500 var(--step--1)/1.6 var(--f-mono);letter-spacing:.04em;max-width:60ch;border-left:2px solid var(--mark);padding-left:1rem">Neuf photos du shooting Minimes du 8 octobre 2026. Les trois images marquées « photo réseau » complètent les catégories qui n’ont pas encore leur nouveau cliché.</p>
       </div>
     </section>
 
@@ -487,7 +480,7 @@ import SiteContent from "../../components/SiteContent.astro";
         <div data-reveal style="margin-bottom:clamp(1.6rem,4vw,2.4rem)">
           <span class="eyebrow">Vos images</span>
           <h2 class="display display--sm" style="margin-top:1rem">Le mur <span class="tint">du club</span></h2>
-          <p class="lead" data-reveal style="margin-top:1.2rem;max-width:56ch">Les photos du haut, c’est nous qui les avons prises. Celles d’en bas, c’est vous. Un round au sac, les gants des petits, la tête d’après séance : accroche-la au mur.</p>
+          <p class="lead" data-reveal style="margin-top:1.2rem;max-width:56ch">La série du haut vient de nos clubs et chaque photo réseau est identifiée. Celles d’en bas, c’est vous : un round au sac, les gants des petits, la tête d’après séance — accroche-la au mur.</p>
         </div>
 
         <div class="cm">

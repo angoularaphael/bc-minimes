@@ -1,10 +1,10 @@
 {
-  "_lisez_moi": "SOURCE UNIQUE de la note Google. Ne pas recopier ce chiffre ailleurs a la main : scripts/avis-google.mjs le repand dans content.json, data-argent.js et index.astro a chaque build. C'est parce qu'il etait recopie dans quatre fichiers qu'il avait derive (4,5 affiche contre 4,3 reel).",
+  "_lisez_moi": "Historique du dernier relevé Google vérifié. scripts/avis-google.mjs ne publie l'agrégat que si l'API Places confirme la fiche Minimes pendant le build ; sinon les champs publics restent vides.",
   "requete": "Boxing Center Toulouse Minimes 12 rue de Fenouillet 31200 Toulouse",
   "note": "4,3",
   "avis": 156,
   "source": "Avis Google",
   "releve_le": "2026-08-21",
   "releve_par": "lecture directe de la fiche Google Maps, confirmee trois fois",
-  "_synchronisation": "Avec GOOGLE_PLACES_API_KEY dans l'environnement, le script interroge l'API Places (New) a chaque build et met ce fichier a jour. Sans cle, il garde ces valeurs : le site reste juste, il cesse simplement de se rafraichir."
+  "_synchronisation": "Avec GOOGLE_PLACES_API_KEY, le script interroge Places (New), vérifie l'adresse et met ce fichier à jour. Sans réponse vérifiée pendant le build, ce relevé historique n'est pas exposé comme une note actuelle."
 }

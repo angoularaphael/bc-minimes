@@ -396,6 +396,18 @@ a:hover > .media img, .media--zoom:hover img, .split__media:hover img { transfor
 .page-head .wrap { position: relative; z-index: 1; }
 .page-head__lead { max-width: 56ch; margin-top: 1.3rem; color: #DCDDEE; }
 
+/* Les masques d'animation ne doivent jamais devenir des boîtes plus larges
+   que le téléphone. À 390 px, le second vers du titre Activités débordait
+   sous son propre overflow:hidden et paraissait coupé. */
+.page-head .display,
+.page-head .reveal-mask,
+.page-head .reveal-mask > span { max-width: 100%; min-width: 0; }
+.page-head .display { overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  .page-head .display { font-size: clamp(2rem, 10vw, 2.65rem); line-height: 1; text-wrap: wrap; }
+  .page-head .reveal-mask > span { white-space: normal; overflow-wrap: anywhere; }
+}
+
 /* ----------------------------- NAV -------------------------------- */
 /* La barre a deux états, et c'est ce qui la rend « haut de gamme » :
    TRANSPARENTE sur le hero (elle laisse la photo respirer, encre blanche),
