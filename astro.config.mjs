@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { apiDev } from './scripts/dev-api.mjs';
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { join, extname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -111,5 +112,5 @@ export default defineConfig({
   compressHTML: true,
   build: { format: 'directory' },
   devToolbar: { enabled: false },
-  integrations: [graphe()],
+  integrations: [graphe(), apiDev()],
 });

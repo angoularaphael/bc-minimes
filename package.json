@@ -12,10 +12,12 @@
     "postbuild": "node scripts/maillage.mjs && node scripts/cuire-galerie.mjs && node scripts/cuire-pages.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:chatbot": "node --test tests/chat.test.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
     "cloudinary": "^2.5.0"
-  }
+  },
+  "indexnowSite": "https://boxe-toulouse.com"
 }
