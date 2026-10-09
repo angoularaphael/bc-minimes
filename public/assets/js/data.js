@@ -83,7 +83,7 @@ export const CTA_HREF = {
 export const LINKS = {
   essai: "https://boutique.boxingcenter.fr/seance-essai",   // essai 10€ — dernier recours (gong, FAQ), jamais en tête
   abonnements: "https://boutique.boxingcenter.fr/abonnements",
-  enfants: "https://boutique.boxingcenter.fr/abonnements",
+  enfants: "https://boutique.boxingcenter.fr/abonnements#enfants",
   promos: "https://boutique.boxingcenter.fr/offres-speciales",
   coachings: "https://boutique.boxingcenter.fr/coachings",
   materiel: "https://boutique.boxingcenter.fr/materiel",

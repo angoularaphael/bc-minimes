@@ -11,6 +11,8 @@
    page ne meurt jamais, elle perd juste la conversation libre.
    ===================================================================== */
 import { allowCors, body, siteContent } from "./_lib/util.js";
+import { contexteDuMoment, cleJour } from "./_lib/moment.js";
+import { reponseDuPlanning } from "./_lib/repli-planning.js";
 
 /* Faits que le backoffice ne touche pas : accès, équipement, réseau. */
 const STATIC_TAIL = `- Accès : métro ligne B station Barrière de Paris, 3 minutes à pied. Rocade sortie 31 direction Les Minimes. Bus 70 / 27 arrêt Minimes-Roquelaine.
@@ -26,7 +28,7 @@ const STATIC_INFO = `- Boxing Center Minimes : salle historique du groupe Boxing
 - Horaires : du lundi au samedi, 10h00 – 21h30. Fermé le dimanche.
 - Tarifs (dans l’ordre où on les propose) : offre RENTRÉE 29€ PAR PERSONNE toutes les 4 semaines, cours illimités, sans engagement (au lieu de 44,99€) — conditions à annoncer : première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge d’accès 34,99€ facturé 72 h après le début ; saison complète 259€ les 12 mois au lieu de 400€, comptant ou en 4× sans frais (4 × 64,75€, plusieurs options de paiement en 4× sur la boutique), accès aux 5 clubs ; hors promotion : 44,99€ adulte, 36,99€ étudiant toutes les 4 semaines, badge d’accès 34,99€ en sus ; école 295€ l’année t-shirt du club inclus, Baby Boxe 250€ ; séance d’essai 10€ EN DERNIER.
 - Disciplines : boxe anglaise (loisirs et compétiteurs), boxe éducative dès 3 ans (Baby Boxe 3/6, enfants 7/11, ados 12/16), Boxing Lady 100 % féminin, Boxing camp, boxe pieds-poings, PAOS et pattes d’ours, cross training et cardio boxing en accès libre.
-- Coachs : Mehdi B (coach principal, anglaise, école, compétiteurs, camp, sparring), Chloé et David (Boxing Lady, pieds-poings), Clément (Boxing camp). Ne JAMAIS dire quel coach tient quel créneau ni quel jour : renvoyer vers le planning.
+- Coachs : Mehdi B (coach principal, anglaise, école, compétiteurs, camp, sparring), Chloé et David (Boxing Lady, pieds-poings), Clément (Boxing camp). Ne cite un coach QUE si on te demande qui encadre un cours ou qui donne quoi ; tu réponds alors avec le planning officiel.
 - Planning : anglaise loisirs le midi 12h40 (mardi, mercredi, jeudi) et le soir 19h40 (lundi, mardi, jeudi, vendredi) ; compétiteurs 18h (lundi, mardi, jeudi, vendredi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp lundi et vendredi 12h40, mardi et jeudi 18h30, samedi 11h ; pieds-poings mercredi 19h40 ; l’école mercredi et samedi après-midi ; open sparring samedi 18h30.`;
 
 /** Le bloc d’infos construit depuis le contenu éditable du backoffice. */
@@ -94,9 +96,22 @@ L’ARME SECRÈTE (à ne dégainer QUE quand la vente est morte) :
    posée en tête ET en fin de consigne, là où un modèle la respecte le mieux. */
 const LANGUE = "LANGUE — RÈGLE ABSOLUE : réponds TOUJOURS dans la langue du DERNIER message du visiteur. S’il écrit en anglais, toute ta réponse est en anglais (prix, horaires, conseils) et les libellés de boutons sont traduits : [boutons: offre:Get the 29€ offer]. S’il écrit en espagnol, en espagnol. Sinon, en français.";
 
-function systemFor(context) {
+/* Le planning OFFICIEL (content.json, édité au vestiaire), normalisé pour le
+   bloc « maintenant » : début, fin, cours, coach, groupes enfants. */
+const PRIX_ENFANTS = "295 € l’année t-shirt inclus, Baby Boxe 250 € l’année";
+
+function planningOfficiel() {
+  const c = siteContent();
+  return (c?.planning || []).map((p) => ({
+    day: cleJour(p.d), start: p.h, end: p.end, cours: p.name, coach: p.coach,
+    enfant: /\bans\b/.test(p.age || "") || /baby|éduc|educ|enfant|ado/i.test(p.name || ""), age: /\bans\b/.test(p.age || "") ? p.age : "",
+  })).filter((p) => p.day);
+}
+
+async function systemFor(context) {
   const info = liveInfo() || STATIC_INFO;
-  const base = `${LANGUE}\n\n${SYSTEM_BASE}\n\nINFOS SALLE (Minimes) :\n${info}\n${STATIC_TAIL}\n\n${LANGUE}`;
+  const moment = contexteDuMoment({ planning: planningOfficiel(), prixEnfants: PRIX_ENFANTS });
+  const base = `${LANGUE}\n\n${SYSTEM_BASE}\n\nINFOS SALLE (Minimes) :\n${info}\n${STATIC_TAIL}\n\n${moment}\n\n${LANGUE}`;
   const c = String(context || "").slice(0, 300).trim();
   return c ? `${base}\n\nCONTEXTE VISITEUR (déjà connu, ne le redemande pas) : ${c}` : base;
 }
@@ -143,12 +158,16 @@ generationConfig: { maxOutputTokens: 1024, temperature: 0.4, thinkingConfig: { t
   if (!text) throw new Error("gemini empty");
   return text;
 }
+/* 09/10/2026 : llama-3.3-70b-versatile et groq/compound rendent 404 avec la
+   clé Groq du réseau — le relais Groq était mort sans bruit. gpt-oss-120b
+   est le grand modèle encore servi ; sa réflexion se paie sur max_tokens,
+   d’où reasoning_effort bas. */
 async function openaiLike(url, key, model, messages, system) {
   const r = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     signal: providerSignal(),
-    body: JSON.stringify({ model, max_tokens: 700, temperature: 0.4, messages: [{ role: "system", content: system }, ...messages] }),
+    body: JSON.stringify({ model, max_tokens: 700, temperature: 0.4, ...(/gpt-oss/.test(model) ? { reasoning_effort: "low" } : {}), ...(/qwen/.test(model) ? { reasoning_format: "hidden" } : {}), messages: [{ role: "system", content: system }, ...messages] }),
   });
   if (!r.ok) throw new Error("oai " + r.status);
   const j = await r.json();
@@ -189,7 +208,7 @@ export const KB = [
   { re: /adresse|\boù\b|\bou\b\s*\??$|c\W{0,2}est\s+o[ùu]|(?:c['’]est|vous [êe]tes|se trouve|situ[ée]e?)\s*o[ùu]|o[ùu]\s*(?:est|se|vous|[êe]tes)|situ[ée]e?\b|acc[èe]s|m[ée]tro|parking|comment venir|\bplan\b|\brue\b|barri[èe]re/i,
     a: "12 rue de Fenouillet, 31200 Toulouse — quartier des Minimes, Barrière de Paris. Métro ligne B, station Barrière de Paris, 3 minutes à pied. Rocade sortie 31, ou bus 70 / 27 arrêt Minimes-Roquelaine." },
   { re: /enfant|gamin|fils|fille|baby|[ée]ducative|ado|3 ans|7 ans|\b(?:mon|ma) (?:gosse|petit)/i,
-    a: "L’école commence dès 3 ans : Baby Boxe 3/6 ans le samedi à 14h15, enfants 7/11 à 15h, ados 12/16 à 16h, jeunes compétiteurs à 17h — le mercredi et le samedi. C’est Mehdi B qui tient l’école, du premier gant jusqu’au ring. 250€ l’année pour la Baby Boxe, 295€ au-delà, t-shirt du club inclus." },
+    a: "L’école commence dès 3 ans : Baby Boxe 3/6 ans le samedi à 14h15, enfants 7/11 à 15h, ados 12/16 à 16h, jeunes compétiteurs à 17h — le mercredi et le samedi. 250€ l’année pour la Baby Boxe, 295€ au-delà, t-shirt du club inclus." },
   { re: /femme|lady|f[ée]minin|entre filles/i,
     a: "Le Boxing Lady est 100 % féminin : lundi et mercredi 18h30, une heure pleine. Le lundi, le second espace de la salle est rien que pour elles. Et tous les autres cours te sont ouverts." },
   { re: /discipline|cours|anglaise|pieds.?poings|camp|sparring|cardio|cross|paos|comp[ée]tit|mma|kick/i,
@@ -199,7 +218,7 @@ export const KB = [
   { re: /d[ée]butant|jamais box|niveau|peur|forme|condition/i,
     a: "Tu ne seras ni le premier ni le seul à arriver sans avoir jamais mis un gant. Le coach te met en garde, te corrige, recommence — dix fois s’il le faut. Personne ne monte sur le ring sans en avoir envie : ça se demande, ça ne s’impose pas. Le déroulé complet d’une première séance est écrit noir sur blanc. [boutons: premiere, offre]" },
   { re: /salle|ring|sac|mat[ée]riel|[ée]quipement|vestiaire|[ée]tage|histoire|champion|pro\b/i,
-    a: "Trois rings, douze sacs lourds, une zone pattes d’ours et la prépa physique à l’étage, au-dessus des rings. Vestiaires hommes et femmes séparés. C’est la première salle du groupe, ouverte en 2016 — trois pros en sont sortis : Johnson Suffo, Salomon Kitoko, Elyasse Azap." },
+    a: "Trois rings, douze sacs lourds, une zone pattes d’ours et la prépa physique à l’étage, au-dessus des rings. Vestiaires hommes et femmes séparés. C’est la première salle du groupe, ouverte en 2016 : le berceau de nombreux champions, professionnels et amateurs — parmi eux Johnson Suffo, Salomon Kitoko, Elyasse Azap." },
   { re: /contact|t[ée]l[ée]phone|email|mail|num[ée]ro|appeler|joindre/i,
     a: "Téléphone : 05 62 24 46 82. Email : boxingcenter31@gmail.com. Ou passe simplement à la salle, 12 rue de Fenouillet, du lundi au samedi entre 10h et 21h30." },
   { re: /inscri|adh[ée]r|certificat|m[ée]dical|dossier|papier/i,
@@ -230,9 +249,15 @@ export function localAnswer(msg, context = "") {
     return `Parfait${p ? ", " + p : ""} — je garde ça pour le coach. En attendant, une question ? Horaires, tarifs, un cours en particulier : je suis là pour ça.`;
   if (HELLO_RE.test(msg))
     return `${p ? `Enchanté ${p} !` : "Salut !"} Dis-moi ce que tu cherches : les horaires, les tarifs, les cours, l’école dès 3 ans, le Boxing Lady, ou la séance d’essai à 10€. Je te réponds.`;
+  if (/\bqui (?:donne|fait|enseigne|anime|tient|encadre)\b/i.test(msg)) { const k = KB.find((x) => x.re.test("coach")); if (k) return k.a; }
   for (const k of KB) if (k.re.test(msg)) return k.a;
   return `${p ? p + ", je" : "Je"} peux te renseigner sur les horaires, les tarifs, les cours, l’école dès 3 ans, le Boxing Lady ou la séance d’essai à 10€. Pose ta question — ou appelle la salle au 05 62 24 46 82.`;
 }
+
+/* Groq gratuit : 8 000 jetons/min PAR MODÈLE, soit environ une réponse par
+   minute avec ce prompt (mesuré le 09/10/2026). GROQ_MODEL est donc une
+   LISTE, essayée dans l’ordre : trois modèles = trois fois plus de relais. */
+const GROQ_MODELES = () => (process.env.GROQ_MODEL || "openai/gpt-oss-120b,openai/gpt-oss-20b,qwen/qwen3.8-27b").split(",").map((m) => m.trim()).filter(Boolean);
 
 export default async function handler(req, res) {
   allowCors(res);
@@ -251,7 +276,7 @@ export default async function handler(req, res) {
      y retombe. On mesure la langue du message et on la lui redit en dernier. */
   const en = (message.toLowerCase().match(/\b(the|you|your|do|does|have|is|are|how|what|when|where|much|price|classes?|beginners?|saturday|sunday|week|can|i|my|for|and|hi|hello)\b/g) || []).length;
   const fr = (message.toLowerCase().match(/\b(le|la|les|des|est|vous|tu|je|pour|combien|quel|quelle|cours|et|une|un|avez|peut|bonjour|salut)\b/g) || []).length;
-  const system = systemFor(b.context) + (en >= 2 && en > fr ? "\n\nThe visitor writes in ENGLISH: answer entirely in English (button labels translated: [boutons: key:English label])." : "");
+  const system = (await systemFor(b.context)) + (en >= 2 && en > fr ? "\n\nThe visitor writes in ENGLISH: answer entirely in English (button labels translated: [boutons: key:English label])." : "");
 
   // 1) pool de clés Gemini (mélangé, on saute les mortes)
   const gKeys = [...new Set(
@@ -267,11 +292,13 @@ export default async function handler(req, res) {
   }
   // 2) Groq — 3) Mistral
   if (process.env.GROQ_API_KEY) {
-    try { return res.status(200).json({ reply: await openaiLike("https://api.groq.com/openai/v1/chat/completions", process.env.GROQ_API_KEY, process.env.GROQ_MODEL || "llama-3.3-70b-versatile", messages, system), via: "groq" }); } catch {}
+    for (const gm of GROQ_MODELES()) {
+      try { return res.status(200).json({ reply: await openaiLike("https://api.groq.com/openai/v1/chat/completions", process.env.GROQ_API_KEY, gm, messages, system), via: "groq" }); } catch { /* modèle suivant */ }
+    }
   }
   if (process.env.MISTRAL_API_KEY) {
     try { return res.status(200).json({ reply: await openaiLike("https://api.mistral.ai/v1/chat/completions", process.env.MISTRAL_API_KEY, process.env.MISTRAL_MODEL || "mistral-small-latest", messages, system), via: "mistral" }); } catch {}
   }
   // 4) aucune clé, ou toutes en panne : la base locale répond quand même.
-  return res.status(200).json({ reply: localAnswer(message, b.context), via: "local" });
+  return res.status(200).json({ reply: reponseDuPlanning(message, { planning: planningOfficiel(), prixEnfants: PRIX_ENFANTS }) || localAnswer(message, b.context), via: "local" });
 }
