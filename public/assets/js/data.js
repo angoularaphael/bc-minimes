@@ -51,8 +51,8 @@ export const SEASON_LABEL = "Saison 2026 — 2027";
    `chrome` = nav / footer / menu · `primary` = tout CTA principal en page.
    ⚠ Ne PAS inventer une 3e formulation. */
 export const CTA = {
-  chrome: "Ma place · 29€",
-  primary: "Je profite de l’offre à 29€",
+  chrome: "Je m’inscris",
+  primary: "Je m’inscris · 44,99€",
   /* Le CTA de repli, celui qu'on propose à qui hésite encore. Il porte
      SON prix, pour qu'aucun bouton du site n'annonce un tarif différent
      de la page où il mène. */
@@ -61,90 +61,90 @@ export const CTA = {
 
 /* ⚠ LA DESTINATION DES CTA — corrigé à la refonte, après mesure.
    Le bouton de la barre de navigation — présent sur les 10 pages, donc le
-   plus cliqué du site — affichait « Ma place · 29€ » et pointait vers
+   plus cliqué du site — affichait un prix et pointait vers
    LINKS.essai, c'est-à-dire la page de la séance d'essai à 10 €. Le
    commentaire de LINKS.essai disait pourtant déjà « jamais en tête ».
    Le visiteur lisait un prix, cliquait, en trouvait un autre : c'est la
    fuite de conversion la plus chère qu'un site puisse s'offrir.
-   Trois libellés identiques menaient par ailleurs à trois URL distinctes
-   (/inscription?product=offre-duo, /offre/29, /offre/259, /seance-essai).
+   Un même libellé menait par ailleurs à plusieurs URL distinctes.
    RÈGLE : un libellé = une destination. Elles vivent ici, et nulle part
    ailleurs. Toute page qui écrit une URL box-plus en dur la viole. */
 export const CTA_HREF = {
-  /* l'offre de rentrée à 29 € — la destination de TOUT bouton « ma place » */
-  primary: "https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+  /* l'abonnement adulte, 44,99 € les 4 semaines sans engagement — la
+     destination de TOUT bouton « je m'inscris » */
+  primary: "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+  /* les deux pièges, toujours dans cet ordre : l'étudiant, puis l'adulte */
+  etudiant: "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+  adulte: "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
   /* la séance d'essai à 10 € — la destination de TOUT bouton « essai » */
   second: "https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
 };
 
 /* Colonne vertébrale conversion — tout pointe vers la boutique box-plus.
-   Liens VÉRIFIÉS le 2026-07-12 (STANDARDS §1). Ne PAS inventer de tunnel :
-   /offre-duo-rentree, /offre-saison-259, /seance-essai-gratuite = 404. */
+   Liens VÉRIFIÉS le 2026-07-12, produits relus le 19/10/2026 (STANDARDS §1).
+   Ne PAS inventer de tunnel : une adresse devinée sur la boutique = 404. */
 export const LINKS = {
   essai: "https://boutique.boxingcenter.fr/seance-essai",   // essai 10€ — dernier recours (gong, FAQ), jamais en tête
   abonnements: "https://boutique.boxingcenter.fr/abonnements",
   enfants: "https://boutique.boxingcenter.fr/abonnements#enfants",
-  promos: "https://boutique.boxingcenter.fr/offres-speciales",
+  comptant: "https://boutique.boxingcenter.fr/abonnements#comptant",
   coachings: "https://boutique.boxingcenter.fr/coachings",
   materiel: "https://boutique.boxingcenter.fr/materiel",
   // maillage de marque : « Boutique » mène à la BOUTIQUE, pas à un rayon.
   // Elle pointait sur /materiel sous le libellé « Boutique » — le lien
   // mentait au clic, et Saint-Cyprien pointait déjà sur la racine. Parité.
   boutique: "https://boutique.boxingcenter.fr/",
-  offreRentree: "/tarifs/",   // la carte "Offre Rentrée" de l’accueil reste interne → /tarifs/
   groupe: "https://boxingcenter.fr/",
   facebook: "https://www.facebook.com/BoxingCenterToulouse/",
   instagram: "https://www.instagram.com/boxingcentertoulouse/",
 };
 
-/* Les offres — source de vérité : posters officiels rentrée + 01_OFFRES/
-   OFFRES_RENTREE_2026.md. Datées par SEASON, jamais codées en dur dans le markup.
-   ⚠ « DUO 29€ » ne s’écrit JAMAIS sans « par personne ». */
+/* Les offres — source de vérité : la boutique (/api/products), relue le
+   19/10/2026. Datées par SEASON, jamais codées en dur dans le markup.
+   ⚠ L’offre Étudiant ne s’écrit JAMAIS sans « carte étudiante requise ».
+   Aucun prix barré : rien n'est remisé. */
 export const PROMOS = {
   saison: SEASON,
   label: SEASON_LABEL,
   bonus: "Inscription enfant : le t-shirt Boxing Center est inclus — pour tous, pas pour les 100 premiers.",
   cards: [
     {
-      key: "rentree",
-      name: "L’offre Rentrée",
-      price: "29€",
-      unit: "par personne",
-      was: "44,99€",
+      key: "etudiant",
+      name: "L’offre Étudiant",
+      price: "36,99€",
+      unit: "carte étudiante requise",
       period: "· 4 semaines",
-      feature: "Cours illimités, toutes disciplines, sans engagement",
-      items: ["29€ par personne (au lieu de 44,99€)", "Toutes les 4 semaines, cours illimités", "Toutes les disciplines", "Encore mieux à deux — 29€ chacun"],
-      cta: "Je profite de l’offre à 29€",
-      href: "https://boutique.boxingcenter.fr/offre/29",
-      tag: "La priorité",
+      feature: "Le tarif sur justificatif : ta carte étudiante, et toute la salle est à toi",
+      items: ["Renouvelé toutes les 4 semaines", "Cours illimités, accès libre compris", "Les 5 salles du réseau", "Sans engagement"],
+      cta: "Je m’inscris en étudiant",
+      href: "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+      tag: "Étudiant",
       highlight: true,
     },
     {
-      key: "saison",
-      name: "La saison complète",
-      price: "259€",
-      was: "400€",
-      period: "les 12 mois",
-      feature: "4× sans frais · accès libre aux 5 clubs — moins de 5€ par semaine",
-      items: ["259€ les 12 mois (au lieu de 400€)", "Payable en 4× 64,75€ sans frais", "Anglaise, MMA, pieds-poings, Lady, Fitness", "Accès libre aux 5 clubs du réseau"],
-      cta: "Je réserve ma saison — 4× 64,75€",
-      href: "https://boutique.boxingcenter.fr/offre/259",
-      tag: "L’abonnement",
-    },
-    /* L'abonnement de tous les jours. Il manquait : la page sautait de
-       l'offre de rentree a l'ecole des enfants, et quelqu'un qui voulait
-       simplement s'abonner au mois ne trouvait aucun prix. Ecrit SANS prix
-       barre — ce n'est pas une promotion, c'est le tarif. */
-    {
-      key: "classiques",
-      name: "L’abonnement au mois",
+      key: "adulte",
+      name: "L’offre Adulte",
       price: "44,99€",
-      period: "/ 4 semaines · adulte",
-      feature: "Étudiant 36,99€ sur justificatif — le tarif de tous les jours",
-      items: ["Adulte 44,99€ / 4 semaines", "Étudiant 36,99€ / 4 semaines", "Accès aux 5 salles, toutes les disciplines", "Sans engagement"],
-      cta: "Voir les formules au mois",
-      href: "https://boutique.boxingcenter.fr/abonnements",
-      tag: "Le classique",
+      period: "· 4 semaines",
+      feature: "Toutes les disciplines de la maison, et tu arrêtes quand tu veux",
+      items: ["Renouvelé toutes les 4 semaines", "Cours illimités, accès libre compris", "Les 5 salles du réseau", "Sans engagement"],
+      cta: "Je m’inscris · 44,99€",
+      href: "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+      tag: "Adulte",
+      highlight: true,
+    },
+    /* Pour qui ne veut pas de prélèvement : on règle d'avance, une fois.
+       Tarifs normaux de la boutique — pas une promotion, rien de barré. */
+    {
+      key: "comptant",
+      name: "Le comptant",
+      price: "150€",
+      period: "les 3 mois, réglés d’avance",
+      feature: "6 mois 250€ · 12 mois 400€ — un seul paiement, aucun prélèvement",
+      items: ["3 mois : 150€", "6 mois : 250€", "12 mois : 400€", "Réglé en une fois, à l’inscription"],
+      cta: "Voir les formules comptant",
+      href: "https://boutique.boxingcenter.fr/abonnements#comptant",
+      tag: "D’avance",
     },
     {
       key: "ecole",
@@ -168,6 +168,21 @@ export const PROMOS = {
     },
   ],
 };
+
+/* LE PRIX EN GRAND — « 36 » se lit d’un coup d’œil, « €99 » reste écrit,
+   en petit, collé au nombre : l’œil lit 36 et 44, le prix reste exact.
+   `prixVisuel` sert les endroits déjà muets (aria-hidden) ; `prixGrand`
+   ajoute le montant exact pour les lecteurs d’écran. Un prix rond
+   (« 10€ », « 295€ ») passe tel quel. */
+export function prixVisuel(p) {
+  const m = /^(\d+),(\d{2})\s?€$/.exec(String(p || "").trim());
+  return m ? `<span class="prix__v"><b>${m[1]}</b><i>€${m[2]}</i></span>` : String(p || "");
+}
+export function prixGrand(p) {
+  const m = /^(\d+),(\d{2})\s?€$/.exec(String(p || "").trim());
+  if (!m) return String(p || "");
+  return `<span class="prix"><span aria-hidden="true">${prixVisuel(p)}</span><span class="sr-only">${m[1]},${m[2]} €</span></span>`;
+}
 
 /* Médias : vraies photos Boxing Center (site Portet) servies en placeholder,
    passées en N&B par CSS. ⚠ à remplacer par les vraies photos des Minimes.

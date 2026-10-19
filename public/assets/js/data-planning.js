@@ -5,7 +5,7 @@
    pages (site.js en dépend), ces données-là n’en concernent que trois pages (planning, activités, coachs).
    Les embarquer partout coûtait leur poids sur chaque page pour rien.
    ===================================================================== */
-import { bcRegister } from "./data.js?v=b56";
+import { bcRegister } from "./data.js?v=b58";
 
 /* =====================================================================
    LE PLANNING — transcription du poster officiel SAISON 2026-2027

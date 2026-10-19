@@ -16,7 +16,7 @@
    le fil, respect de prefers-reduced-motion (l’animation d’ouverture est
    coupée en CSS, la frappe simulée est raccourcie ici).
    ===================================================================== */
-import { SALLE, NETWORK } from "./data.js?v=b56";
+import { SALLE, NETWORK } from "./data.js?v=b58";
 
 const EMAIL_RE = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i;
 /* numéro FR : +33 ou 0, puis 9 chiffres groupés librement */
@@ -34,7 +34,7 @@ const LOGO = "/assets/img/logo.png";
 const SALLES = [SALLE.short, ...NETWORK.map((n) => n.name)];
 
 const QUICKS = [
-  { label: "L’offre 29€", q: "Quels sont les tarifs ?" },
+  { label: "Les abonnements", q: "Quels sont les tarifs ?" },
   { label: "Essai 10€", q: "Comment se passe la séance d’essai ?" },
   { label: "Horaires", q: "Quels sont les horaires ?" },
   { label: "Les cours", q: "Quelles disciplines proposez-vous ?" },
@@ -84,8 +84,8 @@ function offlineAnswer() {
    liens sortants portent désormais leur origine.
 
    ⚠ Les paramètres se posent AVANT l’ancre. Une URL qui finirait par
-   « #promo?utm_source=… » enverrait l’ancre au diable : la boutique
-   ouvrirait le haut de la page des abonnements au lieu de la promo, et
+   « #comptant?utm_source=… » enverrait l’ancre au diable : la boutique
+   ouvrirait le haut de la page des abonnements, pas la bonne section, et
    personne ne verrait le défaut avant de compter les ventes perdues. */
 const UTM = "utm_source=chatbot&utm_medium=bouton&utm_campaign=bc-minimes";
 function marque(url) {
@@ -99,8 +99,9 @@ function marque(url) {
    clés fermées (un lien halluciné est impossible), boutique box-plus +
    pages internes de CE site, « rappel » reste une action du chat. */
 const ACTIONS = {
-  offre:       { label: "Je profite de l’offre à 29€", href: marque("https://boutique.boxingcenter.fr/offre/29") },
-  saison:      { label: "Je réserve ma saison · 259€", href: marque("https://boutique.boxingcenter.fr/offre/259") },
+  etudiant:    { label: "Étudiant · 36,99€", href: marque("https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines&step=1") },
+  adulte:      { label: "Adulte · 44,99€", href: marque("https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1") },
+  comptant:    { label: "Régler d’avance · dès 150€", href: marque("https://boutique.boxingcenter.fr/abonnements#comptant") },
   essai:       { label: "Je viens essayer · 10€", href: marque("https://boutique.boxingcenter.fr/seance-essai") },
   enfants:     { label: "J’inscris mon enfant", href: marque("https://boutique.boxingcenter.fr/abonnements#enfants") },
   abonnements: { label: "Voir les abonnements", href: marque("https://boutique.boxingcenter.fr/abonnements") },
@@ -152,9 +153,10 @@ function parseReply(rawText) {
       .replace(/\/$/, "");
     /* Le modèle écrit l’URL NUE ; nos boutons la portent balisée d’UTM. On
        compare donc sans les paramètres — mais AVEC l’ancre, seule à
-       distinguer #promo de #enfants. Sans ce nettoyage, une URL citée en
+       distinguer #comptant de #enfants — et le produit, seul à séparer
+       l’inscription étudiant de l’adulte. Sans ce nettoyage, une URL citée en
        clair ne retrouvait plus son bouton et restait affichée telle quelle. */
-    const cle = (v) => { const s = String(v || ""); const i = s.indexOf("#"); const b = (i === -1 ? s : s.slice(0, i)).split("?")[0].replace(/\/$/, ""); return b + (i === -1 ? "" : s.slice(i)); };
+    const cle = (v) => { const s = String(v || ""); const i = s.indexOf("#"); const b = (i === -1 ? s : s.slice(0, i)).split("?")[0].replace(/\/$/, ""); const prod = (s.match(/[?&]product=([^&#]+)/) || [])[1]; return b + (prod ? "?product=" + prod : "") + (i === -1 ? "" : s.slice(i)); };
     const hit = Object.entries(ACTIONS).find(([, d]) => cle(d.href) === cle(href));
     if (hit && !keys.some((k) => k.split(":")[0] === hit[0])) keys.push(hit[0]);
     return hit ? "la boutique en ligne" : u;
@@ -193,7 +195,7 @@ export function initChatbot() {
     if (dejaLa) return resolu();
     const l = document.createElement("link");
     l.rel = "stylesheet";
-    l.href = "/assets/css/chatbot.css?v=b56";
+    l.href = "/assets/css/chatbot.css?v=b58";
     l.setAttribute("data-bcm-chat-css", "");
     /* résolu dans les deux cas : une feuille manquante ne doit jamais
        retenir le panneau prisonnier — mieux vaut brut que rien. */
@@ -415,7 +417,7 @@ export function initChatbot() {
          qui separe un assistant d'un pop-up. Chiffres verifies dans
          data.js, un par un. */
       const ACCUEILS = {
-        "/tarifs/": ["Bonjour \u{1F44B} Vous \u00eates sur les tarifs.", "Cinq formules. La rentr\u00e9e \u00e0 29\u20ac par personne est la plus prise. Je vous aide \u00e0 choisir\u00a0?"],
+        "/tarifs/": ["Bonjour \u{1F44B} Vous \u00eates sur les tarifs.", "Cinq formules, de l\u2019essai au comptant. \u00c9tudiant 36,99\u20ac avec la carte, adulte 44,99\u20ac\u00a0: je vous aide \u00e0 choisir\u00a0?"],
         "/activites/": ["Bonjour \u{1F44B} Vous regardez les disciplines.", "Neuf, de l\u2019\u00e9cole d\u00e8s 3 ans au sparring encadr\u00e9. Dites-moi votre objectif."],
         "/plannings/": ["Bonjour \u{1F44B} Vous cherchez un cr\u00e9neau.", "Ouvert du lundi au samedi, 10h\u201321h30. Donnez-moi vos dispos, je vous dis lequel prendre."],
         "/coachs/": ["Bonjour \u{1F44B} Vous regardez l\u2019\u00e9quipe.", "Quatre encadrants, Mehdi \u00e0 leur t\u00eate. Une question sur l\u2019un d\u2019eux\u00a0?"],
@@ -427,7 +429,7 @@ export function initChatbot() {
       const _page = location.pathname.replace(/index\.html$/, "");
       const [_b, _s] = ACCUEILS[_page] || ["Bonjour \u{1F44B} Ici l’assistant du Boxing Center Minimes.", "Horaires, cours, tarifs — posez votre question, je vous réponds."];
       await botSay(_b, 450);
-      await botSay(_s, 620, resolveActions(["offre", "essai"]));
+      await botSay(_s, 620, resolveActions(["etudiant", "adulte", "essai"]));
       /* Le prenom en TROISIEME bulle, apres deux messages qui ont deja
          rendu service : ce n'est plus une exigence, c'est une conversation
          qui commence. Au vouvoiement, comme les deux bulles au-dessus —

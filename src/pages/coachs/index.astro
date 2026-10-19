@@ -84,15 +84,15 @@ const objectifs = [
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-black-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/fonts.css?v=b58" />
 
   <!-- LCP : le portrait de Mehdi est le sujet de la page, et il est construit
        en JS → invisible au preload scanner (§5.8) -->
   <link rel="preload" as="image" href="/assets/img/bc/cutouts/coach-mehdi.webp" fetchpriority="high" />
 
-  <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/base.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/refonte.css?v=b58" />
 
   <meta name="keywords" content="coach boxe Minimes Toulouse, entraîneur boxe anglaise Toulouse, Mehdi Boxing Center Minimes, coach Boxing Lady, coach boxe éducative enfant, encadrement boxe 31200, boxe Toulouse nord, club de boxe Les Minimes, salle de boxe 12 rue de Fenouillet, boxe métro B Barrière de Paris, boxe Lalande, boxe Borderouge, boxe Bonnefoy, boxe Sept Deniers, boxe Aucamville, boxe Launaguet, sports de combat Toulouse 31200, club FFBoxe Toulouse, apprendre la boxe Toulouse, boxe débutant Minimes, boxing gym Toulouse, boxing club Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse, club de boxe à Toulouse, club de boxe Toulouse 31, tarifs, horaires des cours, photos, plan d’accès, kick-boxing, pieds-poings" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -273,19 +273,29 @@ const objectifs = [
             },
             {
               "@type": "Offer",
-              "name": "Offre Rentrée — 29€ par personne",
-              "price": "29",
+              "name": "Abonnement étudiant — 4 semaines",
+              "price": "36.99",
               "priceCurrency": "EUR",
-              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
-              "url": "https://boutique.boxingcenter.fr/offre/29"
+              "description": "Carte étudiante requise, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines"
             },
             {
               "@type": "Offer",
-              "name": "Saison complète — 259€ les 12 mois",
-              "price": "259",
+              "name": "Abonnement adulte — 4 semaines",
+              "price": "44.99",
               "priceCurrency": "EUR",
-              "description": "Payable en 4× sans frais, accès libre aux 5 clubs du réseau (au lieu de 400€).",
-              "url": "https://boutique.boxingcenter.fr/offre/259"
+              "description": "Cours illimités, cinq salles, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines"
+            },
+            {
+              "@type": "AggregateOffer",
+              "name": "Abonnement comptant — 3, 6 ou 12 mois",
+              "lowPrice": "150",
+              "highPrice": "400",
+              "offerCount": "3",
+              "priceCurrency": "EUR",
+              "description": "Réglé en une fois.",
+              "url": "https://boutique.boxingcenter.fr/abonnements#comptant"
             },
             {
               "@type": "Offer",
@@ -618,7 +628,7 @@ const objectifs = [
       </div>
     </section>
 
-    <!-- ROULETTE PROMO — apres l equipe : il sait qui va l encadrer.
+    <!-- ROULETTE DES ABONNEMENTS — apres l equipe : il sait qui va l encadrer.
          Les deux offres phares y tournent en alternance ; le lien suit la
          case affichee. Montee par site.js > mountPromoWheels(). -->
     <div class="wrap" data-promo></div>
@@ -662,7 +672,7 @@ const objectifs = [
         <h2 class="display" data-reveal style="font-size:var(--step-3)">Viens te faire<br><span class="tint">corriger le jab.</span></h2>
         <p class="lead" data-reveal>Le coach te prend en main dès la première minute. Tu ressors avec un jab que tu n’avais pas.</p>
         <div class="gong__cta" data-reveal>
-          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je profite de l’offre à 29€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
+          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je m’inscris · 44,99€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
           <a class="btn btn--ghost" data-magnetic href="/plannings/"><span>Voir le planning</span></a>
         </div>
       </div>
@@ -682,7 +692,7 @@ const objectifs = [
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script is:inline type="module" src="/assets/js/site.js?v=b56"></script>
-  <script is:inline type="module" src="/assets/js/coachs.js?v=b56"></script>
+  <script is:inline type="module" src="/assets/js/site.js?v=b58"></script>
+  <script is:inline type="module" src="/assets/js/coachs.js?v=b58"></script>
 </body>
 </html>

@@ -7,8 +7,8 @@
    la page en affichait 6. Ici, /le-club/ est la VISITE : elle répond aux
    questions du LIEU (CLUB_QUESTIONS), en prose, sans schema.
    ===================================================================== */
-import { SALLE, NETWORK } from "./data.js?v=b56";
-import { TIMELINE, SPECS, CLUB_QUESTIONS } from "./data-club.js?v=b56";
+import { SALLE, NETWORK } from "./data.js?v=b58";
+import { TIMELINE, SPECS, CLUB_QUESTIONS } from "./data-club.js?v=b58";
 
 const gsap = window.gsap;
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

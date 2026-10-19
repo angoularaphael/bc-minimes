@@ -253,10 +253,9 @@
 }
 .trustbar__k { font: 800 clamp(1.4rem,3vw,2rem)/1 var(--f-display); color: var(--bone); letter-spacing: -.01em; display: inline-flex; align-items: baseline; gap: .5ch; }
 
-/* La case « offre » — la seule cliquable de la barre. Le prix barre donne
-   au 29 EUR sa mesure : un prix seul est un nombre, un prix barre est une
-   affaire. Il reste petit et discret, pour ne jamais concurrencer le 29. */
-.trustbar__was { font: 700 .48em/1 var(--f-ui); color: var(--steel); text-decoration: line-through; text-decoration-thickness: 2px; }
+/* Les cases « offre » — les seules cliquables de la barre : l'étudiant,
+   puis l'adulte. Le grand chiffre dit 36 ou 44, les centimes restent
+   collés en petit (.prix__v) ; rien de barré, rien de remisé. */
 .trustbar__item--offre { transition: background .3s var(--ease); }
 .trustbar__item--offre:hover { background: var(--paper-2); }
 .trustbar__item--offre:hover .trustbar__k { color: var(--navy-600); }
@@ -264,7 +263,7 @@
 [data-surface="deep"] .trustbar__item--offre:hover { background: rgba(255,255,255,.06); }
 .trustbar__v { font: 600 var(--step--2)/1.4 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--steel); text-wrap: balance; }
 
-/* Une case dont la cle est un MOT et non un nombre. « 29€ » tient a
+/* Une case dont la cle est un MOT et non un nombre. « 44€99 » tient a
    2 rem dans une colonne de 290 px ; « Tous niveaux » deborde. La cle
    descend donc d'un cran et cesse d'etre condensee au maximum — la case
    garde son poids visuel sans casser la grille a quatre colonnes. */
@@ -437,7 +436,7 @@
      deux se touchaient de 12 px pendant l'animation. */
   .hud { bottom: calc(88px + env(safe-area-inset-bottom)) !important; }
 
-  /* TROISIÈME OCCUPANT DU BAS D'ÉCRAN : la roulette promo. Mesurée à
+  /* TROISIÈME OCCUPANT DU BAS D'ÉCRAN : la roulette des abonnements. Mesurée à
      375 px, elle s'étend de y 630 à 734 et recouvre le compteur de rounds
      (699→738). Un écran de 375 px ne peut pas loger trois éléments fixes.
      Arbitrage : la roulette porte une OFFRE, le compteur est un ornement.
@@ -448,7 +447,7 @@
 }
 
 /* ------------------------------------------------------------------ *
-   9B. LA ROULETTE PROMO GLOBALE
+   9B. LA ROULETTE DES ABONNEMENTS
    Une animation visible sur toutes les pages, sans modal bloquante :
    l'offre reste dans le champ, mais le contenu continue de respirer.
  * ------------------------------------------------------------------ */
@@ -640,9 +639,22 @@
 .promo-wheel.is-spinning .promo-wheel__core-v { opacity: 0; transform: scale(.82); }
 .promo-wheel.is-spinning .promo-wheel__name,
 .promo-wheel.is-spinning .promo-wheel__detail { opacity: .25; }
-/* la case gagnante colore le liseré du centre — rouille pour la rentrée,
-   blanc pour la saison : deux offres, deux signaux */
+/* la case gagnante colore le liseré du centre — blanc pour l'étudiant,
+   rouille pour l'adulte : deux abonnements, deux signaux */
 .promo-wheel[data-offer="1"] .promo-wheel__core { border-color: var(--rust-400); }
+
+/* ---- LE PRIX EN GRAND : « 36 », « 44 » en gros, « €99 » collé en petit ----
+   Posé par prixVisuel() / prixGrand() (data.js). Le nombre garde la police
+   de son conteneur ; les centimes montent en exposant, comme sur une
+   étiquette : l'œil lit le nombre entier d'abord, le prix reste exact. */
+.prix { white-space: nowrap; }
+.prix__v { display: inline-flex; align-items: flex-start; white-space: nowrap; }
+.prix__v b { font: inherit; color: inherit; letter-spacing: inherit; }
+.prix__v i { font-style: normal; font-size: .42em; line-height: 1; margin: .14em 0 0 .06em; letter-spacing: 0; }
+/* dans le disque et le ruban, le texte est déjà minuscule : les centimes
+   y restent lisibles au lieu de tomber à 4 px */
+.promo-wheel__slice .prix__v i,
+.promo-wheel__ticker .prix__v i { font-size: .78em; margin-top: 0; }
 
 /* ------------------------------------------------------------------ *
    LA ROULETTE INTÉGRÉE

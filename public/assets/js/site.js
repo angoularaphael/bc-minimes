@@ -3,8 +3,7 @@
    window.BC = { reveal, magnetic, refresh, media, split, scramble,
                  initKinetics, faq, lenis, velocity }
    ===================================================================== */
-import { NAV, LINKS, SALLE, MEDIA, CTA, CTA_HREF, NETWORK, PROMOS } from "./data.js?v=b56";
-import { initPlaces } from "./places.js?v=b56";
+import { NAV, LINKS, SALLE, MEDIA, CTA, CTA_HREF, NETWORK, PROMOS, prixVisuel } from "./data.js?v=b58";
 /* L’assistant : il promeut la pastille `.chatbot` (qui reste un lien tel:
    dans le HTML) en vraie conversation. Voir armChatbot() plus bas — le
    module ne descend QU’À l’intention de parler, jamais au premier rendu. */
@@ -535,7 +534,7 @@ function armChatbot() {
   const load = () => {
     if (state !== "idle") return pending;
     state = "loading";
-    pending = import("./chatbot.js?v=b56")
+    pending = import("./chatbot.js?v=b58")
       .then(() => { state = "ready"; })
       .catch(() => { state = "failed"; });
     return pending;
@@ -755,15 +754,17 @@ function mountActionBar() {
   }
 }
 
-/* ======================= LA ROULETTE PROMO ========================
-   DEUX offres, pas une. La roulette ne montrait que la rentrée à 29 € —
-   or le club en vend deux, et ce sont deux publics différents : celui qui
-   teste quatre semaines, et celui qui prend l'année. Une roulette qui
-   n'a qu'une seule case n'est pas une roulette, c'est une affiche.
-   Elle tourne donc entre les deux offres, et TOUT suit la case gagnante :
-   le prix au centre, le titre, le détail, et surtout la DESTINATION du
-   lien — un visiteur qui clique pendant que « la saison » est affichée
-   doit arriver sur la saison, jamais sur la rentrée.
+/* ===================== LA ROULETTE DES ABONNEMENTS ===================
+   DEUX abonnements, deux publics : l'étudiant, carte en main, puis
+   l'adulte. Une roulette qui n'a qu'une seule case n'est pas une
+   roulette, c'est une affiche.
+   Elle tourne entre les deux, et TOUT suit la case gagnante : le prix au
+   centre, le titre, le détail, et surtout la DESTINATION du lien : un
+   clic pendant que l'adulte est à l'écran mène à l'inscription adulte,
+   jamais à l'étudiante.
+   Ce sont des tarifs de tous les jours : ni prix barré, ni pourcentage,
+   ni « à saisir ». Le grand chiffre dit 36 ou 44, « €99 » reste écrit en
+   petit, et la ligne de détail donne le montant exact.
 
    Deux formes, un seul code :
    · flottante  — pastille fixe, présente sur toute la page
@@ -772,33 +773,31 @@ function mountActionBar() {
                   la question du prix se pose d'elle-même.
    ================================================================== */
 
-/* Les deux offres mises en avant, lues depuis PROMOS — jamais réécrites
-   ici. Si le staff change un prix dans les données, la roulette suit. */
+/* Les deux abonnements, lus depuis PROMOS — jamais réécrits ici. Si le
+   staff change un prix dans les données, la roulette suit. */
 function promoOffers() {
   const carte = (k) => PROMOS.cards?.find((c) => c.key === k);
-  const rentree = carte("rentree") || PROMOS.cards?.[0];
-  const saison = carte("saison");
+  const montant = (p) => String(p || "").replace(/\s?€$/, " €");
+  const etu = carte("etudiant");
+  const adu = carte("adulte");
   const out = [];
-  if (rentree) out.push({
-    price: rentree.price || "29€",
-    name: rentree.name || "L’offre Rentrée",
-    detail: `${rentree.unit || "par personne"} · ${(rentree.period || "4 semaines").replace(/^·\s*/, "")} illimitées`,
-    was: rentree.was || "44,99€",
-    cut: "-34%",
-    /* La fiche de l’offre, pas le tunnel de commande : on clique sur une
-       offre pour la LIRE. rentree.href vaut /offre/29, exactement comme la
-       carte tarifs — la saison lisait déjà sa donnée, la rentrée l’écrasait. */
-    href: rentree.href || CTA_HREF.primary,
-    cta: "Je profite de l’offre",
+  if (etu) out.push({
+    price: etu.price,
+    tag: "Étudiant",
+    ruban: "Étudiant · sur carte",
+    name: etu.name,
+    detail: `${montant(etu.price)} les 4 semaines · ${etu.unit || "carte étudiante requise"}`,
+    href: etu.href || CTA_HREF.etudiant,
+    cta: "Je m’inscris en étudiant",
   });
-  if (saison) out.push({
-    price: saison.price || "259€",
-    name: saison.name || "La saison complète",
-    detail: `${(saison.period || "les 12 mois").replace(/^·\s*/, "")} · 4× sans frais`,
-    was: saison.was || "400€",
-    cut: "-35%",
-    href: saison.href || CTA_HREF.primary,
-    cta: "Je réserve ma saison",
+  if (adu) out.push({
+    price: adu.price,
+    tag: "Adulte",
+    ruban: "Adulte · sans engagement",
+    name: adu.name,
+    detail: `${montant(adu.price)} les 4 semaines · sans engagement`,
+    href: adu.href || CTA_HREF.adulte,
+    cta: "Je m’inscris en adulte",
   });
   return out;
 }
@@ -806,25 +805,25 @@ function promoOffers() {
 function buildWheel(offers, inline) {
   const el = document.createElement(inline ? "div" : "aside");
   el.className = "promo-wheel" + (inline ? " promo-wheel--inline" : "");
-  el.setAttribute("aria-label", "Nos deux offres — rentrée et saison");
-  /* Le ruban porte les faits des DEUX offres : même arrêtée sur l'une,
-     la roulette dit qu'il en existe une seconde. */
-  const strip = offers.flatMap((o) => [
-    { t: o.price, d: o.name.replace(/^L[’']/, "").replace(/^La /, "") },
-    { t: o.cut, d: `au lieu de ${o.was}` },
-  ]);
+  el.setAttribute("aria-label", "Nos deux abonnements — étudiant, puis adulte");
+  const o2 = offers[1] || offers[0];
+  /* Le ruban porte les faits des DEUX abonnements : même arrêtée sur
+     l'un, la roulette dit qu'il en existe un second. */
+  const strip = offers
+    .map((o) => ({ t: prixVisuel(o.price), d: o.ruban }))
+    .concat([{ t: "5", d: "salles du réseau" }, { t: "4", d: "semaines, renouvelables" }]);
   el.innerHTML = `
     <a class="promo-wheel__link" href="${offers[0].href}">
-      <span class="promo-wheel__flag">Offre à saisir</span>
+      <span class="promo-wheel__flag">Sans engagement</span>
       <span class="promo-wheel__stage" aria-hidden="true">
         <span class="promo-wheel__pointer"></span>
         <span class="promo-wheel__disc">
-          <span class="promo-wheel__slice promo-wheel__slice--top">${offers[0].price}</span>
-          <span class="promo-wheel__slice promo-wheel__slice--right">${offers[0].cut}</span>
-          <span class="promo-wheel__slice promo-wheel__slice--bottom">${(offers[1] || offers[0]).price}</span>
-          <span class="promo-wheel__slice promo-wheel__slice--left">${(offers[1] || offers[0]).cut}</span>
+          <span class="promo-wheel__slice promo-wheel__slice--top">${prixVisuel(offers[0].price)}</span>
+          <span class="promo-wheel__slice promo-wheel__slice--right">${offers[0].tag}</span>
+          <span class="promo-wheel__slice promo-wheel__slice--bottom">${prixVisuel(o2.price)}</span>
+          <span class="promo-wheel__slice promo-wheel__slice--left">${o2.tag}</span>
         </span>
-        <span class="promo-wheel__core"><span class="promo-wheel__core-v">${offers[0].price}</span></span>
+        <span class="promo-wheel__core"><span class="promo-wheel__core-v">${prixVisuel(offers[0].price)}</span></span>
       </span>
       <span class="promo-wheel__copy">
         <b class="promo-wheel__name">${offers[0].name}</b>
@@ -852,7 +851,7 @@ function armWheel(el, offers) {
 
   const land = (n) => {
     const o = offers[n];
-    core.textContent = o.price;
+    core.innerHTML = prixVisuel(o.price);
     name.textContent = o.name;
     detail.textContent = o.detail;
     go.firstChild.nodeValue = o.cta + " ";
@@ -972,9 +971,6 @@ hydrateMedia(document);   // hydrate menu/footer bg video etc.
 magnetic(document);
 armChatbot();
 
-/* « Plus que N places » : le nombre vient des ventes reelles de la
-   boutique. Sans reponse, aucun compteur ne s'affiche — voir places.js. */
-void initPlaces();
 presentationAssistant();
 
 export const BC = window.BC;

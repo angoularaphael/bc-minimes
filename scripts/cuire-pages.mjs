@@ -36,7 +36,6 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const url = (f) => pathToFileURL(join(ROOT, "public", "assets", "js", f)).href;
 const { COACHES, FAQ, SALLE, PROMOS, NETWORK } = await import(url("data.js"));
-const { TARIFS } = await import(url("data-accueil.js"));
 const { MONEY_FAQ, REVIEWS } = await import(url("data-argent.js"));
 const { PLANNING, PLANNING_DAYS } = await import(url("data-planning.js"));
 const { DISCIPLINES } = await import(url("data-disciplines.js"));
@@ -92,10 +91,11 @@ const plGrid = PLANNING_DAYS.map((j) => {
     .join("")}</ul></section>`;
 }).join("");
 
-/* /tarifs — les offres, les questions d'argent, les avis */
-const offers = TARIFS.map(
+/* /tarifs — les offres, les questions d'argent, les avis. Les MÊMES cartes
+   que tarifs.js peint ensuite (PROMOS) : le comptant et l'essai compris. */
+const offers = PROMOS.cards.map(
   (t) =>
-    `<article><h3>${e(t.name)}</h3><p><b>${e(t.price)}</b>${t.period ? ` ${e(t.period)}` : ""}</p>${
+    `<article><h3>${e(t.name)}</h3><p><b>${e(t.price)}</b>${t.unit ? ` ${e(t.unit)}` : ""}${t.period ? ` ${e(t.period)}` : ""}</p>${
       t.feature ? `<p>${e(t.feature)}</p>` : ""
     }${ul(t.items)}</article>`
 ).join("");
@@ -151,7 +151,7 @@ const FOURNEES = [
   ["coachs", "roster", roster, (COACHES.roster || []).length + " coachs"],
   ["activites", "act-rows", actRows, DISCIPLINES.length + " disciplines"],
   ["plannings", "pl-grid", plGrid, PLANNING.length + " creneaux"],
-  ["tarifs", "offers", offers, TARIFS.length + " offres"],
+  ["tarifs", "offers", offers, PROMOS.cards.length + " offres"],
   ["tarifs", "bonus", bonus, "le bonus enfant"],
   ["tarifs", "money-faq", moneyFaq, MONEY_FAQ.length + FAQ.length + " questions"],
   ["tarifs", "reviews", reviews, (REVIEWS.quotes || []).length + " avis"],

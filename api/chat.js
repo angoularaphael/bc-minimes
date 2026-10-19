@@ -20,13 +20,13 @@ const STATIC_TAIL = `- Accès : métro ligne B station Barrière de Paris, 3 min
 - L’histoire : ouverte en 2016, c’est la PREMIÈRE salle du groupe Boxing Center — la salle historique. Trois boxeurs professionnels en sont sortis : Johnson Suffo, Salomon Kitoko, Elyasse Azap.
 - Séance d’essai : 10€, toutes disciplines, gants et protections prêtés, sans engagement et sans dossier. Réservation sur boutique.boxingcenter.fr/seance-essai ou sur place.
 - Accès libre : rings et sacs en autonomie tous les jours de 10h à 12h et de 13h20 à 18h (le mercredi jusqu’à 15h seulement, l’école prend la salle).
-- Réseau Boxing Center : Portet-sur-Garonne (vaisseau amiral), États-Unis, Saint-Cyprien, Ramonville. L’abonnement saison ouvre l’accès libre aux 5 clubs. Groupe : boxingcenter.fr.`;
+- Réseau Boxing Center : Portet-sur-Garonne (vaisseau amiral), États-Unis, Saint-Cyprien, Ramonville. Un abonnement, étudiant ou adulte, ouvre les 5 salles. Groupe : boxingcenter.fr.`;
 
 /* Repli si content.json est illisible : les mêmes faits, figés. */
 const STATIC_INFO = `- Boxing Center Minimes : salle historique du groupe Boxing Center (depuis 2016), quartier des Minimes / Barrière de Paris. Spécialité maison : la boxe anglaise. « Le berceau des champions. » Trois rings ; le berceau de nombreux champions, professionnels et amateurs, formés par le pôle compétiteur de la salle. Ne cite jamais de nombre de champions.
 - Adresse : 12 rue de Fenouillet, 31200 Toulouse. Téléphone : 05 62 24 46 82. Email : boxingcenter31@gmail.com.
 - Horaires : du lundi au samedi, 10h00 – 21h30. Fermé le dimanche.
-- Tarifs (dans l’ordre où on les propose) : offre RENTRÉE 29€ PAR PERSONNE toutes les 4 semaines, cours illimités, sans engagement (au lieu de 44,99€) — conditions à annoncer : première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge d’accès 34,99€ facturé 72 h après le début ; saison complète 259€ les 12 mois au lieu de 400€, comptant ou en 4× sans frais (4 × 64,75€, plusieurs options de paiement en 4× sur la boutique), accès aux 5 clubs ; hors promotion : 44,99€ adulte, 36,99€ étudiant toutes les 4 semaines, badge d’accès 34,99€ en sus ; école 295€ l’année t-shirt du club inclus, Baby Boxe 250€ ; séance d’essai 10€ EN DERNIER.
+- Tarifs (dans l’ordre où on les propose) : abonnement ÉTUDIANT 36,99€ toutes les 4 semaines, carte étudiante requise ; puis abonnement ADULTE 44,99€ toutes les 4 semaines — tous deux sans engagement et renouvelables, cours illimités, accès libre, accès aux 5 salles ; conditions à annoncer : première échéance par carte, prélèvement sur IBAN ensuite, badge d’accès 34,99€ prélevé quelques jours après l’inscription ; comptant, réglé d’avance : 150€ pour trois mois, 250€ pour six, 400€ pour l’année ; école 295€ l’année t-shirt du club inclus, Baby Boxe 250€ ; séance d’essai 10€ EN DERNIER.
 - Disciplines : boxe anglaise (loisirs et compétiteurs), boxe éducative dès 3 ans (Baby Boxe 3/6, enfants 7/11, ados 12/16), Boxing Lady 100 % féminin, Boxing camp, boxe pieds-poings, PAOS et pattes d’ours, cross training et cardio boxing en accès libre.
 - Coachs : Mehdi B (coach principal, anglaise, école, compétiteurs, camp, sparring), Chloé et David (Boxing Lady, pieds-poings), Clément (Boxing camp). Ne cite un coach QUE si on te demande qui encadre un cours ou qui donne quoi ; tu réponds alors avec le planning officiel.
 - Planning : anglaise loisirs le midi 12h40 (mardi, mercredi, jeudi) et le soir 19h40 (lundi, mardi, jeudi, vendredi) ; compétiteurs 18h (lundi, mardi, jeudi, vendredi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp lundi et vendredi 12h40, mardi et jeudi 18h30, samedi 11h ; pieds-poings mercredi 19h40 ; l’école mercredi et samedi après-midi ; open sparring samedi 18h30.`;
@@ -73,19 +73,19 @@ Ton rôle : renseigner le visiteur, avec la voix d’un coach de la maison, et l
 RÈGLES :
 - Réponds dans la langue du visiteur (français par défaut), au TUTOIEMENT en français, en 2 à 4 phrases. Direct, chaleureux, jamais commercial ni corporate.
 - Réponds UNIQUEMENT à partir des infos ci-dessous. Si une info précise manque, dis-le et invite à appeler le 05 62 24 46 82 ou à passer à la salle. N’invente JAMAIS un prix, un horaire, un nom de coach, un palmarès ou une date.
-- L’offre Rentrée à 29€ s’écrit TOUJOURS « 29€ par personne » — jamais « 29€ » tout court, jamais « pour deux ».
+- Les prix s’écrivent au centime : 36,99€ et 44,99€, jamais arrondis. L’abonnement étudiant s’annonce TOUJOURS avec « carte étudiante requise ». Aucune promotion, aucun prix barré, aucune date limite : ce sont les tarifs de tous les jours. Si on te cite une ancienne offre, présente simplement les abonnements actuels.
 VENDRE (ton objectif n°1, dans CET ordre) :
-1. L’OFFRE RENTRÉE 29€ par personne — propose-la en PREMIER dès qu’on parle de commencer, de prix ou d’hésitation.
-2. La SAISON 259€ en 4× sans frais pour les motivés à l’année.
+1. L’ABONNEMENT ÉTUDIANT 36,99€ (carte étudiante requise), puis l’ADULTE 44,99€ — toutes les 4 semaines, sans engagement. Propose-les en PREMIER, dans cet ordre, dès qu’on parle de commencer, de prix ou d’hésitation.
+2. Le COMPTANT, pour qui veut tout régler d’avance : trois mois à 150€, six à 250€, douze à 400€.
 3. L’école pour les enfants (295€ t-shirt inclus, baby 250€).
 4. La SÉANCE D’ESSAI À 10€ — uniquement en DERNIER recours, quand la personne hésite encore après avoir vu les offres.
 L’ARME SECRÈTE plus bas complète cet ordre.
 BOUTONS D’ACTION (l’interface les affiche sous ton message) :
 - N’écris JAMAIS d’URL en clair. Termine ta réponse par « [boutons: clé1, clé2] » (1 à 3 clés max).
-- Clés disponibles (UNIQUEMENT celles-ci) : offre (l’offre Rentrée 29€ sur la boutique) · saison (saison 259€) · essai (la séance d’essai 10€) · enfants (inscrire un enfant) · abonnements · boutique · premiere (la page « Ta première séance » : le déroulé, ce qu’on ne fait pas, le sac) · tarifs (page tarifs du site) · planning · disciplines · club · coachs · galerie · contact · offert (le formulaire caché de la séance OFFERTE — UNIQUEMENT l’arme secrète du point ci-dessous) · rappel (un coach rappelle — le chat s’en charge).
-- « offre » dès qu’on parle prix ou début ; « essai » seulement en dernier recours ; « enfants » pour les inscriptions enfants.
+- Clés disponibles (UNIQUEMENT celles-ci) : etudiant (l’inscription étudiant 36,99€) · adulte (l’inscription adulte 44,99€) · comptant (les formules comptant 3, 6 ou 12 mois) · essai (la séance d’essai 10€) · enfants (inscrire un enfant) · abonnements · boutique · premiere (la page « Ta première séance » : le déroulé, ce qu’on ne fait pas, le sac) · tarifs (page tarifs du site) · planning · disciplines · club · coachs · galerie · contact · offert (le formulaire caché de la séance OFFERTE — UNIQUEMENT l’arme secrète du point ci-dessous) · rappel (un coach rappelle — le chat s’en charge).
+- « etudiant » puis « adulte » dès qu’on parle prix ou début (« adulte » seul si la personne dit ne pas être étudiante) ; « essai » seulement en dernier recours ; « enfants » pour les inscriptions enfants.
 - « premiere » dès que la personne dit qu’elle n’a jamais boxé, qu’elle a peur du ring, qu’elle demande comment ça se passe, ce qu’il faut apporter ou s’il faut un certificat. C’est la page qui lève la peur — elle vient AVANT le prix, pas à la place.
-- Si tu réponds dans une autre langue, traduis le libellé : « clé:Label » (ex. [boutons: offre:Get the 29€ offer]).
+- Si tu réponds dans une autre langue, traduis le libellé : « clé:Label » (ex. [boutons: adulte:Sign up · €44.99]).
 L’ARME SECRÈTE (à ne dégainer QUE quand la vente est morte) :
 - Si la personne a vu les offres, hésite encore, et que même l’essai à 10€ ne la décide pas — ou qu’elle s’apprête à partir — tu peux OFFRIR la première séance en geste du club : envoie [boutons: offert]. Jamais dans ta première réponse, jamais si la vente respire encore, jamais la clé « offert » hors de ce geste. Collecte prénom + contact avant si la conversation est fluide.
 - Comprends le langage naturel : fautes, phrases courtes, argot. Déduis l’intention.
@@ -94,7 +94,7 @@ L’ARME SECRÈTE (à ne dégainer QUE quand la vente est morte) :
 
 /* La langue du visiteur prime sur celle du prompt (rédigé en français) :
    posée en tête ET en fin de consigne, là où un modèle la respecte le mieux. */
-const LANGUE = "LANGUE — RÈGLE ABSOLUE : réponds TOUJOURS dans la langue du DERNIER message du visiteur. S’il écrit en anglais, toute ta réponse est en anglais (prix, horaires, conseils) et les libellés de boutons sont traduits : [boutons: offre:Get the 29€ offer]. S’il écrit en espagnol, en espagnol. Sinon, en français.";
+const LANGUE = "LANGUE — RÈGLE ABSOLUE : réponds TOUJOURS dans la langue du DERNIER message du visiteur. S’il écrit en anglais, toute ta réponse est en anglais (prix, horaires, conseils) et les libellés de boutons sont traduits : [boutons: adulte:Sign up · €44.99]. S’il écrit en espagnol, en espagnol. Sinon, en français.";
 
 /* Le planning OFFICIEL (content.json, édité au vestiaire), normalisé pour le
    bloc « maintenant » : début, fin, cours, coach, groupes enfants. */
@@ -190,7 +190,7 @@ export const KB = [
      celle de la salle. La question la plus précise passe en premier. */
   {
     re: /clim|climatis|air.?conditionn|ventil|il fait (chaud|froid)|temp[ée]rature|canicule|chauff/i,
-    a: "Non — aucune de nos salles n’est climatisée, ni chauffée. Elles sont en revanche correctement isolées. On te dit les choses comme elles sont : tu viens en tenue légère l’été, tu t’échauffes moins longtemps l’hiver. [boutons: planning, offre]"
+    a: "Non — aucune de nos salles n’est climatisée, ni chauffée. Elles sont en revanche correctement isolées. On te dit les choses comme elles sont : tu viens en tenue légère l’été, tu t’échauffes moins longtemps l’hiver. [boutons: planning, tarifs]"
   },
   /* Le planning AVANT l’adresse : « envoie-moi le planning » contient
      « plan », et tombait sur la réponse « voici l’adresse ». Défaut vu
@@ -198,9 +198,9 @@ export const KB = [
   { re: /planning|cr[ée]neau|horaire des cours|quand.*(?:cours|entra[îi])/i,
     a: "Le planning tourne du lundi au samedi : anglaise loisirs le midi à 12h40 et le soir à 19h40, compétiteurs à 18h, Boxing Lady lundi et mercredi 18h30, Boxing camp midi et soir, l’école le mercredi et le samedi après-midi, open sparring le samedi 18h30. Le détail complet est sur la page Planning." },
   { re: /essai|d[ée]couvr|tester|premi[èe]re fois|premiere fois|gratuit|venir voir/i,
-    a: "La séance d’essai est à 10€ : la discipline que tu veux, gants et protections prêtés, aucun dossier à monter. Tu viens, tu boxes, tu décides après. Mais si tu comptes venir plus d’une fois, la rentrée à 29€ par personne est vite rentabilisée. [boutons: offre, essai]" },
-  { re: /tarif|prix|co[ûu]te|combien|abonn|mensuel|saison|duo|259|29|295|offre|promo|formule|rentr[ée]e|payer|paiement/i,
-    a: "L’offre Rentrée : 29€ PAR PERSONNE toutes les 4 semaines, cours illimités, sans engagement (au lieu de 44,99€) — première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge 34,99€ facturé 72 h après le début. La saison complète : 259€ les 12 mois au lieu de 400€, comptant ou en 4× sans frais, accès libre aux 5 clubs. L’école : 295€ l’année t-shirt inclus, baby 250€. Et l’essai à 10€ pour tester. [boutons: offre, tarifs]" },
+    a: "La séance d’essai est à 10€ : la discipline que tu veux, gants et protections prêtés, aucun dossier à monter. Tu viens, tu boxes, tu décides après. Et si tu sais déjà que tu reviendras, l’abonnement sans engagement est à 36,99€ les 4 semaines avec ta carte étudiante, 44,99€ sinon. [boutons: essai, etudiant, adulte]" },
+  { re: /tarif|prix|co[ûu]te|combien|abonn|mensuel|saison|[ée]tudiant|adulte|comptant|295|offre|promo|formule|rentr[ée]e|payer|paiement|pr[ée]l[èe]v/i,
+    a: "Deux abonnements sans engagement, toutes les 4 semaines : 36,99€ si tu es étudiant (carte étudiante requise), 44,99€ sinon — cours illimités, accès libre et les 5 salles du réseau. La première échéance se règle par carte, la suite part en prélèvement, et le badge d’accès (34,99€) est prélevé quelques jours après l’inscription. Tu préfères payer d’avance ? Trois mois font 150€, six mois 250€, et l’année entière 400€. L’école : 295€ l’année t-shirt inclus, baby 250€. Et l’essai à 10€ pour tester. [boutons: etudiant, adulte, tarifs]" },
   { re: /horaire|ouvert|ferm|heure|dimanche|samedi|lundi|semaine|week.?end|soir|matin|midi|tard|t[ôo]t|acc[èe]s libre/i,
     a: "La salle est ouverte du lundi au samedi, de 10h00 à 21h30. Fermé le dimanche. En dehors des cours, les rings et les sacs sont à toi en accès libre : 10h–12h et 13h20–18h (le mercredi ça s’arrête à 15h, l’école prend la salle)." },
   /* « où » accentué est sans ambiguïté ; « ou » nu ne compte que collé à
@@ -216,7 +216,7 @@ export const KB = [
   { re: /coach|entra[îi]neur|prof|encadr|[ée]quipe|mehdi|chlo|david|hicham/i,
     a: "Mehdi B tient la maison : anglaise, école, compétiteurs, boxing camp, sparring. Chloé et David mènent le Boxing Lady, David les pieds-poings, Clément le boxing camp. Pour savoir qui encadre quel créneau, le mieux est de passer ou d’appeler la salle." },
   { re: /d[ée]butant|jamais box|niveau|peur|forme|condition/i,
-    a: "Tu ne seras ni le premier ni le seul à arriver sans avoir jamais mis un gant. Le coach te met en garde, te corrige, recommence — dix fois s’il le faut. Personne ne monte sur le ring sans en avoir envie : ça se demande, ça ne s’impose pas. Le déroulé complet d’une première séance est écrit noir sur blanc. [boutons: premiere, offre]" },
+    a: "Tu ne seras ni le premier ni le seul à arriver sans avoir jamais mis un gant. Le coach te met en garde, te corrige, recommence — dix fois s’il le faut. Personne ne monte sur le ring sans en avoir envie : ça se demande, ça ne s’impose pas. Le déroulé complet d’une première séance est écrit noir sur blanc. [boutons: premiere, adulte]" },
   { re: /salle|ring|sac|mat[ée]riel|[ée]quipement|vestiaire|[ée]tage|histoire|champion|pro\b/i,
     a: "Trois rings, douze sacs lourds, une zone pattes d’ours et la prépa physique à l’étage, au-dessus des rings. Vestiaires hommes et femmes séparés. C’est la première salle du groupe, ouverte en 2016 : le berceau de nombreux champions, professionnels et amateurs — parmi eux Johnson Suffo, Salomon Kitoko, Elyasse Azap." },
   { re: /contact|t[ée]l[ée]phone|email|mail|num[ée]ro|appeler|joindre/i,
@@ -224,7 +224,7 @@ export const KB = [
   { re: /inscri|adh[ée]r|certificat|m[ée]dical|dossier|papier/i,
     a: "Pour l’essai à 10€, tu n’as rien à apporter — ni dossier, ni certificat. Un t-shirt, un short, des baskets propres, une bouteille d’eau : les gants et les protections sont prêtés. C’est au moment de t’inscrire pour de bon qu’on te demande le certificat médical et de quoi régler. [boutons: premiere, essai]" },
   { re: /r[ée]seau|autre salle|portet|cyprien|ramonville|[ée]tats.?unis|groupe/i,
-    a: "Boxing Center, c’est cinq clubs à Toulouse et autour : Minimes (ici, la salle historique), Portet-sur-Garonne, États-Unis, Saint-Cyprien et Ramonville. La saison ouvre l’accès libre à tous. Le site du réseau : boxingcenter.fr." },
+    a: "Boxing Center, c’est cinq clubs à Toulouse et autour : Minimes (ici, la salle historique), Portet-sur-Garonne, États-Unis, Saint-Cyprien et Ramonville. Ton abonnement, étudiant ou adulte, t’ouvre les cinq. Le site du réseau : boxingcenter.fr." },
 ];
 /* Salutation / présentation : sans clé d’IA, le visiteur qui dit
    « moi c’est Karim » tombait sur le catalogue générique. Le contexte

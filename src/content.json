@@ -36,56 +36,55 @@
     "bonus": "Inscription enfant : le t-shirt Boxing Center est inclus — pour tous, pas pour les 100 premiers.",
     "cards": [
       {
-        "key": "rentree",
-        "name": "L’offre Rentrée",
-        "price": "29€",
-        "unit": "par personne",
-        "was": "44,99€",
+        "key": "etudiant",
+        "name": "L’offre Étudiant",
+        "price": "36,99€",
+        "unit": "carte étudiante requise",
         "period": "· 4 semaines",
-        "feature": "Cours illimités, toutes disciplines, sans engagement",
+        "feature": "Le tarif sur justificatif : ta carte étudiante, et toute la salle est à toi",
         "items": [
-          "29€ par personne (au lieu de 44,99€)",
-          "Toutes les 4 semaines, cours illimités",
-          "Toutes les disciplines",
-          "Encore mieux à deux — 29€ chacun"
+          "Renouvelé toutes les 4 semaines",
+          "Cours illimités, accès libre compris",
+          "Les 5 salles du réseau",
+          "Sans engagement"
         ],
-        "cta": "Je profite de l’offre à 29€",
-        "href": "https://boutique.boxingcenter.fr/offre/29",
-        "tag": "La priorité",
+        "cta": "Je m’inscris en étudiant",
+        "href": "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+        "tag": "Étudiant",
         "highlight": true
       },
       {
-        "key": "saison",
-        "name": "La saison complète",
-        "price": "259€",
-        "was": "400€",
-        "period": "les 12 mois",
-        "feature": "4× sans frais · accès libre aux 5 clubs — moins de 5€ par semaine",
-        "items": [
-          "259€ les 12 mois (au lieu de 400€)",
-          "Payable en 4× 64,75€ sans frais",
-          "Anglaise, MMA, pieds-poings, Lady, Fitness",
-          "Accès libre aux 5 clubs du réseau"
-        ],
-        "cta": "Je réserve ma saison — 4× 64,75€",
-        "href": "https://boutique.boxingcenter.fr/offre/259",
-        "tag": "L’abonnement"
-      },
-      {
-        "key": "classiques",
-        "name": "L’abonnement au mois",
+        "key": "adulte",
+        "name": "L’offre Adulte",
         "price": "44,99€",
-        "period": "/ 4 semaines · adulte",
-        "feature": "Étudiant 36,99€ sur justificatif — le tarif de tous les jours",
+        "period": "· 4 semaines",
+        "feature": "Toutes les disciplines de la maison, et tu arrêtes quand tu veux",
         "items": [
-          "Adulte 44,99€ / 4 semaines",
-          "Étudiant 36,99€ / 4 semaines",
-          "Accès aux 5 salles, toutes les disciplines",
+          "Renouvelé toutes les 4 semaines",
+          "Cours illimités, accès libre compris",
+          "Les 5 salles du réseau",
           "Sans engagement"
         ],
-        "cta": "Voir les formules au mois",
-        "href": "https://boutique.boxingcenter.fr/abonnements",
-        "tag": "Le classique"
+        "cta": "Je m’inscris · 44,99€",
+        "href": "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+        "tag": "Adulte",
+        "highlight": true
+      },
+      {
+        "key": "comptant",
+        "name": "Le comptant",
+        "price": "150€",
+        "period": "les 3 mois, réglés d’avance",
+        "feature": "6 mois 250€ · 12 mois 400€ — un seul paiement, aucun prélèvement",
+        "items": [
+          "3 mois : 150€",
+          "6 mois : 250€",
+          "12 mois : 400€",
+          "Réglé en une fois, à l’inscription"
+        ],
+        "cta": "Voir les formules comptant",
+        "href": "https://boutique.boxingcenter.fr/abonnements#comptant",
+        "tag": "D’avance"
       },
       {
         "key": "ecole",

@@ -443,7 +443,7 @@ html.is-menu-open .nav { opacity: 0; visibility: hidden; pointer-events: none; t
    deborder ni chevaucher le burger. Le masquer, c'etait retirer le seul
    chemin d'achat permanent sur l'appareil qui fait l'essentiel du trafic. */
 .nav__cta { display: inline-flex; }
-/* Sous 520px, le bouton porte « Ma place · 29€ » : 158px de large, assez
+/* Sous 520px, le bouton portait un libellé de 158px de large, assez
    pour percuter .nav__salle (« MINIMES »). Mesuré : le libellé débordait de
    son propre conteneur — il s'arrêtait à 159px quand .nav__brand finissait
    à 152 — et passait SOUS le bouton. On resserre le bouton (107→118px)
@@ -773,7 +773,8 @@ a:hover > .ext, a:focus-visible > .ext { opacity: 1; }
   100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
 }
 /* Le prix barre DANS UNE PHRASE (les cartes de tarif ont leur propre regle).
-   Partout ou 29 EUR est ecrit, le prix qu'il remplace est ecrit a cote. */
+   Reservee a une vraie remise ecrite par la boutique : jamais sur un tarif
+   de tous les jours. */
 .was { opacity: .55; text-decoration: line-through; text-decoration-thickness: 2px; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .places::before { animation: none; } }
 

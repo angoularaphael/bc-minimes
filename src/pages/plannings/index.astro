@@ -20,16 +20,16 @@ import SiteContent from "../../components/SiteContent.astro";
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-black-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/fonts.css?v=b58" />
 
   <!-- LCP : l’image du hero est construite en JS, donc invisible au preload
        scanner (parse → module → import data.js → new Image()). Le preload
        rattrape la découverte perdue (§5.8 « preload de l’image LCP »). -->
   <link rel="preload" as="image" href="/assets/img/photos/minimes-ring-cours.webp" fetchpriority="high" />
 
-  <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/base.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/refonte.css?v=b58" />
 
   <meta name="keywords" content="horaires des cours, planning club de boxe à Toulouse, planning boxe Toulouse, horaires club de boxe Minimes, cours boxe anglaise Barrière de Paris, planning Boxing Lady Toulouse, cours boxe enfants 31200, open sparring Toulouse nord, accès libre salle de boxe Minimes, boxe métro B, boxe Lalande, boxe Borderouge, sports de combat Toulouse 31200, club de boxe Toulouse 31, tarifs, photos, plan d’accès, kick-boxing, pieds-poings" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -220,19 +220,29 @@ import SiteContent from "../../components/SiteContent.astro";
             },
             {
               "@type": "Offer",
-              "name": "Offre Rentrée — 29€ par personne",
-              "price": "29",
+              "name": "Abonnement étudiant — 4 semaines",
+              "price": "36.99",
               "priceCurrency": "EUR",
-              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
-              "url": "https://boutique.boxingcenter.fr/offre/29"
+              "description": "Carte étudiante requise, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines"
             },
             {
               "@type": "Offer",
-              "name": "Saison complète — 259€ les 12 mois",
-              "price": "259",
+              "name": "Abonnement adulte — 4 semaines",
+              "price": "44.99",
               "priceCurrency": "EUR",
-              "description": "Payable en 4× sans frais, accès libre aux 5 clubs du réseau (au lieu de 400€).",
-              "url": "https://boutique.boxingcenter.fr/offre/259"
+              "description": "Cours illimités, cinq salles, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines"
+            },
+            {
+              "@type": "AggregateOffer",
+              "name": "Abonnement comptant — 3, 6 ou 12 mois",
+              "lowPrice": "150",
+              "highPrice": "400",
+              "offerCount": "3",
+              "priceCurrency": "EUR",
+              "description": "Réglé en une fois.",
+              "url": "https://boutique.boxingcenter.fr/abonnements#comptant"
             },
             {
               "@type": "Offer",
@@ -709,7 +719,7 @@ import SiteContent from "../../components/SiteContent.astro";
       </div>
     </section>
 
-    <!-- ROULETTE PROMO — apres la grille : il a repere son creneau.
+    <!-- ROULETTE DES ABONNEMENTS — apres la grille : il a repere son creneau.
          Les deux offres phares y tournent en alternance ; le lien suit la
          case affichee. Montee par site.js > mountPromoWheels(). -->
     <div class="wrap" data-promo></div>
@@ -756,7 +766,7 @@ import SiteContent from "../../components/SiteContent.astro";
         <h2 class="display display--sm" data-reveal>Choisis ton créneau.<br><span class="tint">On te tient jusqu’au dernier round.</span></h2>
         <p class="lead" data-reveal>Viens avec ta bouteille d’eau — les gants, c’est nous.</p>
         <div class="gong__cta" data-reveal>
-          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je profite de l’offre à 29€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
+          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je m’inscris · 44,99€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
           <a class="btn btn--ghost" data-magnetic href="tel:+33562244682"><span>05 62 24 46 82</span></a>
         </div>
       </div>
@@ -776,7 +786,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script is:inline type="module" src="/assets/js/site.js?v=b56"></script>
-  <script is:inline type="module" src="/assets/js/plannings.js?v=b56"></script>
+  <script is:inline type="module" src="/assets/js/site.js?v=b58"></script>
+  <script is:inline type="module" src="/assets/js/plannings.js?v=b58"></script>
 </body>
 </html>

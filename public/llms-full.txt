@@ -163,22 +163,23 @@ Ce que le club NE fait PAS lors d’une première séance :
 - Pas d’engagement, pas de dossier, pas de prélèvement à résilier.
 
 À apporter : t-shirt, short ou legging, baskets propres, bouteille d’eau, de quoi se changer. Gants, bandes et protections prêtés.
-Prix : séance d’essai 10 €. L’offre Rentrée à 29 € par personne toutes les 4 semaines est rentabilisée dès la deuxième séance.
+Prix : séance d’essai 10 €. Ensuite, l’abonnement sans engagement : 36,99 € les quatre semaines sur carte étudiante, 44,99 € pour un adulte.
 Créneaux conseillés pour une première : anglaise loisirs 19h40 (lundi, mardi, jeudi, vendredi) ou 12h40 (mardi, mercredi, jeudi) ; Boxing Lady lundi et mercredi 18h30 ; Boxing camp mardi et jeudi 18h30 ou samedi 11h ; école le mercredi et le samedi après-midi pour les enfants.
 
 ## Tarifs & offres — https://boxe-toulouse.com/tarifs/
 
 - Séance d’essai : 10 € la séance — toutes les disciplines, gants et protections prêtés, sans engagement, sans dossier. → https://boutique.boxingcenter.fr/seance-essai
-- Offre Rentrée : 29 € par personne toutes les 4 semaines (au lieu de 44,99 €) — cours illimités, toutes disciplines, sans engagement ; première échéance par carte, IBAN pour la suite, coordonnées d’un proche requises, badge d’accès 34,99 € facturé 72 h après le début. Encore mieux à deux : chacun 29 €. → https://boutique.boxingcenter.fr/offre/29
-- Saison complète : 259 € les 12 mois (au lieu de 400 €) — payable en 4× sans frais ; anglaise, MMA, pieds-poings, Lady, fitness ; accès libre aux 5 clubs du réseau. → https://boutique.boxingcenter.fr/offre/259
+- Étudiant (carte étudiante requise, tarif sur justificatif) : 36,99 € par cycle de 4 semaines — cours illimités, toutes disciplines, accès libre, les 5 salles du réseau, renouvelable sans engagement. → https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines
+- Adulte : 44,99 € par cycle de 4 semaines — mêmes accès, sans engagement ; première échéance par carte, prélèvement sur IBAN ensuite, badge d’accès 34,99 € prélevé quelques jours après l’inscription. → https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines
+- Comptant, en une fois : 150 € pour 3 mois, 250 € pour 6, 400 € pour 12. → https://boutique.boxingcenter.fr/abonnements#comptant
 - École de boxe : 295 € l’année t-shirt inclus, baby 250 € — Baby Boxe dès 3 ans (3/6), éducative 7/11, ados 12/16, compétiteurs encadrés par Mehdi → https://boutique.boxingcenter.fr/abonnements
 - Bonus : le t-shirt Boxing Center est inclus dans toute inscription enfant — pour tous, sans condition et sans quota.
 ### Les questions d’argent (rendues sur /tarifs/, hors FAQPage)
 
 - Première fois : 10 €, une séance, la discipline au choix, gants et protections prêtés, sans dossier ni engagement.
-- L’offre Rentrée se compte PAR PERSONNE : 29 € chacun (au lieu de 44,99 €), pas 29 € pour deux.
-- La saison est payable en 4× sans frais : 259 € les 12 mois, soit moins de 65 € par échéance et environ 22 € par mois.
-- L’abonnement saison ouvre l’accès libre aux 5 clubs du réseau, pas seulement aux Minimes.
+- Tarif étudiant : la carte étudiante de l’année, montrée à l’inscription ; sans elle, le tarif adulte s’applique.
+- En plus de l’abonnement : le badge d’accès, 34,99 €, prélevé quelques jours après l’inscription. Pas de prélèvement voulu ? Les formules comptant se règlent d’avance.
+- Étudiant comme adulte, l’abonnement donne accès aux 5 salles du réseau, pas seulement aux Minimes.
 - Enfants : 250 € l’année pour la Baby Boxe (3/6 ans), 295 € au-delà (éducative 7/11, ados 12/16), t-shirt du club inclus.
 - Matériel : prêté pour la séance d’essai. Au-delà, l’adhérent prend ses propres gants (hygiène) ; la boutique du réseau les fournit.
 - Le t-shirt du club est inclus dans l’inscription enfant, pour tous — pas de quota « 100 premiers », pas de contrepartie.

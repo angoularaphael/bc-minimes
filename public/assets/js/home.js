@@ -1,10 +1,11 @@
 /* =====================================================================
    MINIMES · home.js (v2) — kinetic accueil
    ===================================================================== */
-import { STATS, VALUES, AUDIENCES, TARIFS } from "./data-accueil.js?v=b56";
-import { DISCIPLINES } from "./data-disciplines.js?v=b56";
-import { initHero } from "./hero.js?v=b56";
-import { initRounds } from "./rounds.js?v=b56";
+import { STATS, VALUES, AUDIENCES, TARIFS } from "./data-accueil.js?v=b58";
+import { prixGrand } from "./data.js?v=b58";
+import { DISCIPLINES } from "./data-disciplines.js?v=b58";
+import { initHero } from "./hero.js?v=b58";
+import { initRounds } from "./rounds.js?v=b58";
 
 const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
@@ -121,9 +122,9 @@ function renderTarifs() {
   if (!$("#tarifs")) return;
   $("#tarifs").innerHTML = TARIFS.map(
     (t) => `<article class="tarif ${t.highlight ? "tarif--hot" : ""}">
-      ${t.highlight ? '<span class="tarif__badge">Populaire</span>' : ""}
+      ${t.badge ? `<span class="tarif__badge">${t.badge}</span>` : ""}
       <h3 class="tarif__name">${t.name}</h3>
-      <div class="tarif__price">${t.price}<small> ${t.period}</small></div>
+      <div class="tarif__price">${prixGrand(t.price)}<small> ${t.period}</small></div>
       <p class="tarif__feature">${t.feature}</p>
       <ul class="tarif__items">${t.items.map((i) => `<li>${i}</li>`).join("")}</ul>
       <a class="btn ${t.highlight ? "btn--primary" : "btn--ghost"}" data-magnetic href="${t.href}"><span>${t.cta}</span></a>

@@ -25,27 +25,30 @@ export const AUDIENCES = [
   { t: "Les enfants", tag: "Dès 3 ans", d: "Baby Boxe dès 3 ans, éducative 7/11, ados 12/16 : on touche, on ne frappe pas — règle fédérale. De la motricité, du respect, et toute cette énergie qui trouve enfin où aller.", img: "/assets/img/photos/ecole-medailles-1200.webp" },
 ];
 /* L’offre — teaser accueil (3 cartes). Le détail vit sur /tarifs/ (PROMOS).
-   Essai + enfants pointent vers box-plus ; la carte saison reste interne → /tarifs/. */
+   L’étudiant d’abord, puis l’adulte, puis l’école : chaque carte mène à
+   SA page d’inscription, et le badge dit un fait, jamais une rareté. */
 export const TARIFS = [
   {
-    name: "L’offre Rentrée",
-    price: "29€",
-    period: "par personne · 4 semaines",
-    feature: "Cours illimités, toutes disciplines — encore mieux à deux",
-    items: ["29€ par personne (au lieu de 44,99€)", "Toutes les disciplines", "Sans engagement"],
-    cta: "Je profite de l’offre à 29€",
-    href: "https://boutique.boxingcenter.fr/offre/29",
+    name: "L’offre Étudiant",
+    price: "36,99€",
+    period: "carte étudiante requise · 4 semaines",
+    badge: "Sur justificatif",
+    feature: "Ta carte étudiante à l’inscription, et le ring est à toi au même titre que les autres",
+    items: ["Cours illimités, toutes disciplines", "Les 5 salles du réseau", "Sans engagement"],
+    cta: "Je m’inscris en étudiant",
+    href: "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
     highlight: true,
   },
   {
-    name: "La saison",
-    price: "259€",
-    period: "les 12 mois",
-    feature: "4× sans frais — moins de 5€ par semaine, 5 clubs",
-    items: ["4× 64,75€ sans frais", "Accès libre aux 5 clubs du réseau", "Le détail sur la page tarifs"],
-    cta: "Voir l’offre",
-    href: "/tarifs/",
-    highlight: false,
+    name: "L’offre Adulte",
+    price: "44,99€",
+    period: "· 4 semaines",
+    badge: "Sans engagement",
+    feature: "Les rings, les sacs, chaque cours du planning — tu restes tant que tu reviens",
+    items: ["Cours illimités, toutes disciplines", "Les 5 salles du réseau", "Renouvelable, résiliable"],
+    cta: "Je m’inscris · 44,99€",
+    href: "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes",
+    highlight: true,
   },
   {
     name: "L’école, dès 3 ans",

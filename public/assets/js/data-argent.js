@@ -6,7 +6,7 @@
    Les embarquer partout coûtait leur poids sur chaque page pour rien.
    ===================================================================== */
 
-import { bcRegister } from "./data.js?v=b56";
+import { bcRegister } from "./data.js?v=b58";
 
 /* Avis Google réels (verbatim, curés le 2026-07-12) — jamais inventés.
    Source : fiche Google Boxing Center Minimes.
@@ -33,23 +33,27 @@ export const REVIEWS = {
 bcRegister("avis", REVIEWS);   /* ce que le staff écrit dans le vestiaire gagne */
 /* Les questions d’ARGENT — /tarifs/ seulement. La page listait quatre prix
    et s’arrêtait là : le visiteur repartait avec les objections intactes
-   (« 29€ à deux ou chacun ? », « 259€ d’un coup ? », « je dois acheter des
-   gants ? »). Chaque réponse ci-dessous est DÉRIVÉE de PROMOS/LINKS —
+   (« la carte étudiante suffit ? », « des frais en plus ? », « je dois
+   acheter des gants ? »). Chaque réponse ci-dessous est DÉRIVÉE de PROMOS/LINKS —
    aucun chiffre nouveau, aucune promesse que la boutique ne tient pas.
    ⚠ Rendues en accordéon SANS FAQPage : la seule FAQPage du site est
    celle de /contact/ (§4). Deux FAQPage = deux URL en concurrence. */
 export const MONEY_FAQ = [
   {
-    q: "L’offre Rentrée à 29€, c’est pour deux ou chacun ?",
-    a: "Chacun. 29€ par personne toutes les 4 semaines au lieu de 44,99€, cours illimités, sans engagement. Viens avec ton binôme : c’est ce qui te fait pousser la porte la troisième semaine, quand la motivation du début est retombée.",
+    q: "L’offre Étudiant, il me faut quoi ?",
+    a: "Ta carte étudiante de l’année, montrée à l’inscription. Elle ouvre le tarif à 36,99€ toutes les 4 semaines : mêmes cours, mêmes rings, mêmes cinq salles que l’abonnement adulte à 44,99€. Sans carte, c’est le tarif adulte qui s’applique.",
   },
   {
-    q: "259€ d’un coup, c’est raide.",
-    a: "C’est pour ça que c’est payable en 4× sans frais. 259€ les douze mois au lieu de 400€, ça fait moins de 65€ par échéance et à peu près 22€ par mois de salle. Un abonnement de sport classique te coûte ça sans ring dedans.",
+    q: "Il y a des frais en plus de l’abonnement ?",
+    a: "Le badge d’accès : 34,99€, prélevé quelques jours après ton inscription. La première échéance se règle par carte bancaire, les suivantes partent en prélèvement sur ton IBAN.",
+  },
+  {
+    q: "Et si je préfère tout payer d’un coup ?",
+    a: "Prends le comptant : tu poses 150€ pour trois mois, 250€ pour six, ou 400€ pour toute l’année. Tu règles en une fois, à l’inscription, et aucun prélèvement ne suit.",
   },
   {
     q: "L’abonnement marche dans les autres salles ?",
-    a: "Oui. La saison ouvre l’accès libre aux cinq clubs du réseau. Tu t’entraînes aux Minimes le soir et ailleurs le samedi si ça t’arrange — c’est la même carte.",
+    a: "Oui. Étudiant ou adulte, ton abonnement t’ouvre les cinq salles du réseau. Tu t’entraînes aux Minimes le soir et ailleurs le samedi si ça t’arrange — c’est la même carte.",
   },
   {
     q: "Et pour inscrire un enfant ?",

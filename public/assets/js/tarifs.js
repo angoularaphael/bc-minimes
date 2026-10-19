@@ -1,16 +1,16 @@
 /* =====================================================================
    MINIMES · tarifs.js — "Tarifs & offres" subpage
-   Rendu depuis data.js : PROMOS (cartes essai/duo/saison/école), le
+   Rendu depuis data.js : PROMOS (étudiant, adulte, comptant, école, essai), le
    bandeau bonus, et les AVIS Google réels (REVIEWS). Rien en dur.
 
    La page affichait quatre prix et s’arrêtait là — le visiteur repartait
-   avec ses objections entières (« 29€ à deux ou chacun ? », « 259€ d’un
-   coup ? », « je dois acheter des gants ? »). MONEY_FAQ y répond, dans
+   avec ses objections entières (« la carte étudiante suffit ? », « et
+   sans prélèvement ? », « je dois acheter des gants ? »). MONEY_FAQ y répond, dans
    l’accordéon partagé (window.BC.faq). ⚠ SANS FAQPage : la seule du site
    est celle de /contact/ — deux FAQPage, c’est deux URL en concurrence.
    ===================================================================== */
-import { PROMOS, SEASON_LABEL } from "./data.js?v=b56";
-import { REVIEWS, MONEY_FAQ } from "./data-argent.js?v=b56";
+import { PROMOS, SEASON_LABEL, prixGrand } from "./data.js?v=b58";
+import { REVIEWS, MONEY_FAQ } from "./data-argent.js?v=b58";
 
 const $ = (s, r = document) => r.querySelector(s);
 
@@ -29,7 +29,7 @@ function renderOffers() {
         <h3 class="offer__name">${c.name}</h3>
         <div class="offer__price">
           ${c.was ? `<span class="offer__was">${c.was}</span>` : ""}
-          <span class="offer__now">${c.price}</span>
+          <span class="offer__now">${prixGrand(c.price)}</span>
           ${c.unit ? `<span class="offer__unit">${c.unit}</span>` : ""}
           ${c.period ? `<span class="offer__period">${c.period}</span>` : ""}
         </div>

@@ -113,7 +113,7 @@
    .hero__kicker { display: block; text-align: center; }
    /* Le bouton fait toute la largeur mais gardait 40 px de marge interieure
       de chaque cote : il restait 265 px pour un libelle qui en reclame 275,
-      et « JE PROFITE DE / L OFFRE A 29€ » cassait en deux. */
+      et le libelle du bouton cassait en deux. */
    .hero__cta .btn { padding-inline: 1.4rem; }
    .hero { padding-bottom: calc(33.33svh - 105px); }
    /* Le bloc descend de 46 px pour occuper le centre de l ecran, et le vide

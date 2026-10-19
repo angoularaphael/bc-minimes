@@ -7,23 +7,23 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarifs club de boxe Toulouse | Horaires, essai 10 € | Minimes</title>
-  <meta name="description" content="Tarifs du club de boxe à Toulouse : rentrée 29 €, saison 259 €, essai 10 €. Horaires des cours, boxe éducative filles et garçons. Sans engagement." />
+  <meta name="description" content="Tarifs du club de boxe à Toulouse : étudiant 36,99 €, adulte 44,99 € les 4 semaines, essai 10 €. Horaires, boxe éducative filles et garçons." />
 
   <!-- Préconnexion CDN (les libs sont différées) — polices auto-hébergées :
        plus aucune requête vers fonts.googleapis.com / fonts.gstatic.com -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-black-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/fonts.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/fonts.css?v=b58" />
 
   <!-- LCP : le hero est construit en JS → invisible au preload scanner (§5.8) -->
   <link rel="preload" as="image" href="/assets/img/photos/minimes-cross-training-barre.webp" fetchpriority="high" />
 
-  <link rel="stylesheet" href="/assets/css/base.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/home.css?v=b56" />
-  <link rel="stylesheet" href="/assets/css/refonte.css?v=b56" />
+  <link rel="stylesheet" href="/assets/css/base.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=b58" />
+  <link rel="stylesheet" href="/assets/css/refonte.css?v=b58" />
 
-  <meta name="keywords" content="tarif salle de boxe Toulouse, prix boxe Minimes, offre rentrée boxe 29€, abonnement boxe Toulouse, séance d’essai boxe, saison boxe 259€, tarif boxe enfant Toulouse, boxe Toulouse nord, club de boxe Les Minimes, salle de boxe 12 rue de Fenouillet, boxe métro B Barrière de Paris, boxe Lalande, boxe Borderouge, boxe Bonnefoy, boxe Sept Deniers, boxe Aucamville, boxe Launaguet, sports de combat Toulouse 31200, club FFBoxe Toulouse, apprendre la boxe Toulouse, boxe débutant Minimes, boxing gym Toulouse, boxing club Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse, club de boxe à Toulouse, club de boxe Toulouse 31, tarifs, horaires des cours, photos, plan d’accès, kick-boxing, pieds-poings" />
+  <meta name="keywords" content="tarif salle de boxe Toulouse, prix boxe Minimes, abonnement boxe étudiant Toulouse, abonnement boxe Toulouse, séance d’essai boxe, boxe sans engagement Toulouse, tarif boxe enfant Toulouse, boxe Toulouse nord, club de boxe Les Minimes, salle de boxe 12 rue de Fenouillet, boxe métro B Barrière de Paris, boxe Lalande, boxe Borderouge, boxe Bonnefoy, boxe Sept Deniers, boxe Aucamville, boxe Launaguet, sports de combat Toulouse 31200, club FFBoxe Toulouse, apprendre la boxe Toulouse, boxe débutant Minimes, boxing gym Toulouse, boxing club Toulouse Minimes, English boxing Toulouse, kids boxing Toulouse, women boxing Toulouse, club de boxe à Toulouse, club de boxe Toulouse 31, tarifs, horaires des cours, photos, plan d’accès, kick-boxing, pieds-poings" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="geo.region" content="FR-31" />
   <meta name="geo.placename" content="Toulouse — Les Minimes" />
@@ -45,16 +45,16 @@ import SiteContent from "../../components/SiteContent.astro";
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Boxing Center Minimes" />
   <meta property="og:title" content="Tarifs & offres | Boxing Center Minimes, Toulouse" />
-  <meta property="og:description" content="Rentrée 29€ par personne, saison 259€ en 4× sans frais, école dès 3 ans, essai 10€. Accès libre aux 5 clubs." />
+  <meta property="og:description" content="Étudiant 36,99€ sur carte, adulte 44,99€, toutes les 4 semaines et sans engagement. École dès 3 ans, essai 10€, les 5 salles." />
   <meta property="og:url" content="https://boxe-toulouse.com/tarifs/" />
   <meta property="og:image" content="https://boxe-toulouse.com/assets/img/min/og/tarifs.jpg?v=1" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:alt" content="Tarifs Boxing Center Minimes — rentrée 29€ par personne, saison complète, essai 10€." />
+  <meta property="og:image:alt" content="Tarifs Boxing Center Minimes : étudiant, adulte, comptant, école, essai." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tarifs & offres | Boxing Center Minimes, Toulouse" />
-  <meta name="twitter:description" content="Rentrée 29€ par personne, saison 259€ les 12 mois, essai 10€. Accès libre aux 5 clubs." />
+  <meta name="twitter:description" content="36,99€ l’étudiant, 44,99€ l’adulte, sans engagement. Comptant dès 150€ les 3 mois, essai 10€." />
   <meta name="twitter:image" content="https://boxe-toulouse.com/assets/img/min/og/tarifs.jpg?v=1" />
 
   <!-- Données structurées : graphe JSON-LD unifié de la page — nœuds reliés
@@ -202,19 +202,29 @@ import SiteContent from "../../components/SiteContent.astro";
             },
             {
               "@type": "Offer",
-              "name": "Offre Rentrée — 29€ par personne",
-              "price": "29",
+              "name": "Abonnement étudiant — 4 semaines",
+              "price": "36.99",
               "priceCurrency": "EUR",
-              "description": "Cours illimités, toutes disciplines, sans engagement — 29€ par personne toutes les 4 semaines (au lieu de 44,99€).",
-              "url": "https://boutique.boxingcenter.fr/offre/29"
+              "description": "Carte étudiante requise, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines"
             },
             {
               "@type": "Offer",
-              "name": "Saison complète — 259€ les 12 mois",
-              "price": "259",
+              "name": "Abonnement adulte — 4 semaines",
+              "price": "44.99",
               "priceCurrency": "EUR",
-              "description": "Payable en 4× sans frais, accès libre aux 5 clubs du réseau (au lieu de 400€).",
-              "url": "https://boutique.boxingcenter.fr/offre/259"
+              "description": "Cours illimités, cinq salles, sans engagement.",
+              "url": "https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines"
+            },
+            {
+              "@type": "AggregateOffer",
+              "name": "Abonnement comptant — 3, 6 ou 12 mois",
+              "lowPrice": "150",
+              "highPrice": "400",
+              "offerCount": "3",
+              "priceCurrency": "EUR",
+              "description": "Réglé en une fois.",
+              "url": "https://boutique.boxingcenter.fr/abonnements#comptant"
             },
             {
               "@type": "Offer",
@@ -287,8 +297,8 @@ import SiteContent from "../../components/SiteContent.astro";
         "@type": "WebPage",
         "@id": "https://boxe-toulouse.com/tarifs/#webpage",
         "url": "https://boxe-toulouse.com/tarifs/",
-        "name": "Tarifs & offres — Boxing Center Minimes, Toulouse (rentrée 29€ par personne, saison 259€, essai 10€)",
-        "description": "Rentrée 29€ par personne. Saison 259€ les douze mois en 4× sans frais. École dès 3 ans : 295€ t-shirt inclus, baby 250€. Essai 10€. Les prix sont écrits, pas négociés.",
+        "name": "Tarifs & offres — Boxing Center Minimes, Toulouse (étudiant 36,99€, adulte 44,99€, essai 10€)",
+        "description": "Étudiant 36,99€ avec la carte, adulte 44,99€, toutes les quatre semaines sans engagement. Comptant : 150, 250 ou 400€. École dès 3 ans : 295€ t-shirt inclus, baby 250€. Essai 10€. Les prix sont écrits, pas négociés.",
         "isPartOf": {
           "@id": "https://boxe-toulouse.com/#website"
         },
@@ -312,7 +322,7 @@ import SiteContent from "../../components/SiteContent.astro";
         "contentUrl": "https://boxe-toulouse.com/assets/img/og.jpg",
         "width": 1200,
         "height": 630,
-        "caption": "Tarifs Boxing Center Minimes — rentrée 29€ par personne, saison complète, essai 10€."
+        "caption": "Les prix des Minimes, posés noir sur blanc."
       },
       {
         "@type": "BreadcrumbList",
@@ -347,6 +357,7 @@ import SiteContent from "../../components/SiteContent.astro";
     @media (min-width: 1000px){ .tar-note { display: block; } }
     .tar-note::before { content: ""; position: absolute; inset: 5px; border: 1px dashed rgba(0,0,0,.35); pointer-events: none; }
     .tar-note__v { font-family: var(--f-display); font-size: 3.4rem; line-height: .8; }
+    .tar-note__v--2 { margin-top: 1rem; }
     .tar-note__l { margin-top: .5rem; font: 700 .6rem/1.3 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
     .tar-note__s { margin-top: .35rem; font: 700 .55rem/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--on-bone-dim); }
 
@@ -448,16 +459,18 @@ import SiteContent from "../../components/SiteContent.astro";
       <div class="wrap">
         <span class="eyebrow" data-reveal>Tarifs · <span id="season">Saison 2026 — 2027</span></span>
         <h1 class="display" style="margin:1rem 0 0"><span class="reveal-mask"><span>Le prix, </span></span><span class="reveal-mask"><span class="tint">sans détour.</span></span></h1>
-        <p class="lead page-head__lead" data-reveal><s class="was">44,99€</s> 29€ par personne, quatre semaines, toutes les disciplines. Tu vois si le ring te parle — tu t’engages seulement si tu reviens. Tout est dessous, noir sur blanc.</p>
+        <p class="lead page-head__lead" data-reveal>36,99 € si tu as ta carte étudiante, 44,99 € sinon : quatre semaines, toutes les disciplines, et tu arrêtes quand tu veux. Tout est dessous, noir sur blanc.</p>
         <div class="tar-note" aria-hidden="true" data-reveal>
-          <div class="tar-note__v">29€</div>
-          <div class="tar-note__l">La rentrée, par personne</div>
+          <div class="tar-note__v"><span class="prix__v"><b>36</b><i>€99</i></span></div>
+          <div class="tar-note__l">Étudiant · carte étudiante requise</div>
+          <div class="tar-note__v tar-note__v--2"><span class="prix__v"><b>44</b><i>€99</i></span></div>
+          <div class="tar-note__l">Adulte</div>
           <div class="tar-note__s">4 semaines · toutes disciplines · sans engagement</div>
         </div>
         <div class="tar-head__meta" data-reveal>
-          <span><b>29€</b> par personne la rentrée</span>
-          <span><b>4×</b> sans frais sur la saison</span>
-          <span>Accès libre aux <b>5 clubs</b></span>
+          <span><b>36,99€</b> étudiant, sur carte</span>
+          <span><b>44,99€</b> adulte, sans engagement</span>
+          <span>Accès aux <b>5 salles</b></span>
         </div>
       </div>
     </section>
@@ -470,7 +483,7 @@ import SiteContent from "../../components/SiteContent.astro";
             <span class="eyebrow">Les formules</span>
             <h2 class="display display--sm" style="margin-top:1rem">Choisis ton <span class="tint">entrée</span></h2>
           </div>
-          <p class="muted" data-reveal style="max-width:34ch">La rentrée à 29€ par personne pour voir si le ring te parle. La saison pour t’installer. L’école pour les petits. Et l’essai à 10€, si tu veux d’abord juste pousser la porte — <a href="/premiere-seance/" style="color:var(--bone);text-decoration:underline">voilà comment elle se passe</a>.</p>
+          <p class="muted" data-reveal style="max-width:34ch">L’étudiant à 36,99€ avec sa carte, l’adulte à 44,99€, chaque fois pour quatre semaines. Le comptant, si tu aimes mieux tout régler d’un coup. L’école pour les petits. Et l’essai à 10€, si tu veux d’abord juste pousser la porte — <a href="/premiere-seance/" style="color:var(--bone);text-decoration:underline">voilà comment elle se passe</a>.</p>
         </div>
         <div class="offers" id="offers" data-reveal-group></div>
         <div class="bonus" data-reveal id="bonus"></div>
@@ -491,7 +504,7 @@ import SiteContent from "../../components/SiteContent.astro";
       </div>
     </section>
 
-    <!-- ROULETTE PROMO — apres les avis : la preuve sociale vient de tomber.
+    <!-- ROULETTE DES ABONNEMENTS — apres les avis : la preuve sociale vient de tomber.
          Les deux offres phares y tournent en alternance ; le lien suit la
          case affichee. Montee par site.js > mountPromoWheels(). -->
     <div class="wrap" data-promo></div>
@@ -499,8 +512,8 @@ import SiteContent from "../../components/SiteContent.astro";
 
     <!-- ==================== LES QUESTIONS D’ARGENT ================
          La page listait quatre prix et passait directement aux avis :
-         toutes les objections d’argent restaient sur la table (« 29€ à
-         deux ou chacun ? », « 259€ d’un coup ? », « il faut acheter des
+         toutes les objections d’argent restaient sur la table (« la carte
+         étudiante suffit ? », « des frais en plus ? », « il faut acheter des
          gants ? »). Rendu depuis MONEY_FAQ (data.js) dans l’accordéon
          partagé — aucune question tapée dans ce fichier.
          ⚠ AUCUN FAQPage ici : la seule FAQPage du site est celle de
@@ -526,7 +539,7 @@ import SiteContent from "../../components/SiteContent.astro";
         <h2 class="display" data-reveal style="font-size:var(--step-3)">Toujours pas décidé ?<br><span class="tint">Les 10€.</span></h2>
         <p class="lead" data-reveal>Un billet de 10 pour toutes les disciplines. Si tu reviens, on parlera abonnement — pas avant.</p>
         <div class="gong__cta" data-reveal>
-          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=offre-duo&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je profite de l’offre à 29€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
+          <a class="btn btn--primary" data-magnetic href="https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines&step=1&utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Je m’inscris · 44,99€</span></a><a class="btn btn--ghost" data-magnetic href="https://boutique.boxingcenter.fr/seance-essai?utm_source=site&utm_medium=cta&utm_campaign=bc-minimes"><span>Tester une séance · 10€</span></a>
           <a class="btn btn--ghost" data-magnetic href="/premiere-seance/"><span>Comment se passe une première séance</span></a>
           <a class="btn btn--ghost" data-magnetic href="tel:+33562244682"><span>05 62 24 46 82</span></a>
         </div>
@@ -547,7 +560,7 @@ import SiteContent from "../../components/SiteContent.astro";
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script is:inline defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script is:inline type="module" src="/assets/js/site.js?v=b56"></script>
-  <script is:inline type="module" src="/assets/js/tarifs.js?v=b56"></script>
+  <script is:inline type="module" src="/assets/js/site.js?v=b58"></script>
+  <script is:inline type="module" src="/assets/js/tarifs.js?v=b58"></script>
 </body>
 </html>

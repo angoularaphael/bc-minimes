@@ -71,12 +71,12 @@ const SCHEMA = {
     ]},
 
   promos: { label: "Les offres", type: "object",
-    intro: "Les offres de la page Tarifs. Attention : le Duo s'écrit TOUJOURS « 29€ par personne » — jamais « 29€ » tout court, sinon la promesse est fausse.",
+    intro: "Les offres de la page Tarifs, dans l'ordre où le visiteur les lit. Attention : l'offre Étudiant garde TOUJOURS « carte étudiante requise » dans la case Unité — sans elle, un adulte croit avoir droit au tarif étudiant.",
     fields: [
       { k: "bonus", label: "Le bonus de la saison", ml: true },
       { k: "cards", label: "Les offres", type: "list", singular: "offre", title: "name", item: [
         { k: "name", label: "Nom de l'offre" },
-        { k: "price", label: "Prix", half: true }, { k: "unit", label: "Unité", half: true, hint: "Exemple : par personne" },
+        { k: "price", label: "Prix", half: true }, { k: "unit", label: "Unité", half: true, hint: "Exemple : carte étudiante requise" },
         { k: "was", label: "Prix barré", half: true }, { k: "period", label: "Période", half: true },
         { k: "feature", label: "Phrase de mise en avant", ml: true },
         { k: "items", label: "Ce que ça comprend", type: "strlist" },

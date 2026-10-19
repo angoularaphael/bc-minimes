@@ -147,8 +147,8 @@ const FLOWS = {
   editTarif: [
     { sel: "#pane .card", t: "Une offre = une carte", do: () => renderSection("promos"),
       b: "Chaque carte est une offre de la page Tarifs. Change un prix, un nom, une phrase, directement dans les cases." },
-    { sel: "#pane .card", t: "Attention au Duo",
-      b: "Si tu touches à l'offre Rentrée : le prix s'écrit toujours avec « par personne » dans la case Unité. Sans ça, on promet 29€ pour deux — et on ne peut pas tenir.",
+    { sel: "#pane .card", t: "Attention à l'Étudiant",
+      b: "Si tu touches à l'offre Étudiant : « carte étudiante requise » reste dans la case Unité. Sans ça, un adulte s'inscrit à 36,99€ et l'accueil doit le rattraper au comptoir.",
       hint: "Modifie une case", advanceOn: { ev: "input", sel: "#pane input, #pane textarea" } },
     { sel: "#publish", t: "Mets-le en ligne",
       b: "« Aperçu » pour vérifier la page Tarifs, puis « Publier ». Le site est à jour en une minute." },

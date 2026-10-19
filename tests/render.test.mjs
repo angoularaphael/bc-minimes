@@ -39,8 +39,9 @@ test("rendu SEO/GEO/AEO : les faits essentiels sont dans le HTML", async () => {
     ["/coachs/", "pillar", /Mehdi/i],
     ["/coachs/", "roster", /Chloé/i],
     ["/plannings/", "pl-grid", /Lundi/i],
-    ["/tarifs/", "offers", /29€/],
-    ["/tarifs/", "money-faq", /L’offre Rentrée/i],
+    ["/tarifs/", "offers", /L’offre Étudiant[\s\S]*36,99€[\s\S]*carte étudiante requise[\s\S]*L’offre Adulte[\s\S]*44,99€/],
+    ["/tarifs/", "offers", /150€[\s\S]*250€[\s\S]*400€/],
+    ["/tarifs/", "money-faq", /L’offre Étudiant/i],
     ["/contact/", "access", /Barrière de Paris/i],
     ["/contact/", "hours", /10h00/i],
     ["/contact/", "faq", /Où se trouve Boxing Center Minimes/i],
@@ -114,4 +115,24 @@ test("les sections calculées du planning : présentes, et aucun prénom à côt
       }
     }
   }
+});
+
+test("les offres de tous les jours : l'étudiant puis l'adulte, au centime, sans prix barré", async () => {
+  const O = "/offre", [a, b] = ["29", "2" + "59"];
+  const retires = new RegExp(`${O}/${a}\\b|${O}/${b}\\b|${O}s-speciales|product=offre-(?:duo|saison)`);
+  for (const route of Object.keys(pages)) {
+    const html = await htmlOf(route);
+    assert.doesNotMatch(html, retires, `${route} pointe encore vers une offre retirée`);
+    assert.doesNotMatch(html, /<s\b/, `${route} affiche un prix barré`);
+  }
+  const home = await htmlOf("/");
+  const debut = home.indexOf('class="trustbar__grid"');
+  const barre = home.slice(debut, home.indexOf("</section>", debut));
+  const etu = barre.indexOf("product=etudiants-4-semaines&step=1");
+  const adu = barre.indexOf("product=44-99-4-semaines&step=1");
+  assert.ok(etu >= 0 && adu > etu, "la barre de l'accueil montre l'étudiant, puis l'adulte");
+  assert.match(barre, /<b>36<\/b><i>€99<\/i>[\s\S]*36,99 €[\s\S]*carte étudiante requise/);
+  assert.match(barre, /<b>44<\/b><i>€99<\/i>[\s\S]*44,99 €/);
+  const ld = [...home.matchAll(/"price":"([\d.]+)"/g)].map((m) => m[1]);
+  assert.ok(ld.includes("36.99") && ld.includes("44.99"), "le JSON-LD porte 36.99 et 44.99");
 });

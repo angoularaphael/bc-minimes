@@ -19,8 +19,8 @@ Toulouse nord : Les Minimes, Barrière de Paris, Lalande, Borderouge, Bonnefoy, 
 **Combien coûte une séance d’essai ?**
 10 € — toutes disciplines, matériel prêté, sans engagement. https://boutique.boxingcenter.fr/seance-essai
 
-**Quelle est l’offre du moment ?**
-Offre rentrée : 29 € par personne toutes les 4 semaines (au lieu de 44,99 €), sans engagement, accès aux 5 salles. https://boutique.boxingcenter.fr/offre/29
+**Combien coûte l’abonnement ?**
+36,99 € toutes les 4 semaines pour un étudiant (carte étudiante requise), 44,99 € pour un adulte — sans engagement, cours illimités, accès aux 5 salles ; le badge d’accès (34,99 €) s’ajoute une fois. https://boutique.boxingcenter.fr/abonnements#prelevement
 
 ## Pages
 
@@ -31,7 +31,7 @@ Offre rentrée : 29 € par personne toutes les 4 semaines (au lieu de 44,99 €
 - [Galerie photos](https://boxe-toulouse.com/galerie/): la boxe en images (pool photo du réseau Boxing Center), filtrable par zone — ring, sparring, école, Lady, technique — plus un renvoi de chaque zone vers sa discipline.
 - [Planning des cours](https://boxe-toulouse.com/plannings/): les 27 cours de la semaine + les 16 bandes d’accès libre, en grille filtrable (jour / discipline / coach, partageable par URL) + le poster officiel de la saison.
 - [Ta première séance](https://boxe-toulouse.com/premiere-seance/): le déroulé réel d’une première venue (arrivée, accueil, gants prêtés, échauffement/technique/sac, sortie), ce que le club NE fait PAS (aucun sparring imposé, aucun test de niveau, aucun engagement signé), la tenue à apporter, le prix de l’essai (10 €) et le créneau conseillé selon le profil.
-- [Tarifs & offres](https://boxe-toulouse.com/tarifs/): offre Rentrée 29 € par personne, saison complète 259 € les 12 mois, école 295 € l’année t-shirt inclus (baby 250 €), séance d’essai 10 € — avec les avis Google (note à jour sur la page) et les questions d’argent (paiement en 4×, matériel prêté ou personnel, accès aux 5 clubs).
+- [Tarifs & offres](https://boxe-toulouse.com/tarifs/): abonnement étudiant 36,99 € et adulte 44,99 € toutes les 4 semaines, comptant 150 / 250 / 400 € (3, 6, 12 mois), école 295 € l’année t-shirt inclus (baby 250 €), séance d’essai 10 € — avec les avis Google et les questions d’argent (carte étudiante, badge d’accès, paiement comptant, matériel prêté ou personnel, accès aux 5 salles).
 - [Contact & accès](https://boxe-toulouse.com/contact/): téléphone 05 62 24 46 82, adresse, horaires, accès métro/rocade/bus, FAQ locale.
 
 ## Faits
@@ -66,12 +66,13 @@ Offre rentrée : 29 € par personne toutes les 4 semaines (au lieu de 44,99 €
 - Accès libre (rings et sacs en autonomie, sans réservation) : tous les jours 10h00–12h00 et 13h20–18h00 ; le mercredi 13h20–15h00 seulement ; le samedi 12h40–14h00 et 19h40–21h00. Le lundi, le mardi et le jeudi, un second espace reste libre de 18h00 à 19h30.
 
 ### Offres (saison en cours — voir /tarifs/)
-- Offre Rentrée : 29 € par personne toutes les 4 semaines — cours illimités, sans engagement (au lieu de 44,99 €). → https://boutique.boxingcenter.fr/offre/29
+- Abonnement étudiant : 36,99 € par période de 4 semaines, carte étudiante requise — cours illimités, sans engagement, accès aux 5 salles. → https://boutique.boxingcenter.fr/inscription?product=etudiants-4-semaines
+- Abonnement adulte : 44,99 € par période de 4 semaines — cours illimités, sans engagement, renouvelable. → https://boutique.boxingcenter.fr/inscription?product=44-99-4-semaines
 - Séance d’essai : 10 € — toutes disciplines, matériel prêté, sans engagement, à proposer après les offres. → https://boutique.boxingcenter.fr/seance-essai
-- Saison complète : 259 € les 12 mois — payable en 4× sans frais, accès libre aux 5 clubs du réseau (au lieu de 400 €). → https://boutique.boxingcenter.fr/offre/259
+- Comptant, réglé d’avance (tarifs normaux) : trois mois 150 €, six mois 250 €, douze mois 400 €. → https://boutique.boxingcenter.fr/abonnements#comptant
 - École enfants : 295 € l’année t-shirt inclus, baby 250 € (dès 3 ans). → https://boutique.boxingcenter.fr/abonnements
 - Bonus : le t-shirt Boxing Center est inclus dans toute inscription enfant — pour tous, sans condition et sans quota.
-- L’offre Rentrée se compte PAR PERSONNE (29 € chacun), jamais 29 € pour deux — ne pas reformuler autrement.
+- Le tarif étudiant s’annonce toujours avec « carte étudiante requise » ; sans carte, c’est le tarif adulte.
 - Matériel : prêté pour la séance d’essai ; au-delà, l’adhérent apporte ses propres gants.
 
 ### La première séance (voir /premiere-seance/)
