@@ -6,8 +6,8 @@
    Trois voies, cumulables, toutes configurées par variables d’environnement :
      1. KV (Vercel KV / Upstash Redis REST) → le lead est STOCKÉ et
         relisible dans le backoffice (« Les contacts »).
-     2. RESEND_API_KEY → un email part vers LEAD_EMAIL_TO
-        (boxingcenter31@gmail.com par défaut).
+     2. BREVO_API_KEY → un email part vers LEAD_EMAIL_TO
+        (boxingcenter31@gmail.com par defaut).
      3. LEAD_WEBHOOK_URL → un POST JSON (Zapier, Make, Google Sheets…).
 
    SANS AUCUNE configuration : la fonction répond 200 et journalise le
@@ -65,21 +65,25 @@ async function forwardToNetwork(lead) {
 }
 
 async function notifyEmail(lead) {
-  if (!process.env.RESEND_API_KEY) return false;
+  const key = String(process.env.BREVO_API_KEY || "").trim();
+  if (!key.startsWith("xkeysib-")) return false;
   const to = process.env.LEAD_EMAIL_TO || "boxingcenter31@gmail.com";
-  const from = process.env.LEAD_EMAIL_FROM || "Boxing Center Minimes <onboarding@resend.dev>";
+  const name = process.env.BREVO_SENDER_NAME || "Boxing Center";
+  const email = process.env.BREVO_SENDER_EMAIL || "contact@boxingcenter.fr";
   const lines = [
-    ["Prénom", lead.prenom], ["Nom", lead.nom], ["Téléphone", lead.phone],
+    ["Prenom", lead.prenom], ["Nom", lead.nom], ["Telephone", lead.phone],
     ["Email", lead.email], ["Salle", lead.salle], ["Demande", lead.event],
-    ["Page", lead.page], ["Reçu le", lead.at],
+    ["Page", lead.page], ["Recu le", lead.at],
   ].filter(([, v]) => v);
-  const r = await fetch("https://api.resend.com/emails", {
+  const r = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
-    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    headers: { "api-key": key, "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
-      from, to: [to],
+      sender: { name, email },
+      to: [{ email: to }],
+      replyTo: { email: "boxingcenter31@gmail.com", name },
       subject: `Nouveau contact — ${lead.prenom || "visiteur"}${lead.phone ? " · " + lead.phone : ""}`,
-      text: lines.map(([k, v]) => `${k} : ${v}`).join("\n") + (lead.message ? `\n\nMessage :\n${lead.message}` : ""),
+      textContent: lines.map(([k, v]) => `${k} : ${v}`).join("\n") + (lead.message ? `\n\nMessage :\n${lead.message}` : ""),
     }),
   });
   return r.ok;
